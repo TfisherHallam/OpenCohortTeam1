@@ -26,6 +26,6 @@ app.use(
       db,
       { useNewUrlParser: true }
     )
-    .then(() => console.log("MongoDB successfully connected"))
+    .then(() => console.log("MongoDB connection successful"))
     .catch(err => console.log(err));
   app.listen(port, () => console.log(`Server up and running on port ${port} !`));
