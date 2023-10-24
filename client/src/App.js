@@ -1,6 +1,6 @@
 import './App.css';
-import { SearchBar } from './components/header/Searchbar/SearchBar';
-import Header from './components/header/Header/header.js';
+import { SearchBar } from './components/SearchBar/SearchBar';
+import Header from './components/Header/header.js';
 
 function App() {
   return (
