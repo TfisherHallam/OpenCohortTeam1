@@ -1,0 +1,2 @@
+MONGO_URI=mongodb+srv://c3060912:<6alG9Z5Of$6l$YLk>@scalperdb.fgvbnpd.mongodb.net/?retryWrites=true&w=majority
+
