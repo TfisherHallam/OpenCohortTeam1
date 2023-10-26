@@ -6,7 +6,7 @@ import BurgerMenu from "../burgerNavigation/burgerMenu";
 function HeaderTitle(){
   return (
       <div className={"headerTitle"}>
-      <h1>TicketScalper</h1>
+      <a href={"/"}><h1>TicketScalper</h1></a>
       </div>
   )
 }
