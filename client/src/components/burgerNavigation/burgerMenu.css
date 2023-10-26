@@ -1,0 +1,93 @@
+:root{
+  --bar-width:  calc(6vw + 20px);
+  --bar-height: calc(1vh + 2px);
+  --hamburger-margin: calc((15vh / 2) - ((var(--bar-height) *1.50) + var(--hamburger-gap))); /* 15vh is the height of the header */
+  --hamburger-gap: 1vh;
+  --foreground: grey;
+  --background: black;
+  --transition-settings: 0.3s ease-in-out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+.burgerNav{
+  --width-whenX: calc(var(--hamburger-height) * 1.414213562373095048801688724209);
+  display:flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  width:max-content;
+  position:absolute;
+  cursor: pointer;
+  top: var(--hamburger-margin);
+  left: var(--hamburger-margin);
+  z-index: 100;
+
+}
+
+.burgerNav:has(input:checked){
+  --foreground: #000;
+  --background: #fff;
+}
+
+.burgerNav:has(input:focus-visible)::before,
+.burgerNav:has(input:focus-visible)::after,
+.burgerNav input:focus-visible{
+  border: 1px solid var(--background);
+  box-shadow: 0 0 0 2px var(--foreground);
+}
+
+
+.burgerNav::before,
+.burgerNav::after,
+.burgerNav input{
+  content:"";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background: var(--background);
+  border-radius: 9999px;
+  transition: opcaity var(--transition-settings), width var(--transition-settings),
+  rotate var(--transition-settings), translate var(--transition-settings),
+  background-color var(--transition-settings);
+  transform-origin: left center;
+}
+.burgerNav input{
+  appearance: none;
+  padding:0;
+  margin:0;
+  outline: none;
+  pointer-events: none;
+
+}
+
+.burgerNav:has(input:checked)::before{
+  rotate: 45deg;
+  width: var(--width-whenX);
+  translate: 0 calc(var(--bar-height) / -2);
+}
+.burgerNav:has(input:checked)::after{
+  rotate: -45deg;
+  width: var(--width-whenX);
+  translate: 0 calc(var(--bar-height) / 2);
+
+}
+
+.burgerNav input:checked{
+  opacity:0;
+  width:0;
+
+}
+
+.sideBar{
+  position:fixed;
+  top:0;
+  transition: translate var(--transition-settings);
+  translate:-100%;
+  padding: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem) 1rem 0.5rem;
+  color:var(--background);
+  background-color: var(--foreground);
+  max-width: 80%;
+  min-width: 40%;
+  min-height: 100vh;
+
+}
+.burgerNav:has(input:checked) + .sideBar{
+  translate: 0;
+}

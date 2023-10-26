@@ -1,6 +1,7 @@
 import React from 'react';
 import './header.css';
 import logo from "../../images/logo.png";
+import BurgerMenu from "../burgerNavigation/burgerMenu";
 
 function HeaderTitle(){
   return (
@@ -21,6 +22,7 @@ function Header() {
     return (
         <div className={"appHeader"}>
             <HeaderTitle />
+            <BurgerMenu />
             <Logo />
         </div>
     )

@@ -1,5 +1,6 @@
 import './App.css';
 import Header from './components/header/header.js';
+import BurgerMenu from "./components/burgerNavigation/burgerMenu.js";
 
 function App() {
   return (
@@ -9,5 +10,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
