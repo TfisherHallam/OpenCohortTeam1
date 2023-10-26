@@ -1,12 +1,17 @@
 import './App.css';
-import Header from './components/header/header.js';
-import BurgerMenu from "./components/burgerNavigation/burgerMenu.js";
+import { SearchBar } from './components/SearchBar/SearchBar';
+import Header from './components/Header/header.js';
+import { useState } from 'react';
+import { SearchResultsList } from './components/SearchBar/SearchResultsList';
 
 function App() {
+
+  const [results, setResults] = useState([]);
   return (
     <div className="App">
       <Header />
-
+      <SearchBar setResults={setResults}/>
+      <SearchResultsList results={results}/>
     </div>
   );
 }
