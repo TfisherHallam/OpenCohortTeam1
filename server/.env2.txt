@@ -1,2 +1,3 @@
 MONGO_URI=mongodb+srv://c3060912:<6alG9Z5Of$6l$YLk>@scalperdb.fgvbnpd.mongodb.net/?retryWrites=true&w=majority
 
+JWTPRIVATEKEY = eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY5ODkzODI1OCwiaWF0IjoxNjk4OTM4MjU4fQ.eOexHY5ux3PziN9hrVJYPVxEghl3bcfb_wx3cFTZBAE
