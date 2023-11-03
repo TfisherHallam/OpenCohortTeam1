@@ -1,11 +1,6 @@
 import './App.css';
-import {Route, Routes, Navigate, Link } from 'react-router-dom';
 import {SearchBar} from './components/SearchBar/SearchBar';
 import Header from './components/Header/header.js';
-//TF adds - needs to be incorporated into the header
-import Main from './components/Main/index.jsx';
-import Signup from './components/signup/signup.jsx';
-import Login from './components/login/login.jsx';
 import {useState} from 'react';
 import {SearchResultsList} from './components/SearchBar/SearchResultsList';
 import Listings from "./pages/Listings";
@@ -15,7 +10,6 @@ import Home from "./pages/Home";
 
 function App() {
 
-  const user = localStorage.getItem("token");
   const [results, setResults] = useState([]);
   let PageComponent; // This will be the component that changes for which page we are on;
 
@@ -38,14 +32,12 @@ function App() {
       break;
   }
 
-  return (
-    <Routes>
-      {user && <Route path="/" exact element={<Main/>}/>}
-      <Route path="/signup" exact element={<Signup/>}/>
-      <Route path="/login" exact element={<Login/>}/>
-      <Route path="/" exact element={<Navigate replace to = "/login"/>}/>
-    </Routes>
-  );
+  return (<div className="App">
+        <Header/>
+        <SearchBar setResults={setResults}/>
+        <PageComponent/>
+        <SearchResultsList results={results}/>
+      </div>);
 }
 
 export default App;
