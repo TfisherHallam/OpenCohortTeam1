@@ -18,12 +18,14 @@ app.use(
     })
   );
   app.use(bodyParser.json());
+
   // DB Config
-  const db = require("./config/keys").mongoURI;
+  // Bring the db url from env file. - M
+  const {db_url} = require("./.env");
   // Connect to MongoDB
-  mongoose
-    .connect(
-      db,
+  // Just added a couple of things to the monggose connect below - M
+  mongoose.connect(
+      db_url, {useMongoClient: true}, 
       { useNewUrlParser: true }
     )
     .then(() => console.log("MongoDB connection successful"))
