@@ -4,6 +4,7 @@ function Buying()
   return (
       <div>
         <h1 style={{ textAlign: 'center' }}>Buying Page</h1>
+        
       </div>
   )
 }
