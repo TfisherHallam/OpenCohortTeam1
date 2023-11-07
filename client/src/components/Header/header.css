@@ -3,8 +3,10 @@
   top: 0;
   position: absolute;
   width: 100%;
-  height: 15vh;
-  background: grey;
+  height: 10vh;
+  background-image: url(../../images/HomeScreenBackground.jpeg);
+  background-size: cover;
+  background-position: center;
 }
 
 .headerTitle {
@@ -22,5 +24,5 @@
   position:absolute;
   right: 0;
   top: 0;
-  height: 15vh;
+  height: 10vh;
 }

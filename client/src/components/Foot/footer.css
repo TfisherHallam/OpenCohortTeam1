@@ -6,13 +6,25 @@
     height: 5vh;
     background: black;
     text-align: center;    
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column
   }
   
   .footerText {
-    align-content: center;
-    vertical-align: top;
+    align-content:center;
+vertical-align: middle;
     font-size: 1rem;
     justify-content: center;
     color: white;
     display: flex;
+  }
+
+  .footerLogo {
+    position:left;
+    margin-left: 15;
+    top: 0;
+    height: 4vh;
   }

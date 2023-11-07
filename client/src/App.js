@@ -2,6 +2,7 @@ import './App.css';
 import {SearchBar} from './components/SearchBar/SearchBar';
 import Header from './components/Header/header.js';
 import Footer from './components/Foot/footer.jsx';
+import Boilerplate from './components/boilerplate/boilerplate.jsx';
 import {useState} from 'react';
 import {SearchResultsList} from './components/SearchBar/SearchResultsList';
 import Listings from "./pages/Listings";
@@ -34,11 +35,10 @@ function App() {
   }
 
   return (<div className="App">
-        <Header/>
-        <SearchBar setResults={setResults}/>
-        <PageComponent/>
-        <SearchResultsList results={results}/>
-<Footer/>
+<Header/>
+<PageComponent/>
+        <Boilerplate/>
+        <Footer/>
       </div>);
 }
 

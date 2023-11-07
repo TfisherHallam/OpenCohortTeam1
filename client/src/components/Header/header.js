@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.css';
-import logo from "../../images/logo.png";
+import logo from "../../images/TransparentLogo.png";
 import BurgerMenu from "../burgerNavigation/burgerMenu";
 
 function HeaderTitle(){
@@ -13,7 +13,7 @@ function HeaderTitle(){
 function Logo(){
   return(
       <div>
-        <img src={logo} alt="Ticket Scalper Logo" className={"headerLogo"}/>
+      <a href={"/"}><img src={logo} alt="Ticket Scalper Logo" className={"headerLogo"}/></a>
       </div>
   )
 }

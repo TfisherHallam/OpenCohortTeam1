@@ -1,3 +1,4 @@
+
 :root{
   --bar-width:  calc(6vw + 20px);
   --bar-height: calc(1vh + 2px);
@@ -34,7 +35,6 @@
   border: 1px solid var(--background);
   box-shadow: 0 0 0 2px var(--foreground);
 }
-
 
 .burgerNav::before,
 .burgerNav::after,
