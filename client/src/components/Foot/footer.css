@@ -10,7 +10,7 @@
   
   .footerText {
     align-content: center;
-    vertical-align: auto;
+    vertical-align: top;
     font-size: 1rem;
     justify-content: center;
     color: white;
