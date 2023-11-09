@@ -21,7 +21,6 @@
   top: var(--hamburger-margin);
   left: var(--hamburger-margin);
   z-index: 100;
-
 }
 
 .burgerNav:has(input:checked){

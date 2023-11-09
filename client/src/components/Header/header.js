@@ -15,7 +15,7 @@ function Header() {
     return (
         <div className={"appHeader"}>
             <Logo />
-            <BurgerMenu />
+            <BurgerMenu/>
         </div>
     )
 }

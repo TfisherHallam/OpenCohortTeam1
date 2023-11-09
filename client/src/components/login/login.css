@@ -1,0 +1,23 @@
+.welcomebackheader {
+   white-space: pre-wrap; 
+   overflow: visible; 
+   font-family: Arial; 
+   font-size: 32px; 
+   font-weight: bold; 
+   color: rgb(24, 24, 24); 
+   text-align: center; 
+   letter-spacing: -0.5px; 
+   line-height: 1.4; 
+   border-radius: 0px; 
+   opacity: 1; 
+   align-self: flex-start; 
+   min-width: 0px; 
+   order: 1; 
+   min-height: 0px; 
+   height: max-content; 
+   flex-grow: 0; 
+   flex-shrink: 0; 
+   width: calc(100% - 0px); 
+   margin: 8px 0px; 
+   z-index: 18;
+}
