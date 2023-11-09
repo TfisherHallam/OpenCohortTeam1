@@ -1,5 +1,5 @@
 import React from 'react';
-import TermsofUseContent from '../components/termsofuse/termsofuse';
+import TermsofUseContent from '../components/termsofuse/termsofuse.jsx';
 
 function Termsofuse()
 {
