@@ -7,6 +7,7 @@
     border: 1px;  
     align-content: center;
     position: relative;
+  width: 100%;
     bottom: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -22,7 +23,7 @@
     flex-wrap: wrap;    
     justify-content: center;
     align-content: center;
-    padding-bottom: 5vh;
+    padding-bottom: 0;
     border-top-style: solid;
     border-top-color: rgba(235,235,235, 1);
   }

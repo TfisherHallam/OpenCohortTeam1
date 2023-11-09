@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
+import { Link } from 'react-router-dom';
 import "./burgerMenu.css";
 
 function BurgerMenu() {
@@ -10,10 +11,10 @@ function BurgerMenu() {
         <aside className={"sideBar"}>
           <nav className={"nav"}>
             <ul>
-              <li><a href={"/Home"} className={"active"}>HOME</a></li>
-              <li><a href={"/Listing"}>LISTING</a></li>
-              <li><a href={"/Buying"}>BUYING</a></li>
-              <li><a href={"/Account"}>MY ACCOUNT</a></li>
+              <li><Link to={"/Home"} className={"active"}>HOME</Link></li>
+              <li><Link to={"/Listing"}>LISTING</Link></li>
+              <li><Link to={"/Buying"}>BUYING</Link></li>
+              <li><Link to={"/Account"}>MY ACCOUNT</Link></li>
             </ul>
           </nav>
         </aside>

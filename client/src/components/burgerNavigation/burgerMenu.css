@@ -76,7 +76,7 @@
 }
 
 .sideBar{
-  position:fixed;
+  position:relative;
   top:0;
   transition: translate var(--transition-settings);
   translate:-100%;
