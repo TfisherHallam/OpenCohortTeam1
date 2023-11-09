@@ -1,16 +1,23 @@
 import React from 'react';
-import './privacy.css';
+import './selling.css';
 import '../../App.css';
+import { FaBeer } from 'react-icons/fa';
 
-function PrivacyContent() {
+function Selling() {
     return (
         <div class='privacycontainer'>
             <div class="privacyflex-container">
-                <h1 style={{ textAlign: 'left' }}>Privacy Policy</h1>
+                <h1 style={{ textAlign: 'center' }}>Sell your tickets with ease</h1>
                 <p className='paragraph'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus cras adipiscing enim eu turpis egestas pretium aenean. Luctus accumsan tortor posuere ac ut consequat. Neque convallis a cras semper auctor neque vitae tempus quam. Sed adipiscing diam donec adipiscing tristique. Suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam. Malesuada proin libero nunc consequat interdum varius. In arcu cursus euismod quis viverra nibh. A iaculis at erat pellentesque adipiscing commodo elit at imperdiet. Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Lacus sed viverra tellus in hac. Tortor at auctor urna nunc id cursus metus. Eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar. Consectetur adipiscing elit ut aliquam purus sit amet luctus. Odio eu feugiat pretium nibh ipsum consequat nisl. At elementum eu facilisis sed odio morbi quis. Non curabitur gravida arcu ac tortor dignissim convallis.
+                    We know that plans can change, however you should not have to pay for hidden admin charges for your change of plans. Using TicketScalper, you can sell your tickets at a fair price and retain the full value!
                     <br />
                     <br />
+                    It is as easy as the below steps: <FaBeer/>
+                    <br />
+                    <br />
+                    </p>
+                    <h1 style={{ textAlign: 'center' }}>Sell your tiuckets with ease</h1>
+                    <p className='paragraph'>
                     Scelerisque mauris pellentesque pulvinar pellentesque habitant. Eu consequat ac felis donec. Tellus id interdum velit laoreet id donec. Ut diam quam nulla porttitor massa id neque aliquam vestibulum. Fames ac turpis egestas sed tempus urna et. Ut placerat orci nulla pellentesque. In metus vulputate eu scelerisque felis imperdiet proin fermentum. Ut sem nulla pharetra diam sit amet nisl suscipit adipiscing. Aenean pharetra magna ac placerat vestibulum. Tortor at auctor urna nunc id. Vitae tempus quam pellentesque nec nam aliquam sem et tortor. Nulla at volutpat diam ut venenatis tellus in metus vulputate. Integer quis auctor elit sed vulputate mi sit amet mauris. Sed pulvinar proin gravida hendrerit lectus a. Velit scelerisque in dictum non consectetur a erat. Facilisis magna etiam tempor orci.
                     <br />
                     <br />
@@ -28,4 +35,4 @@ function PrivacyContent() {
     )
 }
 
-export default PrivacyContent;
+export default Selling;
