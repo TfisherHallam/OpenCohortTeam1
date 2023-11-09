@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header/header.js';
 import Boilerplate from './components/boilerplate/boilerplate.jsx';
 import Listings from "./pages/Listings.js";
+import Selling from "./pages/Selling.js";
 import Buying from "./pages/Buying.js";
 import MyAccount from "./pages/MyAccount.js";
 import Home from "./pages/Home.js";
@@ -17,7 +18,8 @@ function App() {
       <div className="App">
         <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='/Sell' element={<Listings/>} />
+          <Route path='/Listing' element={<Listings/>} />
+          <Route path='/Sell' element={<Selling/>} />
           <Route path='/Buying' element={<Buying/>} />
           <Route path='/Account' element={<MyAccount/>} />
           <Route path='/Termsofuse' element={<Termsofuse/>} />
