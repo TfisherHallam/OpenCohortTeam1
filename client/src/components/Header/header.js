@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 import logo from "../../images/TransparentLogo.png";
-import BurgerMenu from "../burgerNavigation/burgerMenu";
+import BurgerMenu from "../burgerNavigation/burgerMenu.js";
 
 function Logo() {
     return (

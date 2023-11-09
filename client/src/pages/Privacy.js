@@ -1,5 +1,5 @@
 import React from 'react';
-import PrivacyContent from '../components/privacy/privacy';
+import PrivacyContent from '../components/privacy/privacy.jsx';
 
 function Privacy()
 {

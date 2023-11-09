@@ -1,10 +1,10 @@
 import './App.css';
-import {SearchBar} from './components/SearchBar/SearchBar';
+import {SearchBar} from './components/SearchBar/SearchBar.jsx';
 import Header from './components/Header/header.js';
 import Footer from './components/Foot/footer.jsx';
 import Boilerplate from './components/boilerplate/boilerplate.jsx';
 import {useState} from 'react';
-import {SearchResultsList} from './components/SearchBar/SearchResultsList';
+import {SearchResultsList} from './components/SearchBar/SearchResultsList.jsx';
 import Listings from "./pages/Listings.js";
 import Buying from "./pages/Buying.js";
 import MyAccount from "./pages/MyAccount.js";
