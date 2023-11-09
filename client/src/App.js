@@ -5,10 +5,13 @@ import Footer from './components/Foot/footer.jsx';
 import Boilerplate from './components/boilerplate/boilerplate.jsx';
 import {useState} from 'react';
 import {SearchResultsList} from './components/SearchBar/SearchResultsList';
-import Listings from "./pages/Listings";
-import Buying from "./pages/Buying";
-import MyAccount from "./pages/MyAccount";
-import Home from "./pages/Home";
+import Listings from "./pages/Listings.js";
+import Buying from "./pages/Buying.js";
+import MyAccount from "./pages/MyAccount.js";
+import Home from "./pages/Home.js";
+import Helpcentre from './pages/Helpcentre.js';
+import Privacy from './pages/Privacy.js';
+import Termsofuse from './pages/Termsofuse.js';
 
 function App() {
 
@@ -28,6 +31,15 @@ function App() {
       break;
     case "/Account":
       PageComponent = MyAccount;
+      break;
+    case "/Termsofuse":
+      PageComponent = Termsofuse;
+      break;
+    case "/Helpcentre":
+      PageComponent = Helpcentre;
+      break;
+    case "/Privacy":
+      PageComponent = Privacy;
       break;
     default:
       window.location.pathname = "/"; // If we are on an unknown page, redirect to home

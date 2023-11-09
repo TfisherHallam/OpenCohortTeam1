@@ -2,14 +2,44 @@
     display: flex;
     flex-direction: row;
     font-size: 12px;
-    margin-left: 15%; 
-    column-gap: 5%;
-    row-gap: 200px;   
+    column-gap: 25%;
+    row-gap: 10%;
+    border: 1px;  
+    align-content: center;
+    position: relative;
+    bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(82,82,82);
+    height: auto;
+    line-height:3;
+    text-align: center;
+    order: 2;
+    margin-top: 8px;
+    background: white;
+    vertical-align: middle;
+    flex-wrap: wrap;    
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 5vh;
+    border-top-style: solid;
+    border-top-color: rgba(235,235,235, 1);
   }
   
-  /* Responsive layout - makes a one column layout instead of a two-column layout when hits 800px screen width */
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  /* Responsive layout - makes a one column layout instead of a two-column layout when hits 450px screen width */
   @media (max-width: 450px) {
     .flex-container {
       flex-direction: column;
     }
+  }
+
+
+  .aboutFlex {
+font-size: 18px;
   }
