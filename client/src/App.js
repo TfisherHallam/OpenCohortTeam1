@@ -2,13 +2,13 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header/header.js';
 import Boilerplate from './components/boilerplate/boilerplate.jsx';
-import Listings from "./pages/Listings";
-import Buying from "./pages/Buying";
-import MyAccount from "./pages/MyAccount";
-import Home from "./pages/Home";
-import Helpcentre from './pages/Helpcentre';
-import Privacy from './pages/Privacy';
-import Termsofuse from './pages/Termsofuse';
+import Listings from "./pages/Listings.js";
+import Buying from "./pages/Buying.js";
+import MyAccount from "./pages/MyAccount.js";
+import Home from "./pages/Home.js";
+import Helpcentre from './pages/Helpcentre.js';
+import Privacy from './pages/Privacy.js';
+import Termsofuse from './pages/Termsofuse.js';
 
 function App() {
   return (

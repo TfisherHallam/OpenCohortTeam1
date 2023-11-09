@@ -1,4 +1,4 @@
-import Selling from "../components/selling/selling";
+import Selling from "../components/selling/selling.jsx";
 
 function Listings(){
   return(
