@@ -16,45 +16,6 @@ import BurgerMenu from "./components/burgerNavigation/burgerMenu.js";
 
 function App() {
 
-  const [results, setResults] = useState([]);
-  let PageComponent; // This will be the component that changes for which page we are on;
-
-  switch (window.location.pathname) { // Determines what page we are on,
-      // and carries out the switch statement accordingly
-    case "/":
-      PageComponent = Home;
-      break;
-    case "/Listing":
-      PageComponent = Listings;
-      break;
-    case "/Buying":
-      PageComponent = Buying;
-      break;
-    case "/Account":
-      PageComponent = MyAccount;
-      break;
-    case "/Termsofuse":
-      PageComponent = Termsofuse;
-      break;
-    case "/Helpcentre":
-      PageComponent = Helpcentre;
-      break;
-    case "/Privacy":
-      PageComponent = Privacy;
-      break;
-    default:
-      window.location.pathname = "/"; // If we are on an unknown page, redirect to home
-      break;
-  }
-
-  return (<div className="App">
-    <Header />
-    <BurgerMenu />
-    <PageComponent  />
-    <Boilerplate  />
-    <Footer  />
-  </div>);
-
   return (
     <>
       <Header />
