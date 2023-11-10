@@ -1,10 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import styles from "./styles.module.css";
+import { FaUserCircle } from 'react-icons/fa';
+import "./login.css";
 
-const Login = () => {
-	const [data, setData] = useState({ email: "", password: "" });
+const Logininterface = () => {
+	const [data, setData] = useState({ username: "", password: "" });
 	const [error, setError] = useState("");
 
 	const handleChange = ({ currentTarget: input }) => {
@@ -30,20 +31,26 @@ const Login = () => {
 	};
 
 	return (
-		<div className={styles.login_container}>
-			<div className={styles.login_form_container}>
-				<div className={styles.left}>
-					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Log in</h1>
+		<div class='textflex-container'>
+			<div class='textcontainer'>
+				<div>
+					<form>
+						<h1>Welcome back</h1>
+						<br/>
+						<FaUserCircle class='icon' size={50}/>
+						<br/>
+						<br/>
 						<input
-							type="email"
-							placeholder="Email"
-							name="email"
+							type="input"
+							placeholder="Username"
+							name="username"
 							onChange={handleChange}
-							value={data.email}
+							value={data.username}
 							required
-							className={styles.input}
+
 						/>
+						<br/>
+						<br/>
 						<input
 							type="password"
 							placeholder="Password"
@@ -51,25 +58,19 @@ const Login = () => {
 							onChange={handleChange}
 							value={data.password}
 							required
-							className={styles.input}
+	
 						/>
-						{error && <div className={styles.error_msg}>{error}</div>}
-						<button type="submit" className={styles.green_btn}>
-							Sign in
+						{error && <div className="">{error}</div>}
+						<br/>
+						<br/>
+						<button type="submit" className="">
+							SIGN IN
 						</button>
 					</form>
-				</div>
-				<div className={styles.right}>
-					<h1>Register</h1>
-					<Link to="/signup">
-						<button type='button' className={styles.white_btn}>
-							Register
-						</button>
-					</Link>
-				</div>
+				</div>				
 			</div>
 		</div>
 	);
 };
 
-export default Login;
+export default Logininterface;

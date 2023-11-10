@@ -15,7 +15,11 @@ function Header() {
     return (
         <div className={"appHeader"}>
             <Logo />
+<<<<<<< HEAD
 
+=======
+            <BurgerMenu/>
+>>>>>>> 84808830047452fe216e49b390fab916dfa7064c
         </div>
     )
 }

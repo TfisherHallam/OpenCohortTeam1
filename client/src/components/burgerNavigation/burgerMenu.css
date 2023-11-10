@@ -21,7 +21,6 @@
   top: var(--hamburger-margin);
   left: var(--hamburger-margin);
   z-index: 100;
-
 }
 
 .burgerNav:has(input:checked){
@@ -76,7 +75,7 @@
 }
 
 .sideBar{
-  position:fixed;
+  position:relative;
   top:0;
   transition: translate var(--transition-settings);
   translate:-100%;

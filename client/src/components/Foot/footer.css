@@ -1,7 +1,8 @@
 .appfooter {
   left: 0;
   position: absolute;
-  bottom: 0;
+  width: 100%;
+  bottom: 0px;
   width: 100%;
   height: 5vh;
   background: black;
@@ -12,7 +13,11 @@
   align-content: center;
   flex-direction: column;
   position: relative;
+<<<<<<< HEAD
   z-index: -1;
+=======
+  z-index: 2;
+>>>>>>> 84808830047452fe216e49b390fab916dfa7064c
 }
 
 .footerText {
