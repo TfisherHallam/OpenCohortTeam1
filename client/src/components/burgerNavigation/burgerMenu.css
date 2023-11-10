@@ -84,8 +84,8 @@
   background-color: var(--foreground);
   min-width: fit-content;
   width: var(--sidebar-width);
-  height:100%;
-  z-index: 99;
+  height:100vh;
+  z-index:99;
 
 }
 .burgerNav:has(input:checked) + .sideBar{
