@@ -12,6 +12,8 @@ import Home from "./pages/Home.js";
 import Helpcentre from './pages/Helpcentre.js';
 import Privacy from './pages/Privacy.js';
 import Termsofuse from './pages/Termsofuse.js';
+import BurgerMenu from "./components/burgerNavigation/burgerMenu.js";
+
 
 function App() {
 
@@ -47,11 +49,12 @@ function App() {
   }
 
   return (<div className="App">
-<Header/>
-<PageComponent/>
-        <Boilerplate/>
-        <Footer/>
-      </div>);
+    <Header />
+    <BurgerMenu />
+    <PageComponent  />
+    <Boilerplate  />
+    <Footer  />
+  </div>);
 }
 
 
