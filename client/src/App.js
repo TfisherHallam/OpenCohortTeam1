@@ -12,16 +12,15 @@ import Home from "./pages/Home.js";
 import Helpcentre from './pages/Helpcentre.js';
 import Privacy from './pages/Privacy.js';
 import Termsofuse from './pages/Termsofuse.js';
-import BurgerMenu from "./components/burgerNavigation/burgerMenu.js";
+//import BurgerMenu from "./components/burgerNavigation/burgerMenu.js";
 
 
 function App() {
 
   return (
     <>
-      <Header />
-      <BurgerMenu />
       <div className="App">
+        <Header />
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/Listing' element={<Listings/>} />
