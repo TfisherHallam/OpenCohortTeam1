@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./styles.module.css";
+import styles from "./register.css";
 
-const Signup = () => {
+const Registerinterface = () => {
 	const [data, setData] = useState({
 		firstName: "",
 		lastName: "",
@@ -37,18 +37,10 @@ const Signup = () => {
 	};
 
 	return (
-		<div className={styles.signup_container}>
-			<div className={styles.signup_form_container}>
-				<div className={styles.left}>
-					<h1>Welcome back to TicketScalper</h1>
-					<Link to="/login">
-						<button type="button" className={styles.white_btn}>
-							Sign in
-						</button>
-					</Link>
-				</div>
-				<div className={styles.right}>
-					<form className={styles.form_container} onSubmit={handleSubmit}>
+		<div className="">
+			<div className="">
+				<div className="">
+					<form className="" onSubmit={handleSubmit}>
 						<h1>Register</h1>
 						<input
 							type="text"
@@ -57,7 +49,7 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.firstName}
 							required
-							className={styles.input}
+							className=""
 						/>
 						<input
 							type="text"
@@ -66,7 +58,7 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.lastName}
 							required
-							className={styles.input}
+							className=""
 						/>
 						<input
 							type="text"
@@ -75,7 +67,7 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.userName}
 							required
-							className={styles.input}
+							className=""
 						/>
 						<input
 							type="email"
@@ -84,7 +76,7 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.email}
 							required
-							className={styles.input}
+							className=""
 						/>
 						<input
 							type="password"
@@ -93,7 +85,7 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.password}
 							required
-							className={styles.input}
+							className=""
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
@@ -106,4 +98,4 @@ const Signup = () => {
 	);
 };
 
-export default Signup;
+export default Registerinterface;

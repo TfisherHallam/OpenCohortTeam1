@@ -7,6 +7,7 @@ import Selling from "./pages/Selling.js";
 import Buying from "./pages/Buying.js";
 import MyAccount from "./pages/MyAccount.js";
 import Loginpage from "./pages/Login.js";
+import Registerpage from "./pages/Register.js";
 import Home from "./pages/Home.js";
 import Helpcentre from './pages/Helpcentre.js';
 import Privacy from './pages/Privacy.js';
@@ -28,6 +29,7 @@ function App() {
           <Route path='/Buying' element={<Buying/>} />
           <Route path='/Account' element={<MyAccount/>} />
           <Route path='/Login' element={<Loginpage/>} />
+          <Route path='/Register' element={<Registerpage/>} />
           <Route path='/Termsofuse' element={<Termsofuse/>} />
           <Route path='/Helpcentre' element={<Helpcentre/>} />
           <Route path='/Privacy' element={<Privacy/>} />

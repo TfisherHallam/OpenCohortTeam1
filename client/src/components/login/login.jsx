@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from 'react-icons/fa';
 import "./login.css";
+import '../../App.css';
 
 const Logininterface = () => {
 	const [data, setData] = useState({ username: "", password: "" });
@@ -34,13 +35,13 @@ const Logininterface = () => {
 		<div class='textflex-container'>
 			<div class='textcontainer'>
 				<div>
-					<form>
+					<form class='loginform'>
 						<h1>Welcome back</h1>
 						<br/>
-						<FaUserCircle class='icon' size={50}/>
+						<FaUserCircle class='icon' size={70}/>
 						<br/>
 						<br/>
-						<input
+						<input class='inputboxes'
 							type="input"
 							placeholder="Username"
 							name="username"
@@ -51,7 +52,7 @@ const Logininterface = () => {
 						/>
 						<br/>
 						<br/>
-						<input
+						<input class='inputboxes'
 							type="password"
 							placeholder="Password"
 							name="password"
@@ -63,7 +64,7 @@ const Logininterface = () => {
 						{error && <div className="">{error}</div>}
 						<br/>
 						<br/>
-						<button type="submit" className="">
+						<button type="submit" className="loginbutton">
 							SIGN IN
 						</button>
 					</form>
