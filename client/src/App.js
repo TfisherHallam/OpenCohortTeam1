@@ -15,7 +15,6 @@ import BurgerMenu from "./components/burgerNavigation/burgerMenu.js";
 
 
 function App() {
-<<<<<<< HEAD
 
   const [results, setResults] = useState([]);
   let PageComponent; // This will be the component that changes for which page we are on;
@@ -55,10 +54,11 @@ function App() {
     <Boilerplate  />
     <Footer  />
   </div>);
-=======
+
   return (
     <>
       <Header />
+      <BurgerMenu />
       <div className="App">
         <Routes>
           <Route path='/' element={<Home/>} />
@@ -74,7 +74,6 @@ function App() {
         <Boilerplate />
       </div>
     </>);
->>>>>>> 84808830047452fe216e49b390fab916dfa7064c
 }
 
 export default App;
