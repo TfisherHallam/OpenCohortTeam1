@@ -39,27 +39,11 @@ const Registerinterface = () => {
 	return (
 		<div className="">
 			<div className="">
-				<div className="">
-					<form className="" onSubmit={handleSubmit}>
-						<h1>Register</h1>
-						<input
-							type="text"
-							placeholder="First Name"
-							name="firstName"
-							onChange={handleChange}
-							value={data.firstName}
-							required
-							className=""
-						/>
-						<input
-							type="text"
-							placeholder="Last Name"
-							name="lastName"
-							onChange={handleChange}
-							value={data.lastName}
-							required
-							className=""
-						/>
+				<div className="flex-container">
+					<form className="flex" onSubmit={handleSubmit}>
+						<h1>Welcome! <br/>We are so glad you are joining us!</h1>
+						<div>Username</div>
+						<div>
 						<input
 							type="text"
 							placeholder="Username"
@@ -67,8 +51,34 @@ const Registerinterface = () => {
 							onChange={handleChange}
 							value={data.userName}
 							required
-							className=""
+							className="input"
+						/></div>
+						<div>First name </div>
+						<div>
+						<input
+							type="text"
+							placeholder="First Name"
+							name="firstName"
+							onChange={handleChange}
+							value={data.firstName}
+							required
+							className="input"
+						/></div>
+<div>Last name</div>
+						<div>
+						<input
+							type="text"
+							placeholder="Last Name"
+							name="lastName"
+							onChange={handleChange}
+							value={data.lastName}
+							required
+							className="input"
 						/>
+						</div>
+
+						<div>Email address</div>
+						<div>
 						<input
 							type="email"
 							placeholder="Email"
@@ -76,8 +86,22 @@ const Registerinterface = () => {
 							onChange={handleChange}
 							value={data.email}
 							required
-							className=""
-						/>
+							className="input"
+						/></div>
+												<div>Mobile Number</div>
+						<div>
+						<input
+							type={"number"}
+							placeholder="07123456789"
+							name="telephone"
+							onChange={handleChange}
+							value={data.number}
+							required
+							maxLength={"11"}							
+							className="input"
+						/></div>
+						<div>Create Password</div>
+						<div>
 						<input
 							type="password"
 							placeholder="Password"
@@ -85,8 +109,19 @@ const Registerinterface = () => {
 							onChange={handleChange}
 							value={data.password}
 							required
-							className=""
-						/>
+							className="input"
+						/></div>
+												<div>Confirm Password</div>
+						<div>
+						<input
+							type="password"
+							placeholder="Password"
+							name="password"
+							onChange={handleChange}
+							value={data.password}
+							required
+							className="input"
+						/></div>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
 							Register
