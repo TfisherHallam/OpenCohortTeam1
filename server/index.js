@@ -1,11 +1,23 @@
-import express from "express";
-import mongoose from "mongoose";
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
 
-mongoose.connect("mongodb+srv://c3060912:cultsolveallbeckham@scalperdb.fgvbnpd.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGO, {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+}).then(() => {
+    console.log('Connected to MongoDB (phew)');
+}).catch((err) => {
+    console.log(err);
+});
 
 const app = express();
 
+
 app.listen(3000, () => {
-    console.log('Running on 3001');
+    console.log('Running on 3000');
 }
 )
