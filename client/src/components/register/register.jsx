@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./register.css";
+import PhoneInput from 'react-phone-number-input/input'
 
 export default function Register() {
 	const [formData, setFormData] = useState({});
@@ -34,7 +35,7 @@ const handleChange = (e) => {
       }
       setLoading(false);
       setError(null);
-      navigate('/sign-in');
+      navigate('/login');
     } catch (error) {
       setLoading(false);
       setError(error.message);
@@ -91,12 +92,12 @@ const handleChange = (e) => {
 						<div>Mobile Number</div>
 						<div>
 							<input
-								type={"number"}
+								type="tel"
 								placeholder="07123456789"
 								id="telephone"
 								onChange={handleChange}
 								required
-								maxLength={"11"}
+								maxLength="11"
 								className="input"
 							/></div>
 						<div>Create Password</div>
