@@ -48,7 +48,6 @@ const Logininterface = () => {
 							onChange={handleChange}
 							value={data.username}
 							required
-
 						/>
 						<br/>
 						<br/>
@@ -58,8 +57,7 @@ const Logininterface = () => {
 							name="password"
 							onChange={handleChange}
 							value={data.password}
-							required
-	
+							required	
 						/>
 						{error && <div className="">{error}</div>}
 						<br/>

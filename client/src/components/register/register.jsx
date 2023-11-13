@@ -1,40 +1,58 @@
 import { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./register.css";
 
 export default function Register() {
-	const [formData, setFormData] = useState({})
-	const handleChange = (e) => {
-		setFormData({
-			...formData,
-			[e.target.id]: e.target.value,
-		});
-	};
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		const res = await fetch('/api/auth/', {
-			method: 'POST',
-			headers:{
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(formData),
-		});
-		const data = await res.json();
-		console.log(data);
-	}
+	const [formData, setFormData] = useState({});
+	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(false);
+	const navigate = useNavigate();
+const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+ const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.success === false) {
+        setLoading(false);
+        setError(data.message);
+        return;
+      }
+      setLoading(false);
+      setError(null);
+      navigate('/sign-in');
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
+    }
+  };
+
 	return (
 		<div className="">
 			<div className="">
 				<div className="flex-container">
-					<form className="flex" onSubmit={handleSubmit}>
+					<form onSubmit={handleSubmit} className="flex">
 						<h1>Welcome! <br />We are so glad you are joining us!</h1>
 						<div>Username</div>
 						<div>
 							<input
 								type="text"
 								placeholder="Username"
-								name="userName"
+								id="username"
 								onChange={handleChange}
 								required
 								className="input"
@@ -44,7 +62,7 @@ export default function Register() {
 							<input
 								type="text"
 								placeholder="First Name"
-								name="firstName"
+								id="firstname"
 								onChange={handleChange}
 								required
 								className="input"
@@ -54,7 +72,7 @@ export default function Register() {
 							<input
 								type="text"
 								placeholder="Last Name"
-								name="lastName"
+								id="lastname"
 								onChange={handleChange}
 								required
 								className="input"
@@ -65,7 +83,7 @@ export default function Register() {
 							<input
 								type="email"
 								placeholder="Email"
-								name="email"
+								id="email"
 								onChange={handleChange}
 								required
 								className="input"
@@ -75,7 +93,7 @@ export default function Register() {
 							<input
 								type={"number"}
 								placeholder="07123456789"
-								name="telephone"
+								id="telephone"
 								onChange={handleChange}
 								required
 								maxLength={"11"}
@@ -86,22 +104,12 @@ export default function Register() {
 							<input
 								type="password"
 								placeholder="Password"
-								name="password"
+								id="password"
 								onChange={handleChange}
 								required
 								className="input"
 							/></div>
-						<div>Confirm Password</div>
-						<div>
-							<input
-								type="password"
-								placeholder="Password"
-								name="password"
-								onChange={handleChange}
-								required
-								className="input"
-							/></div>
-						<button type="submit" className={styles.green_btn}>
+						<button>
 							Register
 						</button>
 					</form>
@@ -110,4 +118,3 @@ export default function Register() {
 		</div>
 	);
 };
-
