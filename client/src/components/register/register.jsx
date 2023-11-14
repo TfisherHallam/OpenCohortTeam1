@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./register.css";
-import PhoneInput from 'react-phone-number-input/input'
 
 export default function Register() {
 	const [formData, setFormData] = useState({});
