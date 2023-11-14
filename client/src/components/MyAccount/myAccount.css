@@ -1,0 +1,40 @@
+
+.itemviewflex-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .itemviewflex-item-left {
+        flex: 20%;
+        font-family: Arial;
+        font-size: 16px;
+        font-weight: bold;
+        color: rgb(24, 24, 24);
+        line-height: 1.4;
+        height: 48px;
+  }
+  
+  .itemviewflex-item-right {
+    font-family: Arial;
+    font-size: 16px;
+    flex: 80%;
+  }  
+  /* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 450px) {
+    .itemviewflex-container {
+      flex-direction: column;
+    }
+  }
+
+  .itemviewtextflex-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 1px;
+    padding-top: 5%;
+    width: 80%;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+  }

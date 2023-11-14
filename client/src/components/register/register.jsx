@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styles from "./register.css";
 
 export default function Register() {
@@ -113,6 +113,8 @@ const handleChange = (e) => {
 							Register
 						</button>
 					</form>
+					<p><Link to={"/login"}>Already a member? Click here to login</Link></p>
+					
 				</div>
 			</div>
 		</div>

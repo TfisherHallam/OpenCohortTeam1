@@ -6,7 +6,7 @@ import BurgerMenu from "../burgerNavigation/burgerMenu.js";
 function Logo() {
     return (
         <div>
-            <a href={"/"}><img src={logo} alt="Ticket Scalper Logo" className={"headerLogo"} /></a>
+            <a href={"/"}><img src={logo} alt="Ticket Scalper Logo" class={"headerLogo"} /></a>
         </div>
     )
 }

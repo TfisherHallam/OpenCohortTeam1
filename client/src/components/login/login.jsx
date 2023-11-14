@@ -38,6 +38,8 @@ const Logininterface = () => {
 					<form class='loginform'>
 						<h1>Welcome back</h1>
 						<br/>
+						<p><Link to={"/Register"}>New user? Sign up here</Link></p>
+						<br/>						
 						<FaUserCircle class='icon' size={70}/>
 						<br/>
 						<br/>
@@ -59,13 +61,14 @@ const Logininterface = () => {
 							value={data.password}
 							required	
 						/>
-						{error && <div className="">{error}</div>}
+						{error && <div class="">{error}</div>}
 						<br/>
 						<br/>
-						<button type="submit" className="loginbutton">
+						<button type="submit" class="loginbutton">
 							SIGN IN
 						</button>
 					</form>
+					<p><Link to={"/"}>Forgotten your password? Click here to reset</Link></p>
 				</div>				
 			</div>
 		</div>

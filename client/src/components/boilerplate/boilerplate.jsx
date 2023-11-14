@@ -6,7 +6,7 @@ import logo from "../../images/TransparentLogo.png";
 function Footer() {
     return (
         <div className={"appfooter"}>
-            <p className='footerText'>
+            <p class='footerText'>
                 <img src={logo} alt="Ticket Scalper Logo" className={"footerLogo"} />
                 TicketScalper Build 1.1
             </p>
