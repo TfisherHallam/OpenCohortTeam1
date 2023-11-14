@@ -42,9 +42,8 @@ width: 200px;
 }
 
 .loginbutton {
-box-shadow: 0px 7px 30px -10px rgba(var(--color_primary_default_rgb), 0.1);
  background-color: blue; 
- font-family: var(--font_default); 
+ font-family: Arial, Helvetica, sans-serif; 
  font-size: 15px; 
  font-weight: 600; 
  color: white;
