@@ -35,7 +35,48 @@ export default function ItemView() {
         {item && item.name}
         {error && <p>An issue occurred, please try again</p>}
         {item && !loading && !error && (
-            <p>Item data to appear here</p>
+            <div class='itemviewtextflex-container'>
+    <div class="itemviewflex-container">   
+<div class = "itemviewflex-item-left">Category:</div>  
+<div class="itemviewflex-item-right">item here</div>
+</div>
+
+
+<div class="itemviewflex-container">   
+<div class = "itemviewflex-item-left">Event Date:</div>  
+<div class="itemviewflex-item-right">item here</div>
+</div>
+
+<div class="itemviewflex-container">   
+<div class = "itemviewflex-item-left">Auction End:</div>  
+<div class="itemviewflex-item-right">item here</div>
+</div>
+
+<div class="itemviewflex-container">   
+<div class = "itemviewflex-item-left">Starting Bid:</div>  
+<div class="itemviewflex-item-right">item here</div>
+</div>
+
+<div class="itemviewflex-container">   
+<div class = "itemviewflex-item-left">Current Bid:</div>  
+<div class="itemviewflex-item-right">item here</div>
+</div>
+
+<div class="itemviewflex-container">   
+<div class = "itemviewflex-item-left">New Bid:</div>  
+<div class="itemviewflex-item-right">item here</div>
+</div>
+
+<div class="itemviewflex-container">   
+<div class = "itemviewflex-item-left">Seller:</div>  
+<div class="itemviewflex-item-right">item here</div>
+</div>
+
+<div class="itemviewflex-container">   
+<div class = "itemviewflex-item-left">Description:</div>  
+<div class="itemviewflex-item-right">item here</div>
+</div>
+</div>
         )}
 
     </div>
