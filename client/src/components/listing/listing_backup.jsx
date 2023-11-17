@@ -3,7 +3,6 @@ import axios from "axios";
 // import DateTimerPicker from "react-date-picker";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./listing.css";
-import datetime from "./datetime.jsx"
 
 export default function Listing() {
 	const [formData, setFormData] = useState({})
@@ -41,21 +40,17 @@ export default function Listing() {
 								required= "true"
 								className="input"
 							/></div>
-                        <div>Event Date</div>
+                            	{/* <div>Event Date</div>
 						<div>
-						    function date() {
-							    return( 
-								<h1 datetime h1/>
-								)
-							}
-								{/*type= "date"
+							<input
+								type= "date"
 								placeholder="Event Date and Time"
 								name="Event Date and Time"
 								onChange={handleChange}
 								required= "true"
-								className="input"*/
-						 /></div>
-						{/*<div>Auction End</div>
+								className="input"
+							/></div>
+						<div>Auction End</div>
 						<div>
 							<input
 								type="date"
