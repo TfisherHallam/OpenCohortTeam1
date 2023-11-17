@@ -15,7 +15,7 @@ function Logo() {
 function Header() {
     return (
         <div className={"appHeader"}>
-
+            <BurgerNew/>
             <div class="headerFlex">
             <Logo />
             <div class="headerButtongroup">
