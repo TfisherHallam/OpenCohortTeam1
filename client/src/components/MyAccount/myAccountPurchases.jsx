@@ -14,7 +14,7 @@ const MyAccountPurchasesContent = () => {
     
     return (<div>
 
-<button class = "button1" onClick={setToggle}><FaShoppingBasket/><br/>My purchases</button>
+<button class = "button1" onClick={setToggle}><FaShoppingBasket class="icon" size={50}/><br/><div class="accountPageButtonText">My purchases</div></button>
 
 {toggle && (
     <ul>

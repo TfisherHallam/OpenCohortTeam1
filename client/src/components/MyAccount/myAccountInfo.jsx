@@ -13,10 +13,11 @@ const MyAccountInfoContent = () => {
     
     return (<div>
 
-<button class = "button1" onClick={setInfoToggle}><FaUser/><br/>
-    Account Information</button>
+<button class = "button1" onClick={setInfoToggle}><FaUser class="icon" size={50}/><br/>
+<div class="accountPageButtonText">Account Information</div></button>
 
 {infoToggle && (
+    <div>
     <ul>
         <li><label>First Name<input
 						type="text"
@@ -51,7 +52,13 @@ const MyAccountInfoContent = () => {
 						className="input"
 					/></li>
     </ul>
+
+    <button name="Make changes" class="button1"><div class="accountPageButtonText">Make Changes</div></button>
+    <button class="button1"><div class="accountPageButtonText">Delete my account</div></button>
+    </div>
 )}
+
+
 
 </div>
     );

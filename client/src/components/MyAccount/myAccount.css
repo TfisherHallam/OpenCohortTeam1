@@ -13,9 +13,39 @@
         line-height: 1.4;
         height: 48px;
   }
+
+  .accountPageButtonText {
+    background-color: blue;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    line-height: 1;
+    border-radius: 0px;
+    opacity: 1;
+    order: 2;
+    height: 50px;
+    flex-grow: 1;
+    width: calc(100% - 0px);
+    margin: 0px;
+  }
   
-  .button1{
-    height: 100px;
+  .button1{    overflow: visible;
+    justify-content: flex-start;
+    border-radius: 0px;
+    opacity: 1;
+    cursor: pointer;
+    align-self: flex-start;
+    min-width: 20%;
+    max-width: 20%;
+    order: 2;
+    min-height: 4px;
+    width: 20%;
+    flex-grow: 1;
+    height: max-content;
+    margin: 0px;
+    border: none;
+    background-color: transparent;
   }
   .itemviewflex-item-right {
     font-family: Arial;
