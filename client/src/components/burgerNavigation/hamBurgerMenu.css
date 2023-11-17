@@ -27,13 +27,16 @@ body {
 
 /* Styles for the cross button */
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  margin-right: 10px;
+  height: 100px;
+  width: 100px;
 }
 
 /* Styles for the close button cross */
 .bm-cross {
   background: #555; /* Color of the cross */
+  height: 40px !important;
+  width: 6px !important;
 }
 
 /* Styles for the sidebar wrapper */
@@ -47,20 +50,28 @@ body {
 .bm-menu {
   background: #fff; /* Background color of the menu */
   padding: 2em;
+  padding-top: 8vh;
   font-size: 1.2em;
 }
 
 /* Styles for individual menu items */
 .bm-item {
+  padding: 1em;
   display: block;
   margin-bottom: 1em;
   color: #333; /* Text color */
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.5em;
 }
+.bm-item:hover {
+  color: #ffffff; /* Text color on hover */
+  background-color: #000000; /* Background color on hover */
+}
+
 
 /* Styles for the overlay background */
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.5); /* Overlay color and transparency */
+  background: rgba(255, 0, 0, 0.5); /* Overlay color and transparency */
 }
 
