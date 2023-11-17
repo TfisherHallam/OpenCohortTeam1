@@ -21,7 +21,7 @@
   flex-grow: 0; 
   flex-shrink: 0; 
   width: calc(100% - 0px); 
-  margin: 0px; z-index: 22;
+  margin: 0px;
 }
 
 h2 {
@@ -45,5 +45,4 @@ h2 {
    flex-shrink: 0; 
    width: calc(100% - 0px); 
    margin: 8px 0px; 
-   z-index: 18;
 }

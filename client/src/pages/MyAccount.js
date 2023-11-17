@@ -1,8 +1,13 @@
+import MyAccountInfoContent from "../components/MyAccount/myAccountInfo.jsx";
+import MyAccountPurchasesContent from "../components/MyAccount/myAccountPurchases.jsx";
+import MyAccountSalesContent from "../components/MyAccount/myAccountSales.jsx";
+
 function MyAccount(){
   return(
       <div>
-        <h1 style={{ textAlign: 'center' }}>MyAccount Page</h1>
-        
+        <MyAccountInfoContent/>
+        <MyAccountPurchasesContent/>
+        <MyAccountSalesContent/>
       </div>
   )
 }

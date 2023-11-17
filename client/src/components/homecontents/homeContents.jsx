@@ -1,13 +1,24 @@
 import React from 'react';
 import './homeContents.css';
 import '../../App.css';
+import { Link } from 'react-router-dom';
 
 function HomeContent() {
     return (
         
         <div class='textcontainer'>
             <div className={"homepageHeader"}>
-
+<div>
+    <p class="homePageTitle">TicketScalper</p>
+    <br/>
+    <br/>
+    <p class="headerSubline">Your next night in Sheffield awaits</p>
+    <br/>
+    <br/>
+    <Link to={"/Buying"}>                            
+                            <button class="ticketsButton">Go to tickets</button>
+                            </Link>
+</div>
             </div>
             <div class="textflex-container">
                 <h1 class="homeheader">Welcome to TicketScalper</h1>
