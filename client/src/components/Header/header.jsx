@@ -1,16 +1,15 @@
 import React from 'react';
 import './header.css';
 import logo from "../../images/TransparentLogo.png";
-import BurgerMenu from "../burgerNavigation/burgerMenu.js";
+import BurgerNew from "../burgerNavigation/hamBurgerMenu.jsx";
 import { Link } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 
 function Logo() {
-    return (
-        <div>
-            <a href={"/"}><img src={logo} alt="Ticket Scalper Logo" class={"headerLogo"} /></a>
-        </div>
-    )
+  return (<div>
+    <a href={"/"}><img src={logo} alt="Ticket Scalper Logo"
+                       className={"headerLogo"}/></a>
+  </div>)
 }
 
 function Header() {
