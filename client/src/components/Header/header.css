@@ -10,7 +10,7 @@
   background-image: url(../../images/HomeScreenBackground.jpeg);
   background-size: cover;
   background-position: center;
-  z-index: 100;
+  z-index: 1;
 }
 
 .headerTitle a {
@@ -18,9 +18,76 @@
   text-decoration: none;
 }
 
+.burger {
+  display: none;
+}
+
+.headerButtons {
+
+  height: 100px;
+  width: 5%;
+  background-color: transparent;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+.headerButtongroup {
+  margin-left: 100px;
+  width: 90%;
+}
+
+.loginButtons {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.loginButtongroup {
+  right: 0;
+  margin-left: 90%;
+}
+
+.loginicon {
+
+  background-color: red;
+  font-size: 16px;
+  color: yellow;
+  font-weight: bold;
+  border: none;
+  margin-left: 70%;
+  margin-right: 0;
+  display: none;
+}
+
 .headerLogo {
   position: absolute;
   top: 0;
-  left: calc(50vw - 15vh/2); /*the middle of the screen minus half the width of the logo*/
-  height: 100px;  /* image ratio is 531 px height 810 px width = therefore width = calc(15vh *8310/531) */
+  left: 0;
+  height: 75%;
+  /* image ratio is 531 px height 810 px width = therefore width = calc(15vh *8310/531) */
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout when hits 450px screen width */
+@media (max-width: 450px) {
+
+  .headerButtons,
+  .loginButtons {
+    display: none;
+  }
+
+  .headerLogo {
+    position: absolute;
+    top: 0;
+    left: calc(50vw - 15vh/2);
+    /*the middle of the screen minus half the width of the logo*/
+    height: 75%;
+    /* image ratio is 531 px height 810 px width = therefore width = calc(15vh *8310/531) */
+  }
+
+  .burger,
+  .loginicon {
+    display: flex;
+  }
+
+
 }

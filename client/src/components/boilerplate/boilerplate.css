@@ -71,6 +71,7 @@ font-size: 18px;
     justify-content: center;
     color: white;
     display: flex;
+    text-align: center;
   }
   
   .footerLogo {
