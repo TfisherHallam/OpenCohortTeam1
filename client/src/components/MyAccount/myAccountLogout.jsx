@@ -6,10 +6,9 @@ import '../../App.css';
 
 function MyAccountLogOut() {
     return (
-        
-                      
-                            <button class="button1"><IoLogOutOutline class="icon" size={50}/><br/><div class="accountPageButtonText">Log out</div></button>
-
+        <button class="button1">
+            <IoLogOutOutline class="icon" size={50} /><br />
+            <div class="accountPageButtonText">Log out</div></button>
     )
 }
 

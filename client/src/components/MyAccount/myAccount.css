@@ -1,7 +1,7 @@
 
-.itemviewflex-container {
+.flex-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   
   .itemviewflex-item-left {
@@ -12,6 +12,14 @@
         color: rgb(24, 24, 24);
         line-height: 1.4;
         height: 48px;
+  }
+
+  .myAccountSubItem{
+    width: 100%;
+  }
+
+  .myAccountListItems {
+    list-style: none;
   }
 
   .accountPageButtonText {
@@ -26,32 +34,24 @@
     order: 2;
     height: 50px;
     flex-grow: 1;
-    width: calc(100% - 0px);
+width:100%;
     margin: 0px;
   }
+
+  .mainContentDiv{
+    width: 80%
+  }
   
-  .button1{    overflow: visible;
-    justify-content: flex-start;
+  .button1{   
     border-radius: 0px;
     opacity: 1;
     cursor: pointer;
-    align-self: flex-start;
-    min-width: 20%;
-    max-width: 20%;
-    order: 2;
-    min-height: 4px;
-    width: 20%;
-    flex-grow: 1;
-    height: max-content;
-    margin: 0px;
+
+width: 100%;
     border: none;
     background-color: transparent;
   }
-  .itemviewflex-item-right {
-    font-family: Arial;
-    font-size: 16px;
-    flex: 80%;
-  }  
+
   /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 450px) {
     .itemviewflex-container {

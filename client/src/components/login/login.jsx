@@ -1,78 +1,80 @@
-import { useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import { FaUserCircle } from 'react-icons/fa';
-import "./login.css";
-import '../../App.css';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  signInStart,
+  signInSuccess,
+  signInFailure,
+} from '../redux/user/userSlice';
 
-const Logininterface = () => {
-	const [data, setData] = useState({ username: "", password: "" });
-	const [error, setError] = useState("");
+export default function SignIn() {
+  const [formData, setFormData] = useState({});
+  const { loading, error } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      dispatch(signInStart());
+      const res = await fetch('/api/auth/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.success === false) {
+        dispatch(signInFailure(data.message));
+        return;
+      }
+      dispatch(signInSuccess(data));
+      navigate('/');
+    } catch (error) {
+      dispatch(signInFailure(error.message));
+    }
+  };
+  return (
+    <div className='p-3 max-w-lg mx-auto'>
+      <h1 className='text-3xl text-center font-semibold my-7'>Sign In</h1>
+      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+        <input
+          type='email'
+          placeholder='email'
+          className='border p-3 rounded-lg'
+          id='email'
+          onChange={handleChange}
+        />
+        <input
+          type='password'
+          placeholder='password'
+          className='border p-3 rounded-lg'
+          id='password'
+          onChange={handleChange}
+        />
 
-	const handleChange = ({ currentTarget: input }) => {
-		setData({ ...data, [input.name]: input.value });
-	};
+        <button
+          disabled={loading}
+          className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+        >
+          {loading ? 'Loading...' : 'Sign In'}
+        </button>
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		try {
-			const url = "http://localhost:3000/api/auth";
-			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
-			window.location = "/";
-		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
-				setError(error.response.data.message);
-			}
-		}
-	};
-
-	return (
-		<div class='textflex-container'>
-			<div class='textcontainer'>
-				<div>
-					<form class='loginform'>
-						<h1>Welcome back</h1>
-						<br/>
-						<p><Link to={"/Register"}>New user? Sign up here</Link></p>
-						<br/>						
-						<FaUserCircle class='icon' size={70}/>
-						<br/>
-						<br/>
-						<input class='inputboxes'
-							type="input"
-							placeholder="Username"
-							name="username"
-							onChange={handleChange}
-							value={data.username}
-							required
-						/>
-						<br/>
-						<br/>
-						<input class='inputboxes'
-							type="password"
-							placeholder="Password"
-							name="password"
-							onChange={handleChange}
-							value={data.password}
-							required	
-						/>
-						{error && <div class="">{error}</div>}
-						<br/>
-						<br/>
-						<button type="submit" class="loginbutton">
-							SIGN IN
-						</button>
-					</form>
-					<p><Link to={"/"}>Forgotten your password? Click here to reset</Link></p>
-				</div>				
-			</div>
-		</div>
-	);
-};
-
-export default Logininterface;
+      </form>
+      <div className='flex gap-2 mt-5'>
+        <p>Dont have an account?</p>
+        <Link to={'/sign-up'}>
+          <span className='text-blue-700'>Sign up</span>
+        </Link>
+      </div>
+      {error && <p className='text-red-500 mt-5'>{error}</p>}
+    </div>
+  );
+}
