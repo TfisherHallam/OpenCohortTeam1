@@ -3,9 +3,13 @@ import axios from "axios";
 // import DateTimerPicker from "react-date-picker";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./listing.css";
-import datetime from "./datetime.jsx"
+//import datetime from "./datetime.jsx"
+import {StatusBar} from "expo-status-bar";
+import{Checkbox} from "expo-checkbox";
+import {Text, View,} from "react-bootstrap";
 
 export default function Listing() {
+	const [isChecked, setChecked]= useState(false);
 	const [formData, setFormData] = useState({})
 	const handleChange = (e) => {
 		setFormData({
@@ -31,7 +35,7 @@ export default function Listing() {
 				<div className="flex-container">
 					<form className="flex" onSubmit={handleSubmit}>
 						<h1>Create your listing</h1>
-						<div>Event Name</div>
+						<label>Event Name</label>
 						<div>
 							<input
 								type="text"
@@ -39,44 +43,31 @@ export default function Listing() {
 								name="Event Name"
 								onChange={handleChange}
 								required= "true"
-								className="input"
-							/></div>
-                        <div>Event Date</div>
+								className="input"/>
+						</div>
+                        {/*<div>Event Date</div>
 						<div>
-						    function date() {
-							    return( 
-								<h1 datetime h1/>
-								)
-							}
-								{/*type= "date"
+							<input
+								type= "date"
 								placeholder="Event Date and Time"
 								name="Event Date and Time"
 								onChange={handleChange}
 								required= "true"
-								className="input"*/
-						 /></div>
-						{/*<div>Auction End</div>
-						<div>
-							<input
-								type="date"
-								placeholder="Auction End"
-								name="Auction End Date and Time"
-								onChange={handleChange}
-								required= "true"
 								className="input"
-							/>
+	/></div>*/}
+						<div>
+						    <label>Event Type</label>
+							<select>
+							    placeholder= "Browse..."
+							    <option value = ""></option>
+								<option value = "Concert">Concert</option>
+								<option value = "Festival">Festival</option>
+								<option value = "Gig">Gig</option>
+								<option value = "Comedy Night">Comedy Night</option>
+								<option value = "Club Night">Concert</option>
+							</select>
 						</div>
-						<div>Event Type</div>
-						<div>
-							<input
-								type=""
-								placeholder="Browse..."
-								name="Event Type"
-								onChange={handleChange}
-								required
-								className="input"
-							/></div>
-						<div>Starting Bid</div>
+						{/*<div>Starting Bid</div>
 						<div>
 							<input
 								type={"number"}
@@ -87,16 +78,26 @@ export default function Listing() {
 								maxLength={"11"}
 								className="input"
 							/></div>
-						<div>Add A Reserve</div>
+						<div> <View style = {styles.container}>
+							  <View>
+						      <Checkbox value = {isChecked} onChange = {setChecked} />
+							  <Text>Add a Reserve</Text>
+							  </View>
+							  <StatusBar style = "auto"/>
+							  </View>
+					         </div>
+						
+							<div>Auction End</div>
 						<div>
 							<input
-								type="number"
-								placeholder="£00.00"
-								name="Reserve"
+								type="date"
+								placeholder="Auction End"
+								name="Auction End Date and Time"
 								onChange={handleChange}
-								required
+								required= "true"
 								className="input"
-							/></div>
+							/>
+						</div>
 						<div>Event Description</div>
 						<div>
 							<input
@@ -116,12 +117,12 @@ export default function Listing() {
 								onChange={handleChange}
 								required
 								className="input"
-	/></div> */}
+	                    /></div> */}
 						<button type="submit" className={styles.green_btn}>
 							Submit Listing
 						</button>
                         <button type="clear" className={styles.red_btn}>
-							Submit Listing
+							Clear Listing
 						</button>
 					</form>
 				</div> 
