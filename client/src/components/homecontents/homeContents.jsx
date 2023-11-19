@@ -2,12 +2,48 @@ import React from 'react';
 import './homeContents.css';
 import '../../App.css';
 import { Link } from 'react-router-dom';
+import './homeContents.css';
+import BurgerNew from "../burgerNavigation/hamBurgerMenu.jsx";
+import logo from "../../images/TransparentLogo.png";
+import { MdOutlinePeopleAlt } from "react-icons/md";
+
+function Logo() {
+    return (<div>
+        <a href={"/"}><img src={logo} alt="Ticket Scalper Logo"
+            className={"headerLogo"} /></a>
+    </div>)
+}
 
 function HomeContent() {
     return (
         
         <div class='textcontainer'>
             <div className={"homepageHeader"}>
+            <BurgerNew class="burger" />
+            <div class="headerFlex">
+                <Logo />
+                <div class="headerButtongroup">
+                    <Link to={"/Buying"}>
+                        <button class="headerButtons">Buy</button>
+                    </Link>
+                    <Link to={"/Sell"}>
+                        <button class="headerButtons">Sell</button>
+                    </Link>
+                    <Link to={"/Helpcentre"}>
+                        <button class="headerButtons">Help</button>
+                    </Link>
+                </div>
+                <Link to={"/login"}>
+                    <button class="loginButtons">Log in</button>
+                </Link>
+                <Link to={"/Account"}>
+                    <button class="loginButtons">My Account</button>
+                </Link>
+                <Link to={"/login"}>
+                    <button class="loginicon"><MdOutlinePeopleAlt class='headericon' size={40} /></button>
+                </Link>
+                
+            </div>
 <div>
     <p class="homePageTitle">TicketScalper</p>
     <br/>

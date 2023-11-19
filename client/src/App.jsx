@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header/header.jsx';
+
 import Boilerplate from './components/boilerplate/boilerplate.jsx';
 import Listings from "./pages/Listings.js";
 import Selling from "./pages/Selling.js";
@@ -23,10 +23,9 @@ function App() {
   return (
     <>
       <div className="App">
-        <Header />
         <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='/Listing' element={<Listings/>} />
+<Route path='/Listing' element={<Listings/>} />
           <Route path='/Sell' element={<Selling/>} />
           <Route path='/Buying' element={<Buying/>} />
           <Route path='/Itemview/:itemid' element={<Itemview/>} />

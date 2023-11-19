@@ -13,6 +13,7 @@ body {
   height: calc(3vh + 6px);
   left: calc(1vw + 10px);
   top: calc((15vh/2) - ((3vh + 6px)/2));
+  visibility: collapse;
 }
 
 /* Styles for the burger icon bars */
@@ -75,3 +76,11 @@ body {
   background: rgba(255, 0, 0, 0.5); /* Overlay color and transparency */
 }
 
+  /* Responsive layout - makes a one column layout instead of a two-column layout when hits 450px screen width */
+  @media (max-width: 450px) {
+    .bm-burger-button {
+
+      visibility: visible;
+    }
+    
+  }

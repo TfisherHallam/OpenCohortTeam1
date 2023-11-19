@@ -9,7 +9,7 @@ function Selling() {
         <div class='textcontainer'>
             <div class="textflex-container">
                 
-                <p className='sellingparagraph'>
+                <div className='sellingparagraph'>
                 <h1>Sell your tickets with ease</h1>
                 <br/>
                     We know that plans can change, however you should not have to pay for hidden admin charges for your change of plans. Using TicketScalper, you can sell your tickets at a fair price and retain the full value!
@@ -53,7 +53,7 @@ function Selling() {
                     <h2>So... what are you waiting for?</h2>
                     <br />
                     <br />                   
-                     </p>
+                     </div>
             </div>
         </div>
 

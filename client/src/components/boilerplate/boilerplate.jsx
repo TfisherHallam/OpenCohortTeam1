@@ -18,7 +18,7 @@ function Footer() {
 function Boilerplate() {
     return (
 <>
-        <div class="flex-container">
+        <div class="boilerplateflex-container">
             <div class="aboutFlex">
                 <div><b>About TicketScalper</b></div>
                 <span><Link to={"/Termsofuse"}>Terms of Use</Link></span>
