@@ -17,20 +17,20 @@ function Footer() {
 
 function Boilerplate() {
     return (
-<>
-        <div class="boilerplateflex-container">
-            <div class="aboutFlex">
-                <div><b>About TicketScalper</b></div>
-                <span><Link to={"/Termsofuse"}>Terms of Use</Link></span>
-                <div><Link to={"/Privacy"}>Privacy</Link></div>
+        <>
+            <div class="boilerplateflex-container">
+                <div class="aboutFlex">
+                    <div><b>About TicketScalper</b></div>
+                    <span><Link to={"/Termsofuse"}>Terms of Use</Link></span>
+                    <div><Link to={"/Privacy"}>Privacy</Link></div>
+                </div>
+                <div class="aboutFlex">
+                    <div><b>Support</b></div>
+                    <div><Link to={"/Helpcentre"}>Help Centre</Link></div>
+                </div>
+
             </div>
-            <div class="aboutFlex">
-                <div><b>Support</b></div>
-                <div><Link to={"/Helpcentre"}>Help Centre</Link></div>
-            </div>
-            
-        </div>
-<Footer/></>
+            <Footer /></>
     )
 }
 

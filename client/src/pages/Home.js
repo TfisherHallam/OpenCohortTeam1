@@ -3,9 +3,9 @@ import HomeContent from "../components/homecontents/homeContents.jsx";
 
 function Home() {
   return (
-      <div>
-        <HomeContent/>
-      </div>
+    <div>
+      <HomeContent />
+    </div>
   )
 }
 

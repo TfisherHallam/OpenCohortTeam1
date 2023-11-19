@@ -44,45 +44,45 @@ export default function Login() {
 	};
 
 	return (
-<div class='textflex-container'>
+		<div class='textflex-container'>
 			<div class='textcontainer'>
 				<div>
-					<form  class='loginform' onSubmit={handleSubmit}>
+					<form class='loginform' onSubmit={handleSubmit}>
 						<h1>Welcome back</h1>
-						<br/>
+						<br />
 						<p><Link to={"/Register"}>New user? Sign up here</Link></p>
-						<br/>						
-						<FaUserCircle class='icon' size={70}/>
-						<br/>
-						<br/>
+						<br />
+						<FaUserCircle class='icon' size={70} />
+						<br />
+						<br />
 						<input
-						type="email"
-						placeholder="Email"
-						id="email"
-						onChange={handleChange}
-						required
-						className="inputboxes"
-					/>
-						<br/>
-						<br/>
+							type="email"
+							placeholder="Email"
+							id="email"
+							onChange={handleChange}
+							required
+							className="inputboxes"
+						/>
+						<br />
+						<br />
 						<input
-						type="password"
-						placeholder="Password"
-						id="password"
-						onChange={handleChange}
-						required
-						className="inputboxes"
-					/>
+							type="password"
+							placeholder="Password"
+							id="password"
+							onChange={handleChange}
+							required
+							className="inputboxes"
+						/>
 						{error && <div class="">{error}</div>}
-						<br/>
-						<br/>
+						<br />
+						<br />
 						<button type="submit" class="loginbutton">
 							SIGN IN
 						</button>
 					</form>
 					<p><Link to={"/"}>Forgotten your password? Click here to reset</Link></p>
-				</div>				
+				</div>
 			</div>
 		</div>
-);
+	);
 };

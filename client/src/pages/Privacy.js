@@ -2,13 +2,12 @@ import React from 'react';
 import PrivacyContent from '../components/privacy/privacy.jsx';
 import Header from '../components/Header/header.jsx';
 
-function Privacy()
-{
+function Privacy() {
   return (
-      <div>   
-        <Header/>     
-        <PrivacyContent/>
-        </div>
+    <div>
+      <Header />
+      <PrivacyContent />
+    </div>
   )
 }
 export default Privacy;
