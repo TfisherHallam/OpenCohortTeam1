@@ -1,8 +1,11 @@
+import MyAccountMainContent from "../components/MyAccount/myAccountMainContent.jsx";
+
+
 function MyAccount(){
   return(
       <div>
-        <h1 style={{ textAlign: 'center' }}>MyAccount Page</h1>
-        
+        <h1>My Account</h1>       
+<MyAccountMainContent/>
       </div>
   )
 }

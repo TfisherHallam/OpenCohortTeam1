@@ -39,6 +39,89 @@
   z-index: 1;
 }
 
+.homePageTitle{
+    font-family: Arial;
+    font-size: 48px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 1.4;
+    opacity: 1;
+    align-self: flex-start;
+    min-width: 0px;
+    order: 4;
+    min-height: 0px;
+    height: max-content;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: calc(100% - 100px);
+    margin-left: 50px;
+    margin-top: 64px;
+    margin-right: 50px;
+    margin-bottom: 0px;
+    z-index: 11;
+    white-space: pre-wrap;
+    overflow: visible;
+    border-radius: 0px;
+}
+
+
+
+.headerSubline {
+        font-family: Arial;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 247, 247);
+    text-align: center;
+    line-height: 1.4;
+    opacity: 1;
+    align-self: flex-start;
+    min-width: 0px;
+    order: 5;
+    min-height: 0px;
+    height: max-content;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: calc(100% - 128px);
+    margin-left: 64px;
+    margin-top: 8px;
+    margin-right: 64px;
+    margin-bottom: 8px;
+    z-index: 12;
+    white-space: pre-wrap;
+    overflow: visible;
+    border-radius: 0px;
+}
+
+.ticketsButton {
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    line-height: 1;
+    opacity: 1;
+    cursor: pointer;
+    align-self: flex-start;
+    min-width: 150px;
+    max-width: 150px;
+    order: 3;
+    min-height: 45px;
+    width: 150px;
+    flex-grow: 1;
+    height: max-content;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    z-index: 16;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(222, 221, 219);
+    border-radius: 20px;
+    transition: background 200ms ease 0s;
+}
+
 
 .homecontentbox {
     font-family: Arial;

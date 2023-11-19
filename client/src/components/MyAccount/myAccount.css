@@ -1,7 +1,7 @@
 
-.itemviewflex-container {
+.flex-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   
   .itemviewflex-item-left {
@@ -13,12 +13,45 @@
         line-height: 1.4;
         height: 48px;
   }
+
+  .myAccountSubItem{
+    width: 100%;
+  }
+
+  .myAccountListItems {
+    list-style: none;
+  }
+
+  .accountPageButtonText {
+    background-color: blue;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    line-height: 1;
+    border-radius: 0px;
+    opacity: 1;
+    order: 2;
+    height: 50px;
+    flex-grow: 1;
+width:100%;
+    margin: 0px;
+  }
+
+  .mainContentDiv{
+    width: 80%
+  }
   
-  .itemviewflex-item-right {
-    font-family: Arial;
-    font-size: 16px;
-    flex: 80%;
-  }  
+  .button1{   
+    border-radius: 0px;
+    opacity: 1;
+    cursor: pointer;
+
+width: 100%;
+    border: none;
+    background-color: transparent;
+  }
+
   /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 450px) {
     .itemviewflex-container {
