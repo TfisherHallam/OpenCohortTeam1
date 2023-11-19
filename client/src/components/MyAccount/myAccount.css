@@ -1,73 +1,72 @@
-
 .flex-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .itemviewflex-item-left {
-        flex: 20%;
-        font-family: Arial;
-        font-size: 16px;
-        font-weight: bold;
-        color: rgb(24, 24, 24);
-        line-height: 1.4;
-        height: 48px;
-  }
+  display: flex;
+  flex-direction: column;
+}
 
-  .myAccountSubItem{
-    width: 100%;
-  }
+.itemviewflex-item-left {
+  flex: 20%;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(24, 24, 24);
+  line-height: 1.4;
+  height: 48px;
+}
 
-  .myAccountListItems {
-    list-style: none;
-  }
+.myAccountSubItem {
+  width: 100%;
+}
 
-  .accountPageButtonText {
-    background-color: blue;
-    font-size: 15px;
-    font-weight: 600;
-    color: white;
-    text-align: center;
-    line-height: 1;
-    border-radius: 0px;
-    opacity: 1;
-    order: 2;
-    height: 50px;
-    flex-grow: 1;
-width:100%;
-    margin: 0px;
-  }
+.myAccountListItems {
+  list-style: none;
+}
 
-  .mainContentDiv{
-    width: 80%
-  }
-  
-  .button1{   
-    border-radius: 0px;
-    opacity: 1;
-    cursor: pointer;
+.accountPageButtonText {
+  background-color: blue;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  line-height: 1;
+  border-radius: 0px;
+  opacity: 1;
+  order: 2;
+  height: 50px;
+  flex-grow: 1;
+  width: 100%;
+  margin: 0px;
+}
 
-width: 100%;
-    border: none;
-    background-color: transparent;
-  }
+.mainContentDiv {
+  width: 80%
+}
 
-  /* Responsive layout - makes a one column-layout instead of two-column layout */
+.button1 {
+  border-radius: 0px;
+  opacity: 1;
+  cursor: pointer;
+
+  width: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 450px) {
-    .itemviewflex-container {
-      flex-direction: column;
-    }
-  }
-
-  .itemviewtextflex-container {
-    display: flex;
+  .itemviewflex-container {
     flex-direction: column;
-    margin-left: 10%;
-    margin-right: 10%;
-    border: 1px;
-    padding-top: 5%;
-    width: 80%;
-    align-content: center;
-    justify-content: center;
-    position: relative;
   }
+}
+
+.itemviewtextflex-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 1px;
+  padding-top: 5%;
+  width: 80%;
+  align-content: center;
+  justify-content: center;
+  position: relative;
+}

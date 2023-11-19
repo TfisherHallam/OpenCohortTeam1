@@ -1,63 +1,64 @@
 .welcomebackheader {
-   white-space: pre-wrap; 
-   overflow: visible; 
-   font-family: Arial; 
-   font-size: 32px; 
-   font-weight: bold; 
-   color: rgb(24, 24, 24); 
-   text-align: center; 
-   letter-spacing: -0.5px; 
-   line-height: 1.4; 
-   border-radius: 0px; 
-   opacity: 1; 
-   align-self: flex-start; 
-   min-width: 0px; 
-   order: 1; 
-   min-height: 0px; 
-   height: max-content; 
-   flex-grow: 0; 
-   flex-shrink: 0; 
-   width: calc(100% - 0px); 
-   margin: 8px 0px; 
+   white-space: pre-wrap;
+   overflow: visible;
+   font-family: Arial;
+   font-size: 32px;
+   font-weight: bold;
+   color: rgb(24, 24, 24);
+   text-align: center;
+   letter-spacing: -0.5px;
+   line-height: 1.4;
+   border-radius: 0px;
+   opacity: 1;
+   align-self: flex-start;
+   min-width: 0px;
+   order: 1;
+   min-height: 0px;
+   height: max-content;
+   flex-grow: 0;
+   flex-shrink: 0;
+   width: calc(100% - 0px);
+   margin: 8px 0px;
 }
 
 .loginform {
-   text-align: center; 
+   text-align: center;
 }
 
 .inputboxes {
-   border-style: solid; 
-   border-width: 1px; 
-   border-radius: 5px; 
-   font-size: 14px; 
-   font-weight: 400; 
-   padding: 6px; opacity: 1; 
-   align-self: center; 
-width: 200px;
-   order: 6; 
-   height: 30px; 
-   flex-grow: 1; 
-   width: 250px; 
-   margin: 0px; 
+   border-style: solid;
+   border-width: 1px;
+   border-radius: 5px;
+   font-size: 14px;
+   font-weight: 400;
+   padding: 6px;
+   opacity: 1;
+   align-self: center;
+   width: 200px;
+   order: 6;
+   height: 30px;
+   flex-grow: 1;
+   width: 250px;
+   margin: 0px;
 }
 
 .loginbutton {
- background-color: blue; 
- font-family: Arial, Helvetica, sans-serif; 
- font-size: 15px; 
- font-weight: 600; 
- color: white;
- text-align: center; 
- line-height: 1; 
- border-radius: 5px; 
- padding: 12px 24px; 
- opacity: 1; 
- cursor: pointer; 
- align-self: center; 
- width: 150px; 
- order: 9;
- height: 45px; 
- flex-grow: 1; 
- width: 150px; 
- margin: 0px; 
+   background-color: blue;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 15px;
+   font-weight: 600;
+   color: white;
+   text-align: center;
+   line-height: 1;
+   border-radius: 5px;
+   padding: 12px 24px;
+   opacity: 1;
+   cursor: pointer;
+   align-self: center;
+   width: 150px;
+   order: 9;
+   height: 45px;
+   flex-grow: 1;
+   width: 150px;
+   margin: 0px;
 }

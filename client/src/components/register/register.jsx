@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import './register.css';
 import '../../App.css';
+import PassStrength from "../passwordStrength/password";
 
 export default function Register() {
 	const [formData, setFormData] = useState({});
@@ -14,6 +15,7 @@ export default function Register() {
 			[e.target.id]: e.target.value,
 		});
 	};
+
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -50,64 +52,64 @@ export default function Register() {
 					<div class="registerflex-item-left">Username:</div>
 					<div class="registerflex-item-right">
 						<input
-						type="text"
-						placeholder="Username"
-						id="username"
-						onChange={handleChange}
-						required
-						className="input"
-					/></div>
+							type="text"
+							placeholder="Username"
+							id="username"
+							onChange={handleChange}
+							required
+							className="input"
+						/></div>
 				</div>
 				<div class="registerflex-container">
 					<div class="registerflex-item-left">First name:</div>
 					<div class="registerflex-item-right">
 						<input
-						type="text"
-						placeholder="First Name"
-						id="firstname"
-						onChange={handleChange}
-						required
-						className="input"
-					/></div></div>
+							type="text"
+							placeholder="First Name"
+							id="firstname"
+							onChange={handleChange}
+							required
+							className="input"
+						/></div></div>
 				<div class="registerflex-container">
 					<div class="registerflex-item-left">Last name:</div>
-					<div class="registerflex-item-right">							
-					<input
-						type="text"
-						placeholder="Last Name"
-						id="lastname"
-						onChange={handleChange}
-						required
-						className="input"
-					/></div>
+					<div class="registerflex-item-right">
+						<input
+							type="text"
+							placeholder="Last Name"
+							id="lastname"
+							onChange={handleChange}
+							required
+							className="input"
+						/></div>
 				</div><div class="registerflex-container">
 					<div class="registerflex-item-left">Email address:</div>
-					<div class="registerflex-item-right">							
-					<input
-						type="email"
-						placeholder="Email"
-						id="email"
-						onChange={handleChange}
-						required
-						className="input"
-					/></div>
+					<div class="registerflex-item-right">
+						<input
+							type="email"
+							placeholder="Email"
+							id="email"
+							onChange={handleChange}
+							required
+							className="input"
+						/></div>
 				</div>
 				<div class="registerflex-container">
 					<div class="registerflex-item-left">Mobile Number:</div>
 					<div class="registerflex-item-right">
 						<input
-						type="tel"
-						placeholder="07123456789"
-						id="telephone"
-						onChange={handleChange}
-						required
-						maxLength="11"
-						className="input"
-					/></div>
+							type="tel"
+							placeholder="07123456789"
+							id="telephone"
+							onChange={handleChange}
+							required
+							maxLength="11"
+							className="input"
+						/></div>
 				</div>
 				<div class="registerflex-container">
 					<div class="registerflex-item-left">Create Password:</div>
-					<div class="registerflex-item-right"><input
+					<div class="registerflex-item-right"><PassStrength
 						type="password"
 						placeholder="Password"
 						id="password"
@@ -121,5 +123,5 @@ export default function Register() {
 				</button>
 			</form>
 			<p><Link to={"/login"}>Already a member? Click here to login</Link></p>
-		</div>	);
+		</div>);
 };

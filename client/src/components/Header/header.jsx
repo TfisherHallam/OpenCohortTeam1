@@ -32,6 +32,9 @@ function Header() {
                 <Link to={"/login"}>
                     <button class="loginButtons">Log in</button>
                 </Link>
+                <Link to={"/Account"}>
+                    <button class="loginButtons">My Account</button>
+                </Link>
                 <Link to={"/login"}>
                     <button class="loginicon"><MdOutlinePeopleAlt class='headericon' size={40} /></button>
                 </Link>

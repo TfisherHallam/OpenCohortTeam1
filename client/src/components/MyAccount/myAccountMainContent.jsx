@@ -7,11 +7,11 @@ import './myAccount.css';
 function MyAccountMainContent() {
     return (
         <div class="flex-container">
-  <div class="mainContentDiv"><MyAccountInfoContent/></div>
-  <div class="mainContentDiv"><MyAccountSalesContent/></div>
-  <div class="mainContentDiv"><MyAccountPurchasesContent/></div>
-  <div class="mainContentDiv"><MyAccountLogOut/></div>
-</div>
+            <div class="mainContentDiv"><MyAccountInfoContent /></div>
+            <div class="mainContentDiv"><MyAccountSalesContent /></div>
+            <div class="mainContentDiv"><MyAccountPurchasesContent /></div>
+            <div class="mainContentDiv"><MyAccountLogOut /></div>
+        </div>
     )
 }
 

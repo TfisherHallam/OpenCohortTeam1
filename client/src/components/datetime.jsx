@@ -6,7 +6,7 @@ import { Button, Text, View, StatusBar } from "react-bootstrap";
 
 export default function Datetimepicker() {
 
-    const [date, setDate] = useState(new Date());
+	const [date, setDate] = useState(new Date());
 	const [mode, setMode] = useState("date");
 	const [show, setShow] = useState(false);
 	const [text, setText] = useState("Empty");
@@ -15,26 +15,26 @@ export default function Datetimepicker() {
 		setDate(selectedDate);
 		setShow(false);
 	}
-	
+
 	const showMode = (currentMode) => {
 		setShow(true);
-	    setMode(currentMode);
+		setMode(currentMode);
 	}
 
 	return (
-		<View style = {StyleSheet.container}>
-			<Button title = "Select Date" onPress = {() => showMode("date")}/>
-			<Button title = "Select Time" onPress = {() => showMode("time")}/>
+		<View style={StyleSheet.container}>
+			<Button title="Select Date" onPress={() => showMode("date")} />
+			<Button title="Select Time" onPress={() => showMode("time")} />
 			{show && (
 				<DateTimerPicker
-				value= {date}
-				mode = {mode}
-				is24hour = {true}
-				onChange={onChange}
+					value={date}
+					mode={mode}
+					is24hour={true}
+					onChange={onChange}
 				/>
-			)} 
+			)}
 			<Text>{date.toLocaleString()}</Text>
-			<StatusBar> style = "auto" </StatusBar>	
+			<StatusBar> style = "auto" </StatusBar>
 		</View>
 	)
 }
