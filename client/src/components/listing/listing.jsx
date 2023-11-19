@@ -1,12 +1,9 @@
-import { useState } from "react";
-import axios from "axios";
-// import DateTimerPicker from "react-date-picker";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, Text, View, Checkbox, StatusBar, CurrencyInput } from "react";
+//import axios from "axios";
+//import { Link, useNavigate } from "react-router-dom";
 import styles from "./listing.css";
-//import datetime from "./datetime.jsx"
-import {StatusBar} from "expo-status-bar";
-import{Checkbox} from "expo-checkbox";
-import {Text, View,} from "react-bootstrap";
+import Datetimepicker from "../datetime.jsx";
+//import {Text, View, Checkbox, StatusBar, CurrencyInput} from "react-bootstrap";
 
 export default function Listing() {
 	const [isChecked, setChecked]= useState(false);
@@ -45,16 +42,10 @@ export default function Listing() {
 								required= "true"
 								className="input"/>
 						</div>
-                        {/*<div>Event Date</div>
+                        <div>Event Date</div>
 						<div>
-							<input
-								type= "date"
-								placeholder="Event Date and Time"
-								name="Event Date and Time"
-								onChange={handleChange}
-								required= "true"
-								className="input"
-	/></div>*/}
+							<Datetimepicker/>
+						</div>
 						<div>
 						    <label>Event Type</label>
 							<select>
@@ -67,46 +58,49 @@ export default function Listing() {
 								<option value = "Club Night">Concert</option>
 							</select>
 						</div>
-						{/*<div>Starting Bid</div>
+						<div>Starting Bid</div>
 						<div>
-							<input
-								type={"number"}
-								placeholder="£00.00"
-								name="Starting Bid"
-								onChange={handleChange}
+							<CurrencyInput
+							    name="Starting Bid"
+							    placeholder="Please enter a number"
+							    defaultValue={1000}
+							    decimalsLimit={2}
+							    onValueChange={(value, name) => console.log(value, name)}
 								required
-								maxLength={"11"}
-								className="input"
 							/></div>
-						<div> <View style = {styles.container}>
+						<div>Add a Reserve</div>
+						<div> 
+							<View style = {styles.container}>
 							  <View>
-						      <Checkbox value = {isChecked} onChange = {setChecked} />
+						      <Checkbox value = {isChecked} onChange = {setChecked} 
+							   />
 							  <Text>Add a Reserve</Text>
 							  </View>
-							  <StatusBar style = "auto"/>
+							  <StatusBar style = {{"auto"}}/>
 							  </View>
-					         </div>
-						
-							<div>Auction End</div>
-						<div>
-							<input
-								type="date"
-								placeholder="Auction End"
-								name="Auction End Date and Time"
+							  <input 
+							    type="Checkbox" 
+							    placeholder="Add a Reserve"
+							    name= "Reserve"
 								onChange={handleChange}
-								required= "true"
-								className="input"
-							/>
+								required= {false}
+								className= "input"
+							   />
+					         </div>
+						<div>Auction End</div>
+						<div>
+						    <Datetimepicker/>
 						</div>
 						<div>Event Description</div>
 						<div>
 							<input
-								type="text"
+								type="textarea"
 								placeholder="Give more information about your event..."
 								name="Description"
 								onChange={handleChange}
-								required
+								required= {false}
 								className="input"
+								rows= {10}
 							/></div>
                             <div>Upload Event Image</div>
 						<div>
@@ -117,7 +111,7 @@ export default function Listing() {
 								onChange={handleChange}
 								required
 								className="input"
-	                    /></div> */}
+	                    /></div>
 						<button type="submit" className={styles.green_btn}>
 							Submit Listing
 						</button>
