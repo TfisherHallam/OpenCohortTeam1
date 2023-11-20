@@ -1,15 +1,17 @@
 import React from 'react';
+import Header from '../components/Header/header.jsx';
 import Listing from '../components/listing/listing.jsx';
 
 
-function Listings(){
-  return(
+function ListingPage() {
+  return (
       <div>
-        <h1 style={{ textAlign: 'center' }}>
-          <Listing/></h1>
+        <Header />
+        <Listing />
 
       </div>
   )
 }
 
-export default  Listings;
+
+export default  ListingPage;

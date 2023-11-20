@@ -7,12 +7,12 @@ import './myAccount.css';
 
 function MyAccountMainContent() {
     return (
-        <div class="flex-container">
-            <div class="mainContentDiv"><MyAccountInfoContent /></div>
-            {/* <div class="mainContentDiv"><MyAccountListings /></div> */}
-            <div class="mainContentDiv"><MyAccountSalesContent /></div>
-            <div class="mainContentDiv"><MyAccountPurchasesContent /></div>
-            <div class="mainContentDiv"><MyAccountLogOut /></div>
+        <div className="flex-container">
+            <div className="mainContentDiv"><MyAccountInfoContent /></div>
+            {/* <div className="mainContentDiv"><MyAccountListings /></div> */}
+            <div className="mainContentDiv"><MyAccountSalesContent /></div>
+            <div className="mainContentDiv"><MyAccountPurchasesContent /></div>
+            <div className="mainContentDiv"><MyAccountLogOut /></div>
         </div>
     )
 }

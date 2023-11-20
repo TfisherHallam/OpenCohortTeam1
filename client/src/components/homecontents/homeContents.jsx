@@ -17,48 +17,48 @@ function Logo() {
 function HomeContent() {
     return (
 
-        <div class='textcontainer'>
+        <div className='textcontainer'>
             <div className={"homepageHeader"}>
-                <BurgerNew class="burger" />
-                <div class="headerFlex">
+                <BurgerNew className="burger" />
+                <div className="headerFlex">
                     <Logo />
-                    <div class="headerButtongroup">
+                    <div className="headerButtongroup">
                         <Link to={"/Buying"}>
-                            <button class="headerButtons">Buy</button>
+                            <button className="headerButtons">Buy</button>
                         </Link>
                         <Link to={"/Sell"}>
-                            <button class="headerButtons">Sell</button>
+                            <button className="headerButtons">Sell</button>
                         </Link>
                         <Link to={"/Helpcentre"}>
-                            <button class="headerButtons">Help</button>
+                            <button className="headerButtons">Help</button>
                         </Link>
                     </div>
                     <Link to={"/login"}>
-                        <button class="loginButtons">Log in</button>
+                        <button className="loginButtons">Log in</button>
                     </Link>
                     <Link to={"/Account"}>
-                        <button class="loginButtons">My Account</button>
+                        <button className="loginButtons">My Account</button>
                     </Link>
                     <Link to={"/login"}>
-                        <button class="loginicon"><MdOutlinePeopleAlt class='headericon' size={40} /></button>
+                        <button className="loginicon"><MdOutlinePeopleAlt className='headericon' size={40} /></button>
                     </Link>
 
                 </div>
                 <div>
-                    <p class="homePageTitle">TicketScalper</p>
+                    <p className="homePageTitle">TicketScalper</p>
                     <br />
                     <br />
-                    <p class="headerSubline">Your next night in Sheffield awaits</p>
+                    <p className="headerSubline">Your next night in Sheffield awaits</p>
                     <br />
                     <br />
                     <Link to={"/Buying"}>
-                        <button class="ticketsButton">Go to tickets</button>
+                        <button className="ticketsButton">Go to tickets</button>
                     </Link>
                 </div>
             </div>
-            <div class="textflex-container">
-                <h1 class="homeheader">Welcome to TicketScalper</h1>
-                <p class='homecontentbox'>
+            <div className="textflex-container">
+                <h1 className="homeheader">Welcome to TicketScalper</h1>
+                <p className='homecontentbox'>
 
                     TicketScalper is a platform where you can easily bid on and sell tickets in Sheffield.
                     <br />

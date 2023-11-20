@@ -44,15 +44,15 @@ export default function Login() {
 	};
 
 	return (
-		<div class='textflex-container'>
-			<div class='textcontainer'>
+		<div className='textflex-container'>
+			<div className='textcontainer'>
 				<div>
-					<form class='loginform' onSubmit={handleSubmit}>
+					<form className='loginform' onSubmit={handleSubmit}>
 						<h1>Welcome back</h1>
 						<br />
 						<p><Link to={"/Register"}>New user? Sign up here</Link></p>
 						<br />
-						<FaUserCircle class='icon' size={70} />
+						<FaUserCircle className='icon' size={70} />
 						<br />
 						<br />
 						<input
@@ -73,10 +73,10 @@ export default function Login() {
 							required
 							className="inputboxes"
 						/>
-						{error && <div class="">{error}</div>}
+						{error && <div className="">{error}</div>}
 						<br />
 						<br />
-						<button type="submit" class="loginbutton">
+						<button type="submit" className="loginbutton">
 							SIGN IN
 						</button>
 					</form>

@@ -53,7 +53,7 @@ export default function PassStrength() {
     return (
         <div>
             <input
-                class="input"
+                className="input"
                 type="password"
                 value={password}
                 onChange={(e) => handleChangePassword(e)}

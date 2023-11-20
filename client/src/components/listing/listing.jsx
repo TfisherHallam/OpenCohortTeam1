@@ -1,4 +1,7 @@
-import { useState, Text, View, Checkbox, StatusBar, CurrencyInput, Auto } from "react";
+import { useState} from "react";
+import { Text, View, StatusBar } from 'react-native-web';
+import CurrencyInput from 'react-currency-input-field';
+
 //import { Link, useNavigate } from "react-router-dom";
 import styles from "./listing.css";
 //import Datetimepicker from "../datetime.jsx";
@@ -38,7 +41,7 @@ function Listing() {
 								placeholder="Event Name"
 								name="Event Name"
 								onChange={handleChange}
-								required= "true"
+								required= {true}
 								className="input"/>
 						</div>
                         <div>Event Date</div>
@@ -65,20 +68,26 @@ function Listing() {
 							    defaultValue={1000}
 							    decimalsLimit={2}
 							    onValueChange={(value, name) => console.log(value, name)}
-								required
+									required = {true}
 							/></div>
 						<div>Add a Reserve</div>
 						<div> 
 							<View style = {styles.container}>
 							  <View>
-						      <Checkbox value = {isChecked} onChange = {setChecked} 
-							   />
+									<input
+											type="Checkbox"
+											placeholder="Add a Reserve"
+											name= "Reserve"
+											onChange={handleChange}
+											required= {false}
+											className= "input"
+									/>
 							  <Text>Add a Reserve</Text>
 							  </View>
-							  <StatusBar style = {{Auto}}/>
+							  <StatusBar style = "auto"/>
 							  </View>
 							  <input 
-							    type="Checkbox" 
+							    type="Checkbox"
 							    placeholder="Add a Reserve"
 							    name= "Reserve"
 								onChange={handleChange}
@@ -123,5 +132,6 @@ function Listing() {
 		</div>
 	);
 };
+
 
 export default Listing;

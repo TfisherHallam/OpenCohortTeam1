@@ -16,27 +16,27 @@ function Header() {
     return (
         <div className={"appHeader"}>
             <BurgerNew className={"burger"} />
-            <div class="headerFlex">
+            <div className="headerFlex">
                 <Logo />
-                <div class="headerButtongroup">
+                <div className="headerButtongroup">
                     <Link to={"/Buying"}>
-                        <button class="headerButtons">Buy</button>
+                        <button className="headerButtons">Buy</button>
                     </Link>
                     <Link to={"/Sell"}>
-                        <button class="headerButtons">Sell</button>
+                        <button className="headerButtons">Sell</button>
                     </Link>
                     <Link to={"/Helpcentre"}>
-                        <button class="headerButtons">Help</button>
+                        <button className="headerButtons">Help</button>
                     </Link>
                 </div>
                 <Link to={"/login"}>
-                    <button class="loginButtons">Log in</button>
+                    <button className="loginButtons">Log in</button>
                 </Link>
                 <Link to={"/Account"}>
-                    <button class="loginButtons">My Account</button>
+                    <button className="loginButtons">My Account</button>
                 </Link>
                 <Link to={"/login"}>
-                    <button class="loginicon"><MdOutlinePeopleAlt class='headericon' size={40} /></button>
+                    <button className="loginicon"><MdOutlinePeopleAlt className='headericon' size={40} /></button>
                 </Link>
             </div>
         </div>

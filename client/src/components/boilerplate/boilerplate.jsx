@@ -6,7 +6,7 @@ import logo from "../../images/TransparentLogo.png";
 function Footer() {
     return (
         <div className={"appfooter"}>
-            <p class='footerText'>
+            <p className='footerText'>
                 <img src={logo} alt="Ticket Scalper Logo" className={"footerLogo"} />
                 TicketScalper Build 1.1
             </p>
@@ -18,13 +18,13 @@ function Footer() {
 function Boilerplate() {
     return (
         <>
-            <div class="boilerplateflex-container">
-                <div class="aboutFlex">
+            <div className="boilerplateflex-container">
+                <div className="aboutFlex">
                     <div><b>About TicketScalper</b></div>
                     <span><Link to={"/Termsofuse"}>Terms of Use</Link></span>
                     <div><Link to={"/Privacy"}>Privacy</Link></div>
                 </div>
-                <div class="aboutFlex">
+                <div className="aboutFlex">
                     <div><b>Support</b></div>
                     <div><Link to={"/Helpcentre"}>Help Centre</Link></div>
                 </div>

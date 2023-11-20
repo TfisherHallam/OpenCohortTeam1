@@ -2,7 +2,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
 import Boilerplate from './components/boilerplate/boilerplate.jsx';
-import Listings from "./pages/Listings.js";
+import ListingPage from "./pages/Listings.js";
 import Selling from "./pages/Selling.js";
 import Buying from "./pages/Buying.js";
 import MyAccount from "./pages/MyAccount.js";
@@ -25,7 +25,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path='/' element={<Home/>} />
-<Route path='/Listing' element={<Listings/>} />
+          <Route path='/Listing' element={<ListingPage/>} />
           <Route path='/Sell' element={<Selling/>} />
           <Route path='/Buying' element={<Buying/>} />
           <Route path='/Itemview/:itemid' element={<Itemview/>} />

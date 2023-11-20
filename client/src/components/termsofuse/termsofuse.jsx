@@ -4,8 +4,8 @@ import '../../App.css';
 
 function TermsofUseContent() {
     return (
-        <div class='textcontainer'>
-            <div class="textflex-container">
+        <div className='textcontainer'>
+            <div className="textflex-container">
                 <h1 style={{ textAlign: 'left' }}>Terms of use</h1>
                 <p className='paragraph'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus cras adipiscing enim eu turpis egestas pretium aenean. Luctus accumsan tortor posuere ac ut consequat. Neque convallis a cras semper auctor neque vitae tempus quam. Sed adipiscing diam donec adipiscing tristique. Suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam. Malesuada proin libero nunc consequat interdum varius. In arcu cursus euismod quis viverra nibh. A iaculis at erat pellentesque adipiscing commodo elit at imperdiet. Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Lacus sed viverra tellus in hac. Tortor at auctor urna nunc id cursus metus. Eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar. Consectetur adipiscing elit ut aliquam purus sit amet luctus. Odio eu feugiat pretium nibh ipsum consequat nisl. At elementum eu facilisis sed odio morbi quis. Non curabitur gravida arcu ac tortor dignissim convallis.

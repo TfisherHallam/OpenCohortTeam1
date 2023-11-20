@@ -45,12 +45,12 @@ export default function Register() {
 	};
 
 	return (
-		<div class="textcontainer">
+		<div className="textcontainer">
 			<form onSubmit={handleSubmit} >
 				<h1>Welcome! <br />We are so glad you are joining us!</h1>
-				<div class="registerflex-container">
-					<div class="registerflex-item-left">Username:</div>
-					<div class="registerflex-item-right">
+				<div className="registerflex-container">
+					<div className="registerflex-item-left">Username:</div>
+					<div className="registerflex-item-right">
 						<input
 							type="text"
 							placeholder="Username"
@@ -60,9 +60,9 @@ export default function Register() {
 							className="input"
 						/></div>
 				</div>
-				<div class="registerflex-container">
-					<div class="registerflex-item-left">First name:</div>
-					<div class="registerflex-item-right">
+				<div className="registerflex-container">
+					<div className="registerflex-item-left">First name:</div>
+					<div className="registerflex-item-right">
 						<input
 							type="text"
 							placeholder="First Name"
@@ -71,9 +71,9 @@ export default function Register() {
 							required
 							className="input"
 						/></div></div>
-				<div class="registerflex-container">
-					<div class="registerflex-item-left">Last name:</div>
-					<div class="registerflex-item-right">
+				<div className="registerflex-container">
+					<div className="registerflex-item-left">Last name:</div>
+					<div className="registerflex-item-right">
 						<input
 							type="text"
 							placeholder="Last Name"
@@ -82,9 +82,9 @@ export default function Register() {
 							required
 							className="input"
 						/></div>
-				</div><div class="registerflex-container">
-					<div class="registerflex-item-left">Email address:</div>
-					<div class="registerflex-item-right">
+				</div><div className="registerflex-container">
+					<div className="registerflex-item-left">Email address:</div>
+					<div className="registerflex-item-right">
 						<input
 							type="email"
 							placeholder="Email"
@@ -94,9 +94,9 @@ export default function Register() {
 							className="input"
 						/></div>
 				</div>
-				<div class="registerflex-container">
-					<div class="registerflex-item-left">Mobile Number:</div>
-					<div class="registerflex-item-right">
+				<div className="registerflex-container">
+					<div className="registerflex-item-left">Mobile Number:</div>
+					<div className="registerflex-item-right">
 						<input
 							type="tel"
 							placeholder="07123456789"
@@ -107,9 +107,9 @@ export default function Register() {
 							className="input"
 						/></div>
 				</div>
-				<div class="registerflex-container">
-					<div class="registerflex-item-left">Create Password:</div>
-					<div class="registerflex-item-right"><PassStrength
+				<div className="registerflex-container">
+					<div className="registerflex-item-left">Create Password:</div>
+					<div className="registerflex-item-right"><PassStrength
 						type="password"
 						placeholder="Password"
 						id="password"
@@ -118,7 +118,7 @@ export default function Register() {
 						className="input"
 					/></div>
 				</div>
-				<button class="registerbutton">
+				<button className="registerbutton">
 					Register
 				</button>
 			</form>

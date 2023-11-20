@@ -13,14 +13,14 @@ const MyAccountInfoContent = () => {
 
 	return (
 
-		<div class="mainDiv">
+		<div className="mainDiv">
 
-			<button class="button1" onClick={setInfoToggle}><FaUser class="icon" size={50} /><br />
-				<div class="accountPageButtonText">Account Information</div></button>
+			<button className="button1" onClick={setInfoToggle}><FaUser className="icon" size={50} /><br />
+				<div className="accountPageButtonText">Account Information</div></button>
 
 			{infoToggle && (
-				<div class="myAccountSubItem">
-					<ul class="myAccountListItems">
+				<div className="myAccountSubItem">
+					<ul className="myAccountListItems">
 						<li><label>First Name<input
 							type="text"
 							placeholder="First Name"
@@ -55,8 +55,8 @@ const MyAccountInfoContent = () => {
 						/></li>
 					</ul>
 
-					<button name="Make changes" class="button1"><div class="accountPageButtonText">Make Changes</div></button>
-					<button class="button1"><div class="accountPageButtonText">Delete my account</div></button>
+					<button name="Make changes" className="button1"><div className="accountPageButtonText">Make Changes</div></button>
+					<button className="button1"><div className="accountPageButtonText">Delete my account</div></button>
 				</div>
 			)}
 

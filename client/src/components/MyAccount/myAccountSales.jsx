@@ -14,7 +14,7 @@ const MyAccountSalesContent = () => {
 
     return (<div>
 
-        <button class="button1" onClick={setToggle}><FaRegMoneyBillAlt class="icon" size={50} /><br /><div class="accountPageButtonText">My sales</div></button>
+        <button className="button1" onClick={setToggle}><FaRegMoneyBillAlt className="icon" size={50} /><br /><div className="accountPageButtonText">My sales</div></button>
 
         {toggle && (
             <ul>
