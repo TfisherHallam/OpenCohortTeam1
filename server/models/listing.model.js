@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import DatePicker from "react-date-picker";
+import DateTimePicker from "react-date-picker";
 
 const userSchema = new mongoose.Schema({
     _id: {

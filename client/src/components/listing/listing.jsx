@@ -1,11 +1,10 @@
-import { useState, Text, View, Checkbox, StatusBar, CurrencyInput } from "react";
-//import axios from "axios";
+import { useState, Text, View, Checkbox, StatusBar, CurrencyInput, Auto } from "react";
 //import { Link, useNavigate } from "react-router-dom";
 import styles from "./listing.css";
-import Datetimepicker from "../datetime.jsx";
+//import Datetimepicker from "../datetime.jsx";
 //import {Text, View, Checkbox, StatusBar, CurrencyInput} from "react-bootstrap";
 
-export default function Listing() {
+function Listing() {
 	const [isChecked, setChecked]= useState(false);
 	const [formData, setFormData] = useState({})
 	const handleChange = (e) => {
@@ -44,7 +43,7 @@ export default function Listing() {
 						</div>
                         <div>Event Date</div>
 						<div>
-							<Datetimepicker/>
+							{/* <Datetimepicker/> */}
 						</div>
 						<div>
 						    <label>Event Type</label>
@@ -76,7 +75,7 @@ export default function Listing() {
 							   />
 							  <Text>Add a Reserve</Text>
 							  </View>
-							  <StatusBar style = {{"auto"}}/>
+							  <StatusBar style = {{Auto}}/>
 							  </View>
 							  <input 
 							    type="Checkbox" 
@@ -89,7 +88,7 @@ export default function Listing() {
 					         </div>
 						<div>Auction End</div>
 						<div>
-						    <Datetimepicker/>
+						    {/* <Datetimepicker/> */}
 						</div>
 						<div>Event Description</div>
 						<div>
@@ -125,3 +124,4 @@ export default function Listing() {
 	);
 };
 
+export default Listing;

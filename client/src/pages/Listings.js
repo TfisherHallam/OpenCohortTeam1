@@ -1,12 +1,12 @@
 import React from 'react';
-import Listingsinterface from '../components/listing/listing.jsx';
+import Listing from '../components/listing/listing.jsx';
 
 
 function Listings(){
   return(
       <div>
         <h1 style={{ textAlign: 'center' }}>
-          <Listingsinterface/></h1>
+          <Listing/></h1>
 
       </div>
   )
