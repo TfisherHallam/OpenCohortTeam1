@@ -62,7 +62,7 @@ function Listing() {
 						</div>
 						<div>Starting Bid</div>
 						<div>
-							<CurrencyInput
+							£<CurrencyInput
 							    name="Starting Bid"
 							    placeholder="Please enter a number"
 							    defaultValue={1000}
