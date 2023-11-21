@@ -2,6 +2,8 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import { connectDatabase } from './connectMongo.js';
+
+import cors from 'cors';
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listings.route.js';
@@ -14,8 +16,8 @@ const __dirname = path.resolve();
 
 
 app.use(express.json());
-app.use(cookieParser());
-
+app.use(cookieParser())
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/listings', listingRouter);
