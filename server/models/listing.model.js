@@ -6,21 +6,21 @@ const listingSchema = new mongoose.Schema({
   },
 
   eventName: {
-    type: String, required: true, unique: true
+    type: String, required: true,
   },
 
   eventDate: {
-    type: Date, required: true, unique: true
+    type: Date, required: true,
   },
 
   eventTime: {
-    type: Date, required: true, unique: true
+    type: String, required: true, unique: true
   }, startingBid: {
     type: Number, required: true
   },
 
   reserve: {
-    type: Number, required: true, unique: true
+    type: Number, required: true,
   },
 
   description: {
