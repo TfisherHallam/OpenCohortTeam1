@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState} from "react";
 import CurrencyInput from 'react-currency-input-field';
 import checkbox from "../checkbox";
@@ -7,12 +6,6 @@ import styles from "./listing.css";
 
 
 
-=======
-import { useState } from "react";
-import { Text, View, StatusBar } from 'react-native-web';
-import CurrencyInput from 'react-currency-input-field';
-import styles from "./listing.css";
->>>>>>> 4f7c479dd23a2caff19c013e4e353195f930b9d9
 
 function Listing() {
 
@@ -110,16 +103,6 @@ function Listing() {
 									decimalsLimit={2}
 									onValueChange={(value, name) => console.log(value, name)}
 									required = {true}
-								/>
-							</div>
-						<div>Add a Reserve</div>
-							<div>
-								£<CurrencyInput
-									input= "checkox"
-									name="Starting Bid"
-									placeholder="00.00"
-									decimalsLimit={2}
-									onValueChange={(value, name) => console.log(value, name)}
 								/>
 							</div>
 							<div>
