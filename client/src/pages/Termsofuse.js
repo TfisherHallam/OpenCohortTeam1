@@ -5,7 +5,6 @@ import Header from '../components/Header/header.jsx';
 function Termsofuse() {
   return (
     <div>
-      <Header />
       <TermsofUseContent />
     </div>
   )

@@ -5,7 +5,6 @@ import Header from '../components/Header/header.jsx';
 function Privacy() {
   return (
     <div>
-      <Header />
       <PrivacyContent />
     </div>
   )

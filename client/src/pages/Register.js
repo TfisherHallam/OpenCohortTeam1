@@ -5,7 +5,6 @@ import Header from '../components/Header/header.jsx';
 function Registerpage() {
   return (
     <div>
-      <Header />
       <Registerinterface />
     </div>
   )

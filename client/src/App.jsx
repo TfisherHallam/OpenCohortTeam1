@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-
+import Header from './components/Header/header.jsx';
 import Boilerplate from './components/boilerplate/boilerplate.jsx';
 import ListingPage from "./pages/Listings.js";
 import Selling from "./pages/Selling.js";
@@ -13,7 +13,6 @@ import Helpcentre from './pages/Helpcentre.js';
 import Privacy from './pages/Privacy.js';
 import Termsofuse from './pages/Termsofuse.js';
 import Itemview from './components/ItemView/Itemview.jsx';
-
 import React from 'react';
 //import BurgerMenu from "./components/burgerNavigation/burgerMenu.js";
 
@@ -23,6 +22,7 @@ function App() {
   return (
     <>
       <div className="App">
+        <Header />,
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/Listing' element={<ListingPage/>} />

@@ -5,7 +5,6 @@ import Header from '../components/Header/header.jsx';
 function Loginpage() {
   return (
     <div>
-      <Header />
       <Logininterface />
     </div>
   )

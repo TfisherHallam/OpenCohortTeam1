@@ -1,11 +1,7 @@
-import { useState} from "react";
+import { useState } from "react";
 import { Text, View, StatusBar } from 'react-native-web';
 import CurrencyInput from 'react-currency-input-field';
-
-//import { Link, useNavigate } from "react-router-dom";
 import styles from "./listing.css";
-//import Datetimepicker from "../datetime.jsx";
-//import {Text, View, Checkbox, StatusBar, CurrencyInput} from "react-bootstrap";
 
 function Listing() {
 	const [isChecked, setChecked]= useState(false);

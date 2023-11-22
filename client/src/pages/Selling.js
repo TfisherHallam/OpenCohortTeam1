@@ -4,7 +4,6 @@ import Selling from "../components/selling/selling.jsx";
 function Sell() {
   return (
     <div>
-      <Header />
       <Selling />
     </div>
   )

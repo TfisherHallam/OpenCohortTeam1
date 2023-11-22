@@ -6,7 +6,6 @@ import Listing from '../components/listing/listing.jsx';
 function ListingPage() {
   return (
       <div>
-        <Header />
         <Listing />
 
       </div>
