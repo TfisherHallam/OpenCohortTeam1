@@ -15,7 +15,9 @@ const listingSchema = new mongoose.Schema({
 
   eventTime: {
     type: String, required: true,
-  }, startingBid: {
+  }, 
+  
+  startingBid: {
     type: Number, required: true
   },
 
