@@ -47,6 +47,14 @@ function Listing() {
     return (
 		<div className="">
 			<div className="">
+				<style>
+					*, *::after, *::before{ 
+					<box-sizing>; border-box;
+					margin: 0;
+					padding: 0;
+					</box-sizing>
+				    }
+				</style>
 				<div className="flex-container">
 					<form className="flex" onSubmit={handleSubmit}>
 						<h1>Create your listing</h1>
