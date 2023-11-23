@@ -45,7 +45,7 @@ function Listing() {
 	};
     return (
 		<div className="">
-			<div class="">
+			<div class=                          
 				<div class="container">
 					<form className= "form" onSubmit={handleSubmit}>  
 						<h1>Create your listing</h1>
