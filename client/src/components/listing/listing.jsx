@@ -46,17 +46,9 @@ function Listing() {
 	};
     return (
 		<div className="">
-			<div className="">
-				<style>
-					*, *::after, *::before{ 
-					<box-sizing>; border-box;
-					margin: 0;
-					padding: 0;
-					</box-sizing>
-				    }
-				</style>
-				<div className="flex-container">
-					<form className="flex" onSubmit={handleSubmit}>
+			<div class="">
+				<div class="container">
+					<form className= "form" onSubmit={handleSubmit}>  
 						<h1>Create your listing</h1>
 						<label for = "Event Name">Event Name</label>
 							<div>
@@ -70,8 +62,8 @@ function Listing() {
 									className="input"/>
 							</div>
 							<div>
-							<label for="Event date">Event Date</label>
-								<input
+						<label for="Event date">Event Date</label>
+							<input
 								type="date" onPress={() => showMode("date")} 
 								id="Event date"
 								name="Event date"
@@ -95,9 +87,9 @@ function Listing() {
 							</div>
 						<div>
 						    <label for= "Event Type">Event Type</label>
-							<select>
+							<select
 								id = "Event Type"
-							    placeholder= "Browse..."
+							    placeholder= "Browse...">
 							    <option value = ""></option>
 								<option value = "Concert">Concert</option>
 								<option value = "Festival">Festival</option>
@@ -154,7 +146,7 @@ function Listing() {
 									rows= {10}
 							    />
 							</div>
-							<label for="Evemt Image">Add an Event Image</label>
+							<label for="Event Image">Add an Event Image</label>
 							<div>
 								<Image/>
 							</div>
