@@ -45,8 +45,8 @@ function Listing() {
 	};
     return (
 		<div className="">
-			<div class=                          
-				<div class="container">
+			<div className="">                          
+				<div class="flex-container">
 					<form className= "form" onSubmit={handleSubmit}>  
 						<h1>Create your listing</h1>
 						<label for = "Event Name">Event Name</label>
