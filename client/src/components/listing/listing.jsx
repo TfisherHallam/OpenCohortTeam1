@@ -45,20 +45,12 @@ function Listing() {
 	};
     return (
 		<div className="">
-			<div className="">
-				<style>
-					*, *::after, *::before{ 
-					<box-sizing>; border-box;
-					margin: 0;
-					padding: 0;
-					</box-sizing>
-				    }
-				</style>
-				<div className="flex-container">
-					<form className="flex" onSubmit={handleSubmit}>
+			<div className="">                          
+				<div class="flex-container">
+					<form className= "form" onSubmit={handleSubmit}>  
 						<h1>Create your listing</h1>
-						<label for = "Event Name">Event Name</label>
-							<div>
+						<label for = "Event Name" class = "form-label">Event Name</label>
+							<div class = "input-wrapper">
 								<input
 									id= "Event Name"
 									type="text"
@@ -68,9 +60,9 @@ function Listing() {
 									required= {true}
 									className="input"/>
 							</div>
-							<div>
-							<label for="Event date">Event Date</label>
-								<input
+						<label for="Event date" class = "form-label">Event Date</label>
+						<div class = "input-wrapper">
+							<input
 								type="date" onPress={() => showMode("date")} 
 								id="Event date"
 								name="Event date"
@@ -80,8 +72,9 @@ function Listing() {
 					            is24hour={true}
 					            onChange={onChange} />
 							</div>
-							<div>
-							<label for="Event time">Event Time</label>
+							
+							<label for="Event time" class = "form-label">Event Time</label>
+							<div class = "input-wrapper">
 								<input
 								type="time" onPress={() => showMode("time")} 
 								id="Event time"
@@ -92,11 +85,11 @@ function Listing() {
 					            is24hour={true}
 					            onChange={onChange} />
 							</div>
-						<div>
-						    <label for= "Event Type">Event Type</label>
-							<select>
+						    <label for= "Event Type" class = "form-label">Event Type</label>
+							<div class = "input-wrapper">
+							<select
 								id = "Event Type"
-							    placeholder= "Browse..."
+							    placeholder= "Browse...">
 							    <option value = ""></option>
 								<option value = "Concert">Concert</option>
 								<option value = "Festival">Festival</option>
@@ -105,8 +98,8 @@ function Listing() {
 								<option value = "Club Night">Concert</option>
 							</select>
 						</div>
-						<label for="Starting Bid">Starting Bid</label>
-							<div>
+						<label for="Starting Bid" class = "form-label">Starting Bid</label>
+						<div class = "input-wrapper">
 								£<CurrencyInput
 									id= "Starting Bid"
 									name="Starting Bid"
@@ -116,8 +109,9 @@ function Listing() {
 									required = {true}
 								/>
 							</div>
-							<div>
-							<label for="Auction end date">Auction End Date</label>
+							
+							<label for="Auction end date" class = "form-label">Auction End Date</label>
+							<div class = "input-wrapper">
 								<input
 								type="date" onPress={() => showMode("date")} 
 								id="Auction end date"
@@ -128,8 +122,9 @@ function Listing() {
 					            is24hour={true}
 					            onChange={onChange} />
 							</div>
-							<div>
-							<label for="Auction end time">Auction End Time</label>
+							
+							<label for="Auction end time" class = "form-label">Auction End Time</label>
+							<div class = "input-wrapper">
 								<input
 								type="time" onPress={() => showMode("time")} 
 								id="Auction end time"
@@ -140,8 +135,8 @@ function Listing() {
 					            is24hour={true}
 					            onChange={onChange} />
 							</div>
-							<label for="Event Description">Event Description</label>
-							<div>
+							<label for="Event Description" class = "form-label">Event Description</label>
+							<div class = "input-wrapper">
 								<input
 									id= "Event Description"
 									type="textarea"
@@ -153,8 +148,8 @@ function Listing() {
 									rows= {10}
 							    />
 							</div>
-							<label for="Evemt Image">Add an Event Image</label>
-							<div>
+							<label for="Event Image" class = "image-label">Add an Event Image</label>
+							<div class = "submit-button">
 								<Image/>
 							</div>
 						<button type="submit" className={styles.green_btn}>

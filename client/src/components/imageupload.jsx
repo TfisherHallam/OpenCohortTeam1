@@ -10,7 +10,6 @@ function Image() {
 
 	return (
 		<div className="Image">
-			<h2>Add Image:</h2>
 			<input type="file" onChange={handleChange} />
 			{/* <img src={file} alt= "Event"/> */}
 		</div>
