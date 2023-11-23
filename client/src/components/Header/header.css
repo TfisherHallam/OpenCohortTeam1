@@ -23,6 +23,12 @@
   display: none;
 }
 
+.headerAvatar{
+  border-radius: 50%;
+  height: 10px;
+
+}
+
 .headerButtons {
 
   height: 100px;
