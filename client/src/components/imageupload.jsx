@@ -10,7 +10,10 @@ function Image() {
 
 	return (
 		<div className="Image">
-			<input type="file" onChange={handleChange} />
+			<input 
+			type="file"
+			onChange={handleChange}
+			class = "form-input"/>
 			{/* <img src={file} alt= "Event"/> */}
 		</div>
 	);

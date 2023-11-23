@@ -49,7 +49,6 @@ function Listing() {
 				<div class="flex-container">
 					<form className= "form" onSubmit={handleSubmit}>  
 						<h1>Create your listing</h1>
-						<label for = "Event Name" class = "form-label">Event Name</label>
 							<div class = "input-wrapper">
 								<input
 									id= "Event Name"
@@ -58,99 +57,114 @@ function Listing() {
 									name="Event Name"
 									onChange={handleChange}
 									required= {true}
-									className="input"/>
+									class="form-input"/>
+								<label for = "Event Name" class = "form-label">Event Name</label>
 							</div>
-						<label for="Event date" class = "form-label">Event Date</label>
-						<div class = "input-wrapper">
-							<input
-								type="date" onPress={() => showMode("date")} 
-								id="Event date"
-								name="Event date"
-								value={date}
-								min=""
-								mode={mode}
-					            is24hour={true}
-					            onChange={onChange} />
-							</div>
-							
-							<label for="Event time" class = "form-label">Event Time</label>
 							<div class = "input-wrapper">
 								<input
-								type="time" onPress={() => showMode("time")} 
-								id="Event time"
-								name="Event Time"
-								value={date}
-								min=""
-								mode={mode}
-					            is24hour={true}
-					            onChange={onChange} />
+									class = "form-input"
+									type="date" onPress={() => showMode("date")} 
+									id="Event date"
+									name="Event date"
+									placeholder=""
+									value={date}
+									min=""
+									mode={mode}
+									is24hour={true}
+									onChange={onChange} 
+									/>
+								<label for="Event date" class = "form-label">Event Date</label>
 							</div>
-						    <label for= "Event Type" class = "form-label">Event Type</label>
 							<div class = "input-wrapper">
-							<select
-								id = "Event Type"
-							    placeholder= "Browse...">
-							    <option value = ""></option>
-								<option value = "Concert">Concert</option>
-								<option value = "Festival">Festival</option>
-								<option value = "Gig">Gig</option>
-								<option value = "Comedy Night">Comedy Night</option>
-								<option value = "Club Night">Concert</option>
-							</select>
-						</div>
-						<label for="Starting Bid" class = "form-label">Starting Bid</label>
-						<div class = "input-wrapper">
+								<input
+									type="time" onPress={() => showMode("time")} 
+									id="Event time"
+									name="Event Time"
+									value={date}
+									min=""
+									mode={mode}
+									is24hour={true}
+									onChange={onChange}
+									class = "form-input"/> 
+							    <label for="Event time" class = "form-label">Event Time</label>
+							</div>
+							<div class = "input-wrapper">
+								<select
+									id = "Event Type"
+									placeholder= "Browse..."
+									class = "form-input">
+									<option value = ""></option>
+									<option value = "Concert">Concert</option>
+									<option value = "Festival">Festival</option>
+									<option value = "Gig">Gig</option>
+									<option value = "Comedy Night">Comedy Night</option>
+									<option value = "Club Night">Concert</option>
+								</select>
+								<label for= "Event Type" class = "form-label">Event Type</label>
+						    </div>
+						
+						    <div class = "input-wrapper">
 								£<CurrencyInput
+									class= "form-input"
 									id= "Starting Bid"
 									name="Starting Bid"
 									placeholder="00.00"
 									decimalsLimit={2}
 									onValueChange={(value, name) => console.log(value, name)}
 									required = {true}
-								/>
+									/>
+								<label for="Starting Bid" class = "form-label">Starting Bid</label>
 							</div>
 							
-							<label for="Auction end date" class = "form-label">Auction End Date</label>
+							
 							<div class = "input-wrapper">
 								<input
-								type="date" onPress={() => showMode("date")} 
-								id="Auction end date"
-								name="Auction End date"
-								value={date}
-								min=""
-								mode={mode}
-					            is24hour={true}
-					            onChange={onChange} />
+									class= "form-input"
+									type="date" onPress={() => showMode("date")} 
+									id="Auction end date"
+									name="Auction End date"
+									value={date}
+									min=""
+									mode={mode}
+									is24hour={true}
+									onChange={onChange}
+									/>
+								<label for="Auction end date" class = "form-label">Auction End Date</label>
 							</div>
 							
-							<label for="Auction end time" class = "form-label">Auction End Time</label>
+							
 							<div class = "input-wrapper">
 								<input
-								type="time" onPress={() => showMode("time")} 
-								id="Auction end time"
-								name="Auction End Time"
-								value={date}
-								min=""
-								mode={mode}
-					            is24hour={true}
-					            onChange={onChange} />
+									class= "form-input"
+									type="time" onPress={() => showMode("time")} 
+									id="Auction end time"
+									name="Auction End Time"
+									value={date}
+									min=""
+									mode={mode}
+									is24hour={true}
+									onChange={onChange}
+									/>
+								<label for="Auction end time" class = "form-label">Auction End Time</label>
 							</div>
-							<label for="Event Description" class = "form-label">Event Description</label>
+							
 							<div class = "input-wrapper">
 								<input
 									id= "Event Description"
 									type="textarea"
+									class= "form-input"
 									placeholder="Give more information about your event..."
 									name="Description"
 									onChange={handleChange}
 									required= {false}
-									className="input"
 									rows= {10}
 							    />
+								<label for="Event Description" class = "form-label">Event Description</label>
 							</div>
-							<label for="Event Image" class = "image-label">Add an Event Image</label>
+							
 							<div class = "submit-button">
 								<Image/>
+								<label for="Event Image" class = "image-label">Add an Event Image</label>
 							</div>
 						<button type="submit" className={styles.green_btn}>
 							Submit Listing
