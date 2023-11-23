@@ -1,6 +1,5 @@
 import { useState} from "react";
 import CurrencyInput from 'react-currency-input-field';
-import checkbox from "../checkbox";
 //import { Link, useNavigate } from "react-router-dom";
 import styles from "./listing.css";
 
