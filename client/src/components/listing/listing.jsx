@@ -2,6 +2,7 @@ import { useState} from "react";
 import CurrencyInput from 'react-currency-input-field';
 //import { Link, useNavigate } from "react-router-dom";
 import styles from "./listing.css";
+import Image from "../imageupload";
 
 
 
@@ -45,12 +46,21 @@ function Listing() {
     return (
 		<div className="">
 			<div className="">
+				<style>
+					*, *::after, *::before{ 
+					<box-sizing>; border-box;
+					margin: 0;
+					padding: 0;
+					</box-sizing>
+				    }
+				</style>
 				<div className="flex-container">
 					<form className="flex" onSubmit={handleSubmit}>
 						<h1>Create your listing</h1>
-						<label>Event Name</label>
+						<label for = "Event Name">Event Name</label>
 							<div>
 								<input
+									id= "Event Name"
 									type="text"
 									placeholder="Event Name"
 									name="Event Name"
@@ -83,8 +93,9 @@ function Listing() {
 					            onChange={onChange} />
 							</div>
 						<div>
-						    <label>Event Type</label>
+						    <label for= "Event Type">Event Type</label>
 							<select>
+								id = "Event Type"
 							    placeholder= "Browse..."
 							    <option value = ""></option>
 								<option value = "Concert">Concert</option>
@@ -94,9 +105,10 @@ function Listing() {
 								<option value = "Club Night">Concert</option>
 							</select>
 						</div>
-						<div>Starting Bid</div>
+						<label for="Starting Bid">Starting Bid</label>
 							<div>
 								£<CurrencyInput
+									id= "Starting Bid"
 									name="Starting Bid"
 									placeholder="00.00"
 									decimalsLimit={2}
@@ -128,9 +140,10 @@ function Listing() {
 					            is24hour={true}
 					            onChange={onChange} />
 							</div>
-						<div>Event Description</div>
+							<label for="Event Description">Event Description</label>
 							<div>
 								<input
+									id= "Event Description"
 									type="textarea"
 									placeholder="Give more information about your event..."
 									name="Description"
@@ -140,16 +153,9 @@ function Listing() {
 									rows= {10}
 							    />
 							</div>
-						<div>Upload Event Image</div>
+							<label for="Evemt Image">Add an Event Image</label>
 							<div>
-								<input
-									type="button"
-									placeholder="Click to upload image"
-									name="Event image"
-									onChange={handleChange}
-									required
-									className="input"
-							    />
+								<Image/>
 							</div>
 						<button type="submit" className={styles.green_btn}>
 							Submit Listing
