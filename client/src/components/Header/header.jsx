@@ -38,16 +38,12 @@ const {currentUser} = useSelector(state => state.user)
                 <button className="headerButtons">Help</button>
               </Link>
             </div>
-            <Link to={"/login"}>
-              <button className="loginButtons">Log in</button>
-            </Link>
             <Link to={"/Account"}>
-              <button className="loginButtons">My Account</button>
-            </Link>
-            <Link to={"/login"}>
-              <button className="loginicon"><MdOutlinePeopleAlt
-                className='headericon' size={40} /></button>
-            </Link>
+          {currentUser ? (
+            <img className='headerAvatar' src={currentUser.avatar} alt="profile-pic" />
+          ) : (<button className="loginButtons">Log in</button>
+          )}
+        </Link>
           </div>
           <div>
             <p className="homePageTitle">TicketScalper</p>
@@ -81,18 +77,11 @@ const {currentUser} = useSelector(state => state.user)
             <button className="headerButtons">Help</button>
           </Link>
         </div>
-        <Link to={"/login"}>
+        <Link to={"/Account"}>
           {currentUser ? (
             <img className='headerAvatar' src={currentUser.avatar} alt="profile-pic" />
           ) : (<button className="loginButtons">Log in</button>
           )}
-        </Link>
-        <Link to={"/Account"}>
-          <button className="loginButtons">My Account</button>
-        </Link>
-        <Link to={"/login"}>
-          <button className="loginicon"><MdOutlinePeopleAlt
-            className='headericon' size={40} /></button>
         </Link>
       </div>
     </div>
