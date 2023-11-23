@@ -13,6 +13,7 @@ export default function PassStrength() {
 
     const strength = Object.values(validate).reduce((a, item) => a + item, 0);
     const feedback = {
+        0: "None",
         1: "Password weak",
         2: "Password weak",
         3: "Medium strength",
@@ -59,16 +60,15 @@ export default function PassStrength() {
                 onChange={(e) => handleChangePassword(e)}
             />
             <br />
-            {strength > 0 ? (
-                <progress
-                    hidden={password.length === 0}
+            {strength >= 0 ? (
+                <progress                    
                     className={`password strength-${strength}`}
                     value={strength}
                     max="4"
                 />
             ) : null}
             <br />
-            <div className={`feedback strength-${strength}`} hidden={password.length === 0}>
+            <div className={`feedback strength-${strength}`}>
                 {feedback}
             </div>
         </div>

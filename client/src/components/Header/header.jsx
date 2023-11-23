@@ -4,6 +4,7 @@ import logo from "../../images/TransparentLogo.png";
 import BurgerNew from "../burgerNavigation/hamBurgerMenu.jsx";
 import { Link, useLocation } from 'react-router-dom';
 import { MdOutlinePeopleAlt } from "react-icons/md";
+import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector.js';
 
 
 function Logo() {
@@ -14,6 +15,10 @@ function Logo() {
 }
 
 function Header() {
+const {currentUser} = useSelector(state => state.user)
+
+
+
   const location = useLocation();
   if (location.pathname === '/') {
     return (
@@ -77,7 +82,10 @@ function Header() {
           </Link>
         </div>
         <Link to={"/login"}>
-          <button className="loginButtons">Log in</button>
+          {currentUser ? (
+            <img className='headerAvatar' src={currentUser.avatar} alt="profile-pic" />
+          ) : (<button className="loginButtons">Log in</button>
+          )}
         </Link>
         <Link to={"/Account"}>
           <button className="loginButtons">My Account</button>

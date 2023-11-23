@@ -17,7 +17,7 @@ function Footer() {
 
 function Boilerplate() {
     return (
-        <>
+        <div className='footerGroup'>
             <div className="boilerplateflex-container">
                 <div className="aboutFlex">
                     <div><b>About TicketScalper</b></div>
@@ -30,7 +30,7 @@ function Boilerplate() {
                 </div>
 
             </div>
-            <Footer /></>
+            <Footer /></div>
     )
 }
 

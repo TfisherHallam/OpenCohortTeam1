@@ -47,7 +47,9 @@ export default function Register() {
 	return (
 		<div className="textcontainer">
 			<form onSubmit={handleSubmit} >
-				<h1>Welcome! <br />We are so glad you are joining us!</h1>
+				<h1 className="registerHeader">Welcome! <br />
+				<br />
+				We are so glad you are joining us!</h1>
 				<div className="registerflex-container">
 					<div className="registerflex-item-left">Username:</div>
 					<div className="registerflex-item-right">
