@@ -12,6 +12,7 @@ import Home from "./pages/Home.js";
 import Helpcentre from './pages/Helpcentre.js';
 import Privacy from './pages/Privacy.js';
 import Termsofuse from './pages/Termsofuse.js';
+import Page404 from './pages/404.js';
 import Itemview from './components/ItemView/Itemview.jsx';
 import React from 'react';
 //import BurgerMenu from "./components/burgerNavigation/burgerMenu.js";
@@ -35,6 +36,8 @@ function App() {
           <Route path='/Termsofuse' element={<Termsofuse/>} />
           <Route path='/Helpcentre' element={<Helpcentre/>} />
           <Route path='/Privacy' element={<Privacy/>} />
+          <Route path='/Privacy' element={<Privacy/>} />
+          <Route path='/404' element={<Page404/>}/>
         </Routes>
         <Boilerplate />
       </div>

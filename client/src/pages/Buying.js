@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../components/Header/header.jsx';
 import SearchResults from "../components/results/results.jsx";
 
 
