@@ -46,7 +46,7 @@ function Listing() {
     return (
 		<div className="">
 			<div className="">                          
-				<div class="flex-container">
+				<div className="flex-container">
 					<form className= "form" onSubmit={handleSubmit}>  
 						<h1>Create your listing</h1>
 							<div className = "input-wrapper">
