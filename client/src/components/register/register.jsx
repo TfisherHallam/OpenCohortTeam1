@@ -111,7 +111,7 @@ export default function Register() {
 				</div>
 				<div className="registerflex-container">
 					<div className="registerflex-item-left">Create Password:</div>
-					<div className="registerflex-item-right"><PassStrength
+					<div className="registerflex-item-right"><input
 						type="password"
 						placeholder="Password"
 						id="password"

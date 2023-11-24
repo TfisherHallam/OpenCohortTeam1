@@ -8,12 +8,8 @@ import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listings.route.js';
 
-
-
-
 const app = express();
 const __dirname = path.resolve();
-
 
 app.use(express.json());
 app.use(cookieParser())

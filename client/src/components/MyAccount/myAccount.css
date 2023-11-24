@@ -3,6 +3,11 @@
   flex-direction: column;
 }
 
+.profileImg {
+  border-radius: 50%;
+  height: 50px;
+}
+
 .itemviewflex-item-left {
   flex: 20%;
   font-family: Arial;

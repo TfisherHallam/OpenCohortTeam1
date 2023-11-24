@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { FaUser } from "react-icons/fa";
 import './myAccount.css';
 import '../../App.css';
+import Profile from './myAccountDetails';
 
 const MyAccountInfoContent = () => {
 	const useInfoToggle = (initiaInfolState = false) => {
@@ -19,45 +20,7 @@ const MyAccountInfoContent = () => {
 				<div className="accountPageButtonText">Account Information</div></button>
 
 			{infoToggle && (
-				<div className="myAccountSubItem">
-					<ul className="myAccountListItems">
-						<li><label>First Name<input
-							type="text"
-							placeholder="First Name"
-							id="firstname"
-							onChange={""}
-							required
-							className="input"
-						/></label></li>
-						<li>Last Name<input
-							type="text"
-							placeholder="First Name"
-							id="firstname"
-							onChange={""}
-							required
-							className="input"
-						/></li>
-						<li>Email address<input
-							type="text"
-							placeholder="First Name"
-							id="firstname"
-							onChange={""}
-							required
-							className="input"
-						/></li>
-						<li>Mobile<input
-							type="text"
-							placeholder="First Name"
-							id="firstname"
-							onChange={""}
-							required
-							className="input"
-						/></li>
-					</ul>
-
-					<button name="Make changes" className="button1"><div className="accountPageButtonText">Make Changes</div></button>
-					<button className="button1"><div className="accountPageButtonText">Delete my account</div></button>
-				</div>
+				<Profile/>
 			)}
 
 
