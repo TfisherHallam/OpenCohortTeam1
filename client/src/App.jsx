@@ -28,10 +28,10 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/Sell' element={<Selling />} />
           <Route path='/Buying' element={<Buying />} />
-          <Route element={<PrivateRoute />}>
-            <Route path='/Account' element={<MyAccount />} />
+          <Route path='/Account' element={<MyAccount />} />
             <Route path='/Listing' element={<ListingPage />} />
             <Route path='/Itemview/:itemid' element={<Itemview />} />
+          <Route element={<PrivateRoute />}>
           </Route>
           <Route path='/Login' element={<Loginpage />} />
           <Route path='/Register' element={<Registerpage />} />

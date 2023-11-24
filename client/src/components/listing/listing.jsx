@@ -49,7 +49,7 @@ function Listing() {
 				<div class="flex-container">
 					<form className= "form" onSubmit={handleSubmit}>  
 						<h1>Create your listing</h1>
-							<div class = "input-wrapper">
+							<div className = "input-wrapper">
 								<input
 									id= "Event Name"
 									type="text"
@@ -57,12 +57,12 @@ function Listing() {
 									name="Event Name"
 									onChange={handleChange}
 									required= {true}
-									class="form-input"/>
-								<label for = "Event Name" class = "form-label">Event Name</label>
+									className="form-input"/>
+								<label for = "Event Name" className = "form-label">Event Name</label>
 							</div>
-							<div class = "input-wrapper">
+							<div className = "input-wrapper">
 								<input
-									class = "form-input"
+									className = "form-input"
 									type="date" onPress={() => showMode("date")} 
 									id="Event date"
 									name="Event date"
@@ -73,9 +73,9 @@ function Listing() {
 									is24hour={true}
 									onChange={onChange} 
 									/>
-								<label for="Event date" class = "form-label">Event Date</label>
+								<label for="Event date" className = "form-label">Event Date</label>
 							</div>
-							<div class = "input-wrapper">
+							<div className = "input-wrapper">
 								<input
 									type="time" onPress={() => showMode("time")} 
 									id="Event time"
@@ -85,14 +85,14 @@ function Listing() {
 									mode={mode}
 									is24hour={true}
 									onChange={onChange}
-									class = "form-input"/> 
-							    <label for="Event time" class = "form-label">Event Time</label>
+									className = "form-input"/> 
+							    <label for="Event time" className = "form-label">Event Time</label>
 							</div>
-							<div class = "input-wrapper">
+							<div className = "input-wrapper">
 								<select
 									id = "Event Type"
 									placeholder= "Browse..."
-									class = "form-input">
+									className = "form-input">
 									<option value = ""></option>
 									<option value = "Concert">Concert</option>
 									<option value = "Festival">Festival</option>
@@ -100,12 +100,12 @@ function Listing() {
 									<option value = "Comedy Night">Comedy Night</option>
 									<option value = "Club Night">Concert</option>
 								</select>
-								<label for= "Event Type" class = "form-label">Event Type</label>
+								<label for= "Event Type" className = "form-label">Event Type</label>
 						    </div>
 						
-						    <div class = "input-wrapper">
+						    <div className = "input-wrapper">
 								£<CurrencyInput
-									class= "form-input"
+									className= "form-input"
 									id= "Starting Bid"
 									name="Starting Bid"
 									placeholder="00.00"
@@ -113,13 +113,13 @@ function Listing() {
 									onValueChange={(value, name) => console.log(value, name)}
 									required = {true}
 									/>
-								<label for="Starting Bid" class = "form-label">Starting Bid</label>
+								<label for="Starting Bid" className = "form-label">Starting Bid</label>
 							</div>
 							
 							
-							<div class = "input-wrapper">
+							<div className = "input-wrapper">
 								<input
-									class= "form-input"
+									className= "form-input"
 									type="date" onPress={() => showMode("date")} 
 									id="Auction end date"
 									name="Auction End date"
@@ -129,13 +129,13 @@ function Listing() {
 									is24hour={true}
 									onChange={onChange}
 									/>
-								<label for="Auction end date" class = "form-label">Auction End Date</label>
+								<label for="Auction end date" className = "form-label">Auction End Date</label>
 							</div>
 							
 							
-							<div class = "input-wrapper">
+							<div className = "input-wrapper">
 								<input
-									class= "form-input"
+									className= "form-input"
 									type="time" onPress={() => showMode("time")} 
 									id="Auction end time"
 									name="Auction End Time"
@@ -145,26 +145,26 @@ function Listing() {
 									is24hour={true}
 									onChange={onChange}
 									/>
-								<label for="Auction end time" class = "form-label">Auction End Time</label>
+								<label for="Auction end time" className = "form-label">Auction End Time</label>
 							</div>
 							
-							<div class = "input-wrapper">
+							<div className = "input-wrapper">
 								<input
 									id= "Event Description"
 									type="textarea"
-									class= "form-input"
+									className= "form-input"
 									placeholder="Give more information about your event..."
 									name="Description"
 									onChange={handleChange}
 									required= {false}
 									rows= {10}
 							    />
-								<label for="Event Description" class = "form-label">Event Description</label>
+								<label for="Event Description" className = "form-label">Event Description</label>
 							</div>
 							
-							<div class = "submit-button">
+							<div className = "submit-button">
 								<Image/>
-								<label for="Event Image" class = "image-label">Add an Event Image</label>
+								<label for="Event Image" className = "image-label">Add an Event Image</label>
 							</div>
 						<button type="submit" className={styles.green_btn}>
 							Submit Listing
