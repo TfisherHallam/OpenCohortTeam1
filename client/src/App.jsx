@@ -25,13 +25,13 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />          
+          <Route path='/' element={<Home />} />
           <Route path='/Sell' element={<Selling />} />
-          <Route path='/Buying' element={<Buying />} />          
-          <Route element={<PrivateRoute/>}>
-          <Route path='/Account' element={<MyAccount />} />
-          <Route path='/Listing' element={<ListingPage />} />
-          <Route path='/Itemview/:itemid' element={<Itemview />} />
+          <Route path='/Buying' element={<Buying />} />
+          <Route element={<PrivateRoute />}>
+            <Route path='/Account' element={<MyAccount />} />
+            <Route path='/Listing' element={<ListingPage />} />
+            <Route path='/Itemview/:itemid' element={<Itemview />} />
           </Route>
           <Route path='/Login' element={<Loginpage />} />
           <Route path='/Register' element={<Registerpage />} />
