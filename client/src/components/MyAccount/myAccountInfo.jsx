@@ -13,18 +13,12 @@ const MyAccountInfoContent = () => {
 	const [infoToggle, setInfoToggle] = useInfoToggle()
 
 	return (
-
 		<div className="mainDiv">
-
 			<button className="button1" onClick={setInfoToggle}><FaUser className="icon" size={50} /><br />
 				<div className="accountPageButtonText">Account Information</div></button>
-
 			{infoToggle && (
-				<Profile/>
+				<Profile />
 			)}
-
-
-
 		</div>
 	);
 }

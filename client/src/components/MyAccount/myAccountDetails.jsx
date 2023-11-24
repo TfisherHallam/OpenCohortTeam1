@@ -23,7 +23,6 @@ export default function Profile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-
       dispatch(updateUserStart());
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
         method: 'POST',
@@ -37,7 +36,6 @@ export default function Profile() {
         dispatch(updateUserFailure(data.message));
         return;
       }
-
       dispatch(updateUserSuccess(data));
       setUpdateSuccess(true);
     } catch (error) {
@@ -89,7 +87,7 @@ export default function Profile() {
         <br />
         <br />
         <label>Telephone<input
-          type='text'
+          type='tel'
           placeholder='Mobile'
           defaultValue={currentUser.telephone}
           id='telephone'
@@ -100,15 +98,14 @@ export default function Profile() {
         <br />
         <br />
         <button disabled={loading}>
-        {loading ? 'Loading' : 'Update'}
+          {loading ? 'Loading' : 'Update'}
         </button>
         <p>{error ? error : ''}</p>
         <p>
-        {updateSuccess ? 'User updated' : ''}
-      </p>
+          {updateSuccess ? 'User updated' : ''}
+        </p>
       </form>
-<button onClick={handleDeleteUser}>Delete my account</button>
-
+      <button onClick={handleDeleteUser}>Delete my account</button>
     </div>
   )
 }
