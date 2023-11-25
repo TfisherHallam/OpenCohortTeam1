@@ -40,7 +40,7 @@ function SearchResults() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:5000/api/listings/');
+        const response = await fetch('http://localhost:3001/api/listings/');
         if (response.ok) {
           const data = await response.json();
           setResults(data);
@@ -71,12 +71,12 @@ function SearchResults() {
                     <p style={{textAlign:'right'}}>Sold By: {result.username}</p>
                     <p style={{textAlign:'left'}}>Description: {result.description}</p>
                     <div className="bidAndCountdown">
-                    <p className="CurrentBid">Current Bid: ${result.startingBid}</p>
+                    <p className="CurrentBid">Current Bid: £{result.startingBid}</p>
                     <div className="Countdown">
                       <p>{calculateCountdown(result.eventDate, result.eventTime)}</p>
                     </div>
                     </div>
-                    <p>Reserve: ${result.reserve}</p>
+                    <p>Reserve: £{result.reserve}</p>
                   </div>
 
                 </div>

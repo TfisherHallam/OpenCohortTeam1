@@ -75,11 +75,10 @@ const {loading, error} = useSelector((state) => state.user);
 						{error && <div className="">{error}</div>}
 						<br />
 						<br />
-						<button type="submit" className="loginbutton">
+						<label><button type="submit" className="loginbutton">
 							SIGN IN
-						</button>
+						</button></label>
 					</form>
-					<p><Link to={"/"}>Forgotten your password? Click here to reset</Link></p>
 				</div>
 			</div>
 		</div>

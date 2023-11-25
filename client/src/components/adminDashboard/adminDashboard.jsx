@@ -1,16 +1,17 @@
 import React from 'react';
 import './adminDashboard.css';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 function AdminDashboard() {
-
 
   const [results, setResults] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:3001/api/usernames/');
+        const response = await fetch('http://localhost:3001/api/admin/');
         if (response.ok) {
           const data = await response.json();
           setResults(data);
@@ -21,35 +22,63 @@ function AdminDashboard() {
         console.error('Error during data fetching:', error);
       }
     }
-
     fetchData();
   }, []); // Empty dependency array means this effect runs once after the initial render
+  
+const handleUserDeletion = async (userId) => {
+  try {
+    const res = await fetch(`/api/admin/${userId}`, {
+      method: 'DELETE',
+    });
+    const data = await res.json();
+    if (data.success === false) {
+      console.log(data.message);
+      return;
+    }
+setResults((prev) => prev.filter((result) => result._id !== userId))
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+
 
   return (
+    <div>
+      <h1>Users:</h1>
       <div>
-        <h1>Users:</h1>
         <div>
-          <div>
-        {results && results.length > 0 ? (
-            results.map((result) => (
-                <div key={result._id} >
-                  <div key={result.id} >
-                    <h2>{result.eventName}</h2>  
-                    <p style={{textAlign:'right'}}>Username: {result.username}</p>
-                    <p style={{textAlign:'right'}}>Email: {result.email}</p>
-                    <p style={{textAlign:'right'}}>State Code: {result.userStateCode}</p>
-                  </div>
-                </div>
-            ))
-        ) : (
-            // Display a message when no results are available
-            <p>No users found</p>
-        )}
-          </div>
+          <table className='userTable'>
+            <tr>
+              <th width="200px" className='userTable'>Username</th>
+              <th width="200px" className='userTable'>Email</th>
+              <th width="200px" className='userTable'>State</th>
+              <th width="200px" className='userTable'>Change State</th>
+              <th width="200px" className='userTable'>Delete</th>
+            </tr>
+            <tbody className='userTable'>
+              {results && results.length > 0 ? (
+                results.map((result) => (
+                  <tr key={result.id}>
+                    <td className='userTable'>{result.username}</td>
+                    <td className='userTable'>{result.email}</td>
+                    <td className='userTable'>{result.userStateCode}
+                      </td>
+                     <td className='userTable'><Link to={`/AdminUserview/${result._id}`}><button>Change access</button></Link></td>
+                    <td className='userTable'><button onClick={()=>handleUserDeletion(result._id)}>Delete user</button></td>
+                    </tr>
+                ))) : (
+                // Display a message when no results are available
+                <tr>
+                  <td rowSpan="3">No users found</td>
+                  </tr>                
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
-      </div>
+    </div>
   );
 }
 
 export default AdminDashboard;
-
