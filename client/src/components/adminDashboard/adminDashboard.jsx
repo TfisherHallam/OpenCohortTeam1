@@ -24,24 +24,22 @@ function AdminDashboard() {
     }
     fetchData();
   }, []); // Empty dependency array means this effect runs once after the initial render
-  
-const handleUserDeletion = async (userId) => {
-  try {
-    const res = await fetch(`/api/admin/${userId}`, {
-      method: 'DELETE',
-    });
-    const data = await res.json();
-    if (data.success === false) {
-      console.log(data.message);
-      return;
+
+  const handleUserDeletion = async (userId) => {
+    try {
+      const res = await fetch(`/api/admin/${userId}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        console.log(data.message);
+        return;
+      }
+      setResults((prev) => prev.filter((result) => result._id !== userId))
+    } catch (error) {
+      console.log(error.message);
     }
-setResults((prev) => prev.filter((result) => result._id !== userId))
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
-
+  };
 
   return (
     <div>
@@ -63,15 +61,14 @@ setResults((prev) => prev.filter((result) => result._id !== userId))
                     <td className='userTable'>{result.username}</td>
                     <td className='userTable'>{result.email}</td>
                     <td className='userTable'>{result.userStateCode}
-                      </td>
-                     <td className='userTable'><Link to={`/AdminUserview/${result._id}`}><button>Change access</button></Link></td>
-                    <td className='userTable'><button onClick={()=>handleUserDeletion(result._id)}>Delete user</button></td>
-                    </tr>
+                    </td>
+                    <td className='userTable'><Link to={`/AdminUserview/${result._id}`}><button>Change access</button></Link></td>
+                    <td className='userTable'><button onClick={() => handleUserDeletion(result._id)}>Delete user</button></td>
+                  </tr>
                 ))) : (
-                // Display a message when no results are available
                 <tr>
-                  <td rowSpan="3">No users found</td>
-                  </tr>                
+                  <td colspan="5">No users found</td>
+                </tr>
               )}
             </tbody>
           </table>

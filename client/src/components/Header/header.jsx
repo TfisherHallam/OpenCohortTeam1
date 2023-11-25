@@ -69,10 +69,13 @@ const {currentUser} = useSelector(state => state.user)
         <div className="headerButtongroup">
           <Link to={"/Buying"}>
             <button className="headerButtons">Buy</button>
-          </Link>
-          <Link to={"/Sell"}>
-            <button className="headerButtons">Sell</button>
-          </Link>
+          </Link>         
+
+            {currentUser ? (
+            <Link to={"/Listing"}><button className="headerButtons">Sell</button></Link>
+          ) : ( <Link to={"/Sell"}><button className="headerButtons">Sell</button></Link>
+          )}             
+         
           <Link to={"/Helpcentre"}>
             <button className="headerButtons">Help</button>
           </Link>
