@@ -170,16 +170,15 @@ function Listing() {
 								
 							</div>
 							
-							<div className = "submit-button">
-							    <label for="Event Image" className = "image-label">Add an Event Image</label>
+							<div className = "input-wrapper">
+							    <label for="Event Image" className = "form-label">Add an Event Image</label>
 								<Image/>
-								
 							</div>
-						<button type="submit" className={styles.green_btn}>
-							Submit Listing
+						<button type="submit" className= "button">
+							Submit
 						</button>
-                        <button type="clear" className={styles.red_btn}>
-							Clear Listing
+                        <button type="clear" className="button">
+							Clear 
 						</button>
 					</form>
 				</div> 

@@ -55,3 +55,31 @@
     width: 250px;
     margin: 0px;
 }
+
+.button {
+    background-color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    line-height: 1;
+    border-radius: 5px;
+    padding: 12px 24px;
+    opacity: 1;
+    cursor: pointer;
+    align-self:center;
+    width: 150px;
+    order: 9;
+    height: 45px;
+    flex-grow: 1;
+    width: 150px;
+    margin: 0px;
+  }
+.button submit{
+    align-self: start;
+
+}
+.button clear {
+    align-self: end;
+}
