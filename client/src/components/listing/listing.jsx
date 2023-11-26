@@ -50,6 +50,7 @@ function Listing() {
 					<form className= "form" onSubmit={handleSubmit}>  
 						<h1>Create your listing</h1>
 							<div className = "input-wrapper">
+							    <label for = "Event Name" className = "form-label">Event Name</label>
 								<input
 									id= "Event Name"
 									type="text"
@@ -58,9 +59,10 @@ function Listing() {
 									onChange={handleChange}
 									required= {true}
 									className="form-input"/>
-								<label for = "Event Name" className = "form-label">Event Name</label>
+								
 							</div>
 							<div className = "input-wrapper">
+							    <label for="Event date" className = "form-label">Event Date</label>
 								<input
 									className = "form-input"
 									type="date" onPress={() => showMode("date")} 
@@ -73,9 +75,10 @@ function Listing() {
 									is24hour={true}
 									onChange={onChange} 
 									/>
-								<label for="Event date" className = "form-label">Event Date</label>
+								
 							</div>
 							<div className = "input-wrapper">
+							    <label for="Event time" className = "form-label">Event Time</label>
 								<input
 									type="time" onPress={() => showMode("time")} 
 									id="Event time"
@@ -86,9 +89,10 @@ function Listing() {
 									is24hour={true}
 									onChange={onChange}
 									className = "form-input"/> 
-							    <label for="Event time" className = "form-label">Event Time</label>
+							   
 							</div>
 							<div className = "input-wrapper">
+							    <label for= "Event Type" className = "form-label">Event Type</label>
 								<select
 									id = "Event Type"
 									placeholder= "Browse..."
@@ -100,24 +104,26 @@ function Listing() {
 									<option value = "Comedy Night">Comedy Night</option>
 									<option value = "Club Night">Concert</option>
 								</select>
-								<label for= "Event Type" className = "form-label">Event Type</label>
+								
 						    </div>
 						
 						    <div className = "input-wrapper">
-								£<CurrencyInput
+							    <label for="Starting Bid" className = "form-label">Starting Bid</label>
+								<CurrencyInput
 									className= "form-input"
 									id= "Starting Bid"
 									name="Starting Bid"
-									placeholder="00.00"
+									placeholder="£00.00"
 									decimalsLimit={2}
 									onValueChange={(value, name) => console.log(value, name)}
 									required = {true}
 									/>
-								<label for="Starting Bid" className = "form-label">Starting Bid</label>
+								
 							</div>
 							
 							
 							<div className = "input-wrapper">
+							    <label for="Auction end date" className = "form-label">Auction End Date</label>
 								<input
 									className= "form-input"
 									type="date" onPress={() => showMode("date")} 
@@ -129,11 +135,12 @@ function Listing() {
 									is24hour={true}
 									onChange={onChange}
 									/>
-								<label for="Auction end date" className = "form-label">Auction End Date</label>
+								
 							</div>
 							
 							
 							<div className = "input-wrapper">
+							    <label for="Auction end time" className = "form-label">Auction End Time</label>
 								<input
 									className= "form-input"
 									type="time" onPress={() => showMode("time")} 
@@ -145,10 +152,11 @@ function Listing() {
 									is24hour={true}
 									onChange={onChange}
 									/>
-								<label for="Auction end time" className = "form-label">Auction End Time</label>
+								
 							</div>
 							
 							<div className = "input-wrapper">
+							    <label for="Event Description" className = "form-label">Event Description</label>
 								<input
 									id= "Event Description"
 									type="textarea"
@@ -159,12 +167,13 @@ function Listing() {
 									required= {false}
 									rows= {10}
 							    />
-								<label for="Event Description" className = "form-label">Event Description</label>
+								
 							</div>
 							
 							<div className = "submit-button">
+							    <label for="Event Image" className = "image-label">Add an Event Image</label>
 								<Image/>
-								<label for="Event Image" className = "image-label">Add an Event Image</label>
+								
 							</div>
 						<button type="submit" className={styles.green_btn}>
 							Submit Listing
