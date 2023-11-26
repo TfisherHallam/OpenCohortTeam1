@@ -174,10 +174,10 @@ function Listing() {
 							    <label for="Event Image" className = "form-label">Add an Event Image</label>
 								<Image/>
 							</div>
-						<button type="submit" className= "button">
+						<button type="submit" className= "submit-button">
 							Submit
 						</button>
-                        <button type="clear" className="button">
+                        <button type="clear" className="clear-button">
 							Clear 
 						</button>
 					</form>
