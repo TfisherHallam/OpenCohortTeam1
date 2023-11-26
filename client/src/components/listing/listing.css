@@ -5,7 +5,7 @@
     align-items: center;
     background-color: rgb(249, 249, 249);
     margin: 0 auto;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap; 
 }
 
 @media (max-width: 450px) {
@@ -28,16 +28,17 @@
     margin: 10px;   
 }
 
-.form-label{
-    /* justify-content:center; */
-    align-items: center;
-}
-
-/*.form-input {
-     max-width: 200px;
-    min-width: none;
-    height: 20x;
-    margin: 10px; */
+.form-label {
+    flex: auto;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(24, 24, 24);
+    line-height: 1.4;
+    height: 48px;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
     
 .form-input {
     border-style: solid;
