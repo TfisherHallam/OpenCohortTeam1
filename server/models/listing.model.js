@@ -15,14 +15,26 @@ const listingSchema = new mongoose.Schema({
 
   eventTime: {
     type: String, required: true,
-  }, 
+  },
+
+  eventType: {
+    type: String, required: true,
+  },
   
   startingBid: {
     type: Number, required: true
   },
 
-  reserve: {
-    type: Number, required: true,
+  currentBid: {
+    type: Number
+  },
+
+  auctionEndDate: {
+    type: Date
+  },
+
+  auctionEndTime: {
+    type: String
   },
 
   description: {
@@ -31,7 +43,7 @@ const listingSchema = new mongoose.Schema({
 
   image: {
     type: String, //store the url/file path as a string
-    required: true, unique: true
+    required: true,
   },
 
 }, {timestamps: true});

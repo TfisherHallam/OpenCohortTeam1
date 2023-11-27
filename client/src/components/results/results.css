@@ -16,16 +16,21 @@
   overflow: hidden;
 }
 
+.eventTitle {
+
+}
+
 /* Style for each carousel item (card) */
 .AuctionItem {
   flex: 0 0 calc(30% - 20px);
+  min-width: 20vw; /* Set a minimum width for the cards */
   margin: 0 10px 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 40, 155, 0.7) 100%); /* Updated gradient background with transparency */
+  background: rgba(15, 26, 56, 0.7); /* Updated gradient background with transparency */
   color: #fff;
 }
 
@@ -44,9 +49,11 @@
 
 /* Style for the card title (event name) */
 .AuctionDetails h2 {
-  margin: 0;
-  font-size: 1.5em;
+  font-size: 2em;
   margin-bottom: 10px; /* Added margin to separate title from other details */
+  text-align: center;
+  color: #ffffff;
+  margin: 20px 0;
 }
 
 /* Style for other details within each card */
@@ -78,7 +85,7 @@
 /* Style for the countdown */
 .Countdown {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 2em;
   font-weight: bold;
   margin-bottom: 10px; /* Added margin to separate countdown from other details */
 }
@@ -93,11 +100,16 @@
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjusted shadow on hover */
 }
-
+.line {
+  border-top: 2px solid #ddd;
+  margin-top: 10px; /* Adjust the margin as needed */
+  width:100%;
+}
 /* Adjust styles for smaller screens (e.g., mobile) */
 @media only screen and (max-width: 768px) {
   .AuctionItem {
     flex: 0 0 calc(45% - 20px);
+    min-width: 45%;
   }
 }
 
@@ -105,5 +117,6 @@
 @media only screen and (max-width: 480px) {
   .AuctionItem {
     flex: 0 0 100%;
+    min-width: 100%;
   }
 }

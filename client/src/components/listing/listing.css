@@ -8,24 +8,26 @@
     flex-wrap: wrap; 
 }
 
-@media (max-width: 450px) {
-    .flex-container {
-      flex-direction: column;
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-}
-    
+
  .form{
     display: flex;
     flex-direction: column;
-    
-} 
+
+}
+
 
 .input-wrapper{
     display: flex; 
-    margin: 10px;   
+    margin: 10px 0;
+}
+.heading {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 700; /* Adjust font-weight for desired thickness */
+  color: #333; /* Change to your preferred text color */
+  margin-bottom: 20px; /* Add spacing between the heading and the form */
+  text-align: center; /* Center the heading */
+  letter-spacing: 1px; /* Add a bit of letter-spacing for a modern look */
 }
 
 .form-label {
@@ -36,9 +38,9 @@
     color: rgb(24, 24, 24);
     line-height: 1.4;
     height: 48px;
-    margin-top: 20px;
-    margin-right: 10px;
-  }
+    margin-top: 0px;
+    width : 150px;
+}
     
 .form-input {
     border-style: solid;
@@ -49,11 +51,10 @@
     padding: 6px;
     opacity: 1;
     align-self: center;
-    width: 200px;
     height: 30px;
     flex-grow: 1;
-    width: 250px;
-    margin: 0px;
+    width: 60%;
+    margin-left: 10px;
 }
 
 .submit-button {
@@ -76,6 +77,20 @@
     flex-grow: 1;
     width: 150px;
     margin-left: -40px;
+  }
+
+  .Event-Type{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(249, 249, 249);
+    margin-left: 10px;
+    flex-wrap: wrap;
+    width: 64%;
   }
 
   .clear-button {
@@ -101,3 +116,40 @@
     margin-top: -45px;
   }
 
+
+@media (max-width: 480px) {
+  .flex-container {
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .form{
+    width: 70%;
+  }
+  .input-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .form-label {
+    width: 100%;
+    padding-bottom: 0;
+  }
+
+  .form-input{
+    padding-top: 0;
+
+    width: 100%; /* Take full width */
+    margin-left: 0; /* Remove left margin */
+  }
+.Event-Type{
+    width: 104%;
+    height:45px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
+}

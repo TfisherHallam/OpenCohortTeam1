@@ -14,7 +14,7 @@ import Helpcentre from './pages/Helpcentre.js';
 import Privacy from './pages/Privacy.js';
 import Termsofuse from './pages/Termsofuse.js';
 import Page404 from './pages/404.js';
-import Itemview from './components/ItemView/Itemview.jsx';
+import Itemview from './components/ItemView/itemView.jsx';
 
 import PrivateRoute from './components/privateRoute.jsx';
 import AdminRoute from './components/adminRoute.jsx';
@@ -45,6 +45,7 @@ function App() {
           <Route path='/Termsofuse' element={<Termsofuse />} />
           <Route path='/Helpcentre' element={<Helpcentre />} />
           <Route path='/Privacy' element={<Privacy />} />
+          <Route path='/ItemView' element={<Itemview />} />
           <Route path='*' element={<Page404 />} />
         </Routes>
         <Boilerplate />

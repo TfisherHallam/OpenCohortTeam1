@@ -2,6 +2,7 @@ import React from 'react';
 import './adminDashboard.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+const PORT = process.env.PORT || 3001;
 import { useSelector } from 'react-redux/es/hooks/useSelector.js';
 import Content404items from '../content404/content404';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -13,7 +14,7 @@ function AdminDashboard() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:3001/api/admin/');
+        const response = await fetch(`http://localhost:${PORT}/api/admin/`);
         if (response.ok) {
           const data = await response.json();
           setResults(data);
