@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './selling.css';
 import '../../App.css';
 import { FaTicketAlt, FaPoundSign, FaHourglassHalf } from 'react-icons/fa';
@@ -8,7 +9,6 @@ function Selling() {
     return (
         <div className='textcontainer'>
             <div className="textflex-container">
-
                 <div className='sellingparagraph'>
                     <h1>Sell your tickets with ease</h1>
                     <br />
@@ -53,10 +53,13 @@ function Selling() {
                     <h2>So... what are you waiting for?</h2>
                     <br />
                     <br />
+                    {currentUser ? (
+            <label for="Sell tickets"><Link to={"/Listing"}><button className="sellingbutton">Sell my tickets</button></Link></label>
+          ) : (<label for="Log in here"><Link to={"/Login"}><button className="sellingbutton">Log in here</button></Link></label>
+          )}
                 </div>
             </div>
         </div>
-
     )
 }
 
