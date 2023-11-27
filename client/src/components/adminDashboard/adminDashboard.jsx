@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector.js';
 import Content404items from '../content404/content404';
-
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function AdminDashboard() {
   const { currentUser } = useSelector(state => state.user)
@@ -65,12 +65,13 @@ function AdminDashboard() {
                       <td className='userTable'>{result.email}</td>
                       <td className='userTable'>{result.userStateCode}
                       </td>
+
                       <td className='userTable'><Link to={`/AdminUserview/${result._id}`}><button>Change access</button></Link></td>
                       <td className='userTable'><button onClick={() => handleUserDeletion(result._id)}>Delete user</button></td>
                     </tr>
                   ))) : (
                   <tr>
-                    <td colspan="5">No users found</td>
+                    <td colSpan="5">No users found</td>
                   </tr>
                 )}
               </tbody>
