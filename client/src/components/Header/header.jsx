@@ -3,7 +3,6 @@ import './header.css';
 import logo from "../../images/TransparentLogo.png";
 import BurgerNew from "../burgerNavigation/hamBurgerMenu.jsx";
 import { Link, useLocation } from 'react-router-dom';
-import { MdOutlinePeopleAlt } from "react-icons/md";
 import { useSelector } from 'react-redux/es/hooks/useSelector.js';
 
 

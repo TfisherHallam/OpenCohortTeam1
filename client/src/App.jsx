@@ -38,10 +38,9 @@ function App() {
 
           </Route>
           <Route element={<AdminRoute/>}>
-
-          </Route>
           <Route path='/Admin' element={<AdminDashboard/>} />
           <Route path='/AdminUserview/:userid' element={<AdminUserViewPage/>} />
+          </Route>
           <Route path='/Login' element={<Loginpage />} />
           <Route path='/Register' element={<Registerpage />} />
           <Route path='/Termsofuse' element={<Termsofuse />} />
