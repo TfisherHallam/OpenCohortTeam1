@@ -49,10 +49,11 @@ export default function ItemView() {
               {item.image && (
                   <img src={item.image} alt="Item Image" className="itemView-image" />
               )}
+
               <section className="itemView-details">
                 <div className="itemView-row">
                   <strong className="itemView-label">Category:</strong>
-                  <span className="itemView-value">{item.eventType}</span>
+                  <span className="itemView-value">{item.category}</span>
                 </div>
 
                 <div className="itemView-row">
@@ -69,19 +70,22 @@ export default function ItemView() {
 
                 <div className="itemView-row">
                   <strong className="itemView-label">Auction End:</strong>
-                  <span className="itemView-value">{new Date(
-                      item.eventDate).toLocaleDateString()}</span>
+                  <span className="itemView-value">{item.auctionEndDate}</span>
                 </div>
 
                 <div className="itemView-row">
                   <strong className="itemView-label">Starting Bid:</strong>
-                  <span className="itemView-value">{formatTime(
-                      item.eventTime)}</span>
+                  <span className="itemView-value">{item.startingBid}</span>
                 </div>
 
                 <div className="itemView-row">
                   <strong className="itemView-label">Current Bid:</strong>
                   <span className="itemView-value">{item.currentBid}</span>
+                </div>
+
+                <div className="itemView-row">
+                  <strong className="itemView-label">New Bid:</strong>
+                  <span className="itemView-value">{renderBidValue()}</span>
                 </div>
 
                 <div className="itemView-row">

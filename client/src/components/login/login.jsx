@@ -55,24 +55,24 @@ const {loading, error} = useSelector((state) => state.user);
 						<FaUserCircle className='icon' size={70} />
 						<br />
 						<br />
-						<input
+						<label for="Login email"><input
 							type="email"
 							placeholder="Email"
 							id="email"
 							onChange={handleChange}
 							required
 							className="inputboxes"
-						/>
+						/></label>
 						<br />
 						<br />
-						<input
+						<label for="Login password"><input
 							type="password"
 							placeholder="Password"
 							id="password"
 							onChange={handleChange}
 							required
 							className="inputboxes"
-						/>
+						/></label>
 						{error && <div className="">{error}</div>}
 						<br />
 						<br />

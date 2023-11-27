@@ -4,17 +4,11 @@ import "./listing.css";
 import Image from "./imageupload.jsx";
 import submitListing from "./submitListing.js";
 
-
 function Listing() {
 
   const [formData, setFormData] = useState({});
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value,
-    });
-  };
+
   const handleImageChange = async (selectedFile) => {
     console.log("selectedFile:", selectedFile);
 
@@ -23,6 +17,7 @@ function Listing() {
       image: selectedFile,
     });
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,6 +30,13 @@ function Listing() {
     }
   };
 
+
+	const handleChange = (e) => {
+		setFormData({
+			...formData,
+			[e.target.id]: e.target.value,
+		});
+	};
 
   return (
       <div className="">

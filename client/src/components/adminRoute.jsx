@@ -3,5 +3,5 @@ import { Outlet, Navigate } from "react-router-dom"
 
 export default function AdminRoute() {
     const {currentUser} = useSelector((state) => state.user)
-    return currentUser ? <Outlet/> : <Navigate to='/Login'/>
+    return currentUser && currentUser.userStateCode === "Admin" ? <Outlet/> : <Navigate to='/'/>
 }
