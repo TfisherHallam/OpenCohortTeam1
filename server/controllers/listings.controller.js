@@ -28,9 +28,12 @@ const createListing = async (req, res, next) => {
     eventDate,
     eventTime,
     startingBid,
-    reserve,
+    auctionEndDate,
+    auctionEndTime,
+    currentBid,
+    eventType,
     description,
-    image
+    image,
   } = req.body;
   const newListing = new Listing({
     username,
@@ -38,9 +41,12 @@ const createListing = async (req, res, next) => {
     eventDate,
     eventTime,
     startingBid,
-    reserve,
+    eventType,
+    auctionEndDate,
+    auctionEndTime,
+    currentBid,
     description,
-    image
+    image,
   });
   try {
     await newListing.save();
@@ -58,10 +64,13 @@ const updateListing = async (req, res, next) => {
     eventName,
     eventDate,
     eventTime,
+    eventType,
     startingBid,
-    reserve,
+    auctionEndDate,
+    auctionEndTime,
+    currentBid,
     description,
-    image
+    image,
   } = req.body;
 
   const updatedListing = {
@@ -70,9 +79,12 @@ const updateListing = async (req, res, next) => {
     eventDate,
     eventTime,
     startingBid,
-    reserve,
+    auctionEndDate,
+    eventType,
+    auctionEndTime,
+    currentBid,
     description,
-    image
+    image,
   };
 
   const updateObject = {};
@@ -90,7 +102,6 @@ const updateListing = async (req, res, next) => {
   }
 };
 
-//delete a listing --------------- NOTE THIS CURRENTLY DOES NOT FLAG, IT INSTANTLY DELETES
 const deleteListing = async (req, res, next) => {
   try {
     await Listing.findByIdAndDelete(req.params.id);

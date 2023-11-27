@@ -1,191 +1,183 @@
-import { useState} from "react";
+import {useState} from "react";
 import CurrencyInput from 'react-currency-input-field';
-//import { Link, useNavigate } from "react-router-dom";
-import styles from "./listing.css";
-import Image from "../imageupload";
-
-
+import "./listing.css";
+import Image from "./imageupload.jsx";
+import submitListing from "./submitListing.js";
 
 
 function Listing() {
 
-	const [date, setDate] = useState(new Date());
-	const [mode, setMode] = useState("date");
-	const [show, setShow] = useState(false);
+  const [formData, setFormData] = useState({});
 
-	//const [isChecked, setChecked]= useState(false);
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+  const handleImageChange = async (selectedFile) => {
+    console.log("selectedFile:", selectedFile);
 
-	const onChange = (e, selectedDate) => {
-		setDate(selectedDate);
-		setShow(false);
-	}
+    setFormData({
+      ...formData,
+      image: selectedFile,
+    });
+  };
 
-	const showMode = (currentMode) => {
-		setShow(true);
-		setMode(currentMode);
-	}
-	const [formData, setFormData] = useState({})
-	const handleChange = (e) => {
-		setFormData({
-			...formData,
-			[e.target.id]: e.target.value,
-		});
-	};
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		const res = await fetch('/api/auth/', {
-			method: 'POST',
-			headers:{
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(formData),
-		});
-		const data = await res.json();
-		console.log(data);
-	};
-    return (
-		<div className="">
-			<div className="">                          
-				<div className="flex-container">
-					<form className= "form" onSubmit={handleSubmit}>  
-						<h1>Create your listing</h1>
-							<div className = "input-wrapper">
-							    <label for = "Event Name" className = "form-label">Event Name</label>
-								<input
-									id= "Event Name"
-									type="text"
-									placeholder="Event Name"
-									name="Event Name"
-									onChange={handleChange}
-									required= {true}
-									className="form-input"/>
-								
-							</div>
-							<div className = "input-wrapper">
-							    <label for="Event date" className = "form-label">Event Date</label>
-								<input
-									className = "form-input"
-									type="date" onPress={() => showMode("date")} 
-									id="Event date"
-									name="Event date"
-									placeholder=""
-									value={date}
-									min=""
-									mode={mode}
-									is24hour={true}
-									onChange={onChange} 
-									/>
-								
-							</div>
-							<div className = "input-wrapper">
-							    <label for="Event time" className = "form-label">Event Time</label>
-								<input
-									type="time" onPress={() => showMode("time")} 
-									id="Event time"
-									name="Event Time"
-									value={date}
-									min=""
-									mode={mode}
-									is24hour={true}
-									onChange={onChange}
-									className = "form-input"/> 
-							   
-							</div>
-							<div className = "input-wrapper">
-							    <label for= "Event Type" className = "form-label">Event Type</label>
-								<select
-									id = "Event Type"
-									placeholder= "Browse..."
-									className = "form-input">
-									<option value = ""></option>
-									<option value = "Concert">Concert</option>
-									<option value = "Festival">Festival</option>
-									<option value = "Gig">Gig</option>
-									<option value = "Comedy Night">Comedy Night</option>
-									<option value = "Club Night">Concert</option>
-								</select>
-								
-						    </div>
-						
-						    <div className = "input-wrapper">
-							    <label for="Starting Bid" className = "form-label">Starting Bid</label>
-								<CurrencyInput
-									className= "form-input"
-									id= "Starting Bid"
-									name="Starting Bid"
-									placeholder="£00.00"
-									decimalsLimit={2}
-									onValueChange={(value, name) => console.log(value, name)}
-									required = {true}
-									/>
-								
-							</div>
-							
-							
-							<div className = "input-wrapper">
-							    <label for="Auction end date" className = "form-label">Auction End Date</label>
-								<input
-									className= "form-input"
-									type="date" onPress={() => showMode("date")} 
-									id="Auction end date"
-									name="Auction End date"
-									value={date}
-									min=""
-									mode={mode}
-									is24hour={true}
-									onChange={onChange}
-									/>
-								
-							</div>
-							
-							
-							<div className = "input-wrapper">
-							    <label for="Auction end time" className = "form-label">Auction End Time</label>
-								<input
-									className= "form-input"
-									type="time" onPress={() => showMode("time")} 
-									id="Auction end time"
-									name="Auction End Time"
-									value={date}
-									min=""
-									mode={mode}
-									is24hour={true}
-									onChange={onChange}
-									/>
-								
-							</div>
-							
-							<div className = "input-wrapper">
-							    <label for="Event Description" className = "form-label">Event Description</label>
-								<input
-									id= "Event Description"
-									type="textarea"
-									className= "form-input"
-									placeholder="Give more information about your event..."
-									name="Description"
-									onChange={handleChange}
-									required= {false}
-									rows= {10}
-							    />
-								
-							</div>
-							
-							<div className = "input-wrapper">
-							    <label for="Event Image" className = "form-label">Add an Event Image</label>
-								<Image/>
-							</div>
-						<button type="submit" className= "submit-button">
-							Submit
-						</button>
-                        <button type="clear" className="clear-button">
-							Clear 
-						</button>
-					</form>
-				</div> 
-			</div>
-		</div>
-	);
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log('formData:', formData);
+    try {
+      // Call the submitListing.js function with the formData
+      const data = await submitListing(formData);
+    } catch (error) {
+      console.error('Error in handleSubmit:', error);
+    }
+  };
 
+
+  return (
+      <div className="">
+        <div className="">
+          <div className="flex-container">
+            <form className="form" onSubmit={handleSubmit}>
+              <h1 className={"heading"}>Create your listing</h1>
+              <div className="input-wrapper">
+                <label htmlFor="eventName" className="form-label">Event
+                  Name</label>
+                <input
+                    id="eventName"
+                    type="text"
+                    placeholder="Event Name"
+                    name="Event Name"
+                    onChange={handleChange}
+                    required={true}
+                    className="form-input"/>
+
+              </div>
+              <div className="input-wrapper">
+                <label htmlFor="eventDate" className="form-label">Event
+                  Date</label>
+                <input
+                    className="form-input"
+                    type="date"
+                    onChange={handleChange}
+                    id="eventDate"
+                    name="Event Date"
+                    placeholder=""
+                    value={formData.eventDate || ''}
+                    min=""
+                />
+              </div>
+              <div className="input-wrapper">
+                <label htmlFor="eventTime" className="form-label">Event
+                  Time</label>
+                <input
+                    type="time"
+                    onChange={handleChange}
+                    id="eventTime"
+                    name="Event Time"
+                    value={formData.eventTime || ''}
+                    min=""
+                    className="form-input"/>
+
+              </div>
+              <div className="input-wrapper">
+                <label htmlFor="eventType" className="form-label">Event
+                  Type</label>
+                <select
+                    id="eventType"
+                    placeholder="Browse..."
+                    onChange={handleChange}
+                    className="Event-Type">
+                  <option value=""></option>
+                  <option value="Concert">Concert</option>
+                  <option value="Festival">Festival</option>
+                  <option value="Gig">Gig</option>
+                  <option value="Comedy Night">Comedy Night</option>
+                  <option value="Club Night">Concert</option>
+                </select>
+
+              </div>
+              <div className="input-wrapper">
+                <label htmlFor="startingBid" className="form-label">Starting
+                  Bid</label>
+                <CurrencyInput
+                    className="form-input"
+                    id="startingBid"
+                    name="startingBid"
+                    placeholder="£00.00"
+                    decimalsLimit={2}
+                    required={true}
+                    onValueChange={(value, name) => handleChange(
+                        {target: {id: name, value}})}
+                />
+
+              </div>
+              <div className="input-wrapper">
+                <label htmlFor="auctionEndDate" className="form-label">Auction
+                  End Date</label>
+                <input
+                    className="form-input"
+                    type="date"
+                    onChange={handleChange}
+                    id="auctionEndDate"
+                    name="Auction End Date"
+                    placeholder=""
+                    value={formData.auctionEndDate || ''}
+                    min=""
+                />
+
+              </div>
+
+              <div className="input-wrapper">
+                <label htmlFor="auctionEndTime" className="form-label">Auction
+                  End Time</label>
+                <input
+                    type="time"
+                    onChange={handleChange}
+                    id="auctionEndTime"
+                    name="Auction End Time"
+                    value={formData.auctionEndTime || ''}
+                    min=""
+                    className="form-input"
+                />
+
+              </div>
+
+              <div className="input-wrapper">
+                <label htmlFor="description" className="form-label">Event
+                  Description</label>
+                <input
+                    id="description"
+                    type="textarea"
+                    className="form-input"
+                    placeholder="Give more information about your event..."
+                    name="Description"
+                    onChange={handleChange}
+                    required={false}
+                />
+
+              </div>
+
+              <div className="input-wrapper">
+                <label htmlFor="image" className="form-label">Add an Event
+                  Image</label>
+                <Image
+                    className="form-input"
+                    onFileChange={handleImageChange}
+                />
+              </div>
+              <button type="submit" className="submit-button">
+                Submit
+              </button>
+              <button type="clear" className="clear-button" onClick={()=> window.location.reload()}>
+                Clear
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>);
+}
 
 export default Listing;
