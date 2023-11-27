@@ -1,9 +1,10 @@
 import React from 'react';
+import HelpCentreContent from '../components/helpcentre/helpcentre.jsx';
 
 function Helpcentre() {
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Help Centre</h1>
+      <HelpCentreContent/>
 
     </div>
   )

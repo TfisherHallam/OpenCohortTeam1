@@ -28,7 +28,6 @@ function Boilerplate() {
                     <div><b>Support</b></div>
                     <div><Link to={"/Helpcentre"}>Help Centre</Link></div>
                 </div>
-
             </div>
             <Footer /></div>
     )

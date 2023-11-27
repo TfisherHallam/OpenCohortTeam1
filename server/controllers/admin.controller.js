@@ -45,7 +45,7 @@ const updateUser = async (req, res, next) => {
     }
 };
 
-//delete a user 
+//delete user 
 const deleteUser = async (req, res, next) => {
     const user = await User.findById(req.params.id);
     if (!user) {
