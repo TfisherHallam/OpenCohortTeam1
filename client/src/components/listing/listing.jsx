@@ -3,9 +3,7 @@ import CurrencyInput from 'react-currency-input-field';
 //import { Link, useNavigate } from "react-router-dom";
 import styles from "./listing.css";
 import Image from "../imageupload";
-
-
-
+import { useSelector } from 'react-redux';
 
 function Listing() {
 
@@ -59,7 +57,6 @@ function Listing() {
 									onChange={handleChange}
 									required= {true}
 									className="form-input"/>
-								
 							</div>
 							<div className = "input-wrapper">
 							    <label for="Event date" className = "form-label">Event Date</label>
@@ -75,7 +72,6 @@ function Listing() {
 									is24hour={true}
 									onChange={onChange} 
 									/>
-								
 							</div>
 							<div className = "input-wrapper">
 							    <label for="Event time" className = "form-label">Event Time</label>
@@ -89,7 +85,6 @@ function Listing() {
 									is24hour={true}
 									onChange={onChange}
 									className = "form-input"/> 
-							   
 							</div>
 							<div className = "input-wrapper">
 							    <label for= "Event Type" className = "form-label">Event Type</label>
@@ -104,9 +99,7 @@ function Listing() {
 									<option value = "Comedy Night">Comedy Night</option>
 									<option value = "Club Night">Concert</option>
 								</select>
-								
 						    </div>
-						
 						    <div className = "input-wrapper">
 							    <label for="Starting Bid" className = "form-label">Starting Bid</label>
 								<CurrencyInput
@@ -117,11 +110,8 @@ function Listing() {
 									decimalsLimit={2}
 									onValueChange={(value, name) => console.log(value, name)}
 									required = {true}
-									/>
-								
+									/>							
 							</div>
-							
-							
 							<div className = "input-wrapper">
 							    <label for="Auction end date" className = "form-label">Auction End Date</label>
 								<input
@@ -134,12 +124,9 @@ function Listing() {
 									mode={mode}
 									is24hour={true}
 									onChange={onChange}
-									/>
-								
-							</div>
-							
-							
-							<div className = "input-wrapper">
+									/>								
+							</div>					
+													<div className = "input-wrapper">
 							    <label for="Auction end time" className = "form-label">Auction End Time</label>
 								<input
 									className= "form-input"
@@ -151,10 +138,8 @@ function Listing() {
 									mode={mode}
 									is24hour={true}
 									onChange={onChange}
-									/>
-								
-							</div>
-							
+									/>								
+							</div>							
 							<div className = "input-wrapper">
 							    <label for="Event Description" className = "form-label">Event Description</label>
 								<input
@@ -166,10 +151,8 @@ function Listing() {
 									onChange={handleChange}
 									required= {false}
 									rows= {10}
-							    />
-								
-							</div>
-							
+							    />								
+							</div>							
 							<div className = "input-wrapper">
 							    <label for="Event Image" className = "form-label">Add an Event Image</label>
 								<Image/>

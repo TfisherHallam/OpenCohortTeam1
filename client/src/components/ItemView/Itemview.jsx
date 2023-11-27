@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './Itemview.css';
 import '../../App.css';
+import { useSelector } from 'react-redux';
 
 export default function ItemView() {
     const [item, setItem] = useState(null);

@@ -4,7 +4,7 @@ import logo from "../../images/TransparentLogo.png";
 import BurgerNew from "../burgerNavigation/hamBurgerMenu.jsx";
 import { Link, useLocation } from 'react-router-dom';
 import { MdOutlinePeopleAlt } from "react-icons/md";
-import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector.js';
+import { useSelector } from 'react-redux/es/hooks/useSelector.js';
 
 
 function Logo() {
@@ -15,10 +15,7 @@ function Logo() {
 }
 
 function Header() {
-const {currentUser} = useSelector(state => state.user)
-
-
-
+  const { currentUser } = useSelector(state => state.user)
   const location = useLocation();
   if (location.pathname === '/') {
     return (
@@ -31,19 +28,23 @@ const {currentUser} = useSelector(state => state.user)
               <Link to={"/Buying"}>
                 <button className="headerButtons">Buy</button>
               </Link>
-              <Link to={"/Sell"}>
-                <button className="headerButtons">Sell</button>
-              </Link>
+              {currentUser ? (
+                <Link to={"/Listing"}><button className="headerButtons">Sell</button></Link>
+              ) : (<Link to={"/Sell"}><button className="headerButtons">Sell</button></Link>
+              )}
               <Link to={"/Helpcentre"}>
                 <button className="headerButtons">Help</button>
               </Link>
+              {currentUser && currentUser.userStateCode === "Admin" ? (
+                <Link to={"/Admin"}><button className="headerButtons">Admin</button></Link>
+              ) : ("")}
             </div>
             <Link to={"/Account"}>
-          {currentUser ? (
-            <img className='headerAvatar' src={currentUser.avatar} alt="profile-pic" />
-          ) : (<button className="loginButtons">Log in</button>
-          )}
-        </Link>
+              {currentUser ? (
+                <img className='headerAvatar' src={currentUser.avatar} alt="profile-pic" />
+              ) : (<button className="loginButtons">Log in</button>
+              )}
+            </Link>
           </div>
           <div>
             <p className="homePageTitle">TicketScalper</p>
@@ -69,16 +70,17 @@ const {currentUser} = useSelector(state => state.user)
         <div className="headerButtongroup">
           <Link to={"/Buying"}>
             <button className="headerButtons">Buy</button>
-          </Link>         
-
-            {currentUser ? (
+          </Link>
+          {currentUser ? (
             <Link to={"/Listing"}><button className="headerButtons">Sell</button></Link>
-          ) : ( <Link to={"/Sell"}><button className="headerButtons">Sell</button></Link>
-          )}             
-         
+          ) : (<Link to={"/Sell"}><button className="headerButtons">Sell</button></Link>
+          )}
           <Link to={"/Helpcentre"}>
             <button className="headerButtons">Help</button>
           </Link>
+          {currentUser && currentUser.userStateCode === "Admin" ? (
+            <Link to={"/Admin"}><button className="headerButtons">Admin</button></Link>
+          ) : ("")}
         </div>
         <Link to={"/Account"}>
           {currentUser ? (

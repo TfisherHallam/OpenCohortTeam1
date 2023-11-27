@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './selling.css';
 import '../../App.css';
@@ -6,6 +7,7 @@ import { FaTicketAlt, FaPoundSign, FaHourglassHalf } from 'react-icons/fa';
 import { LuHardDriveUpload } from "react-icons/lu"
 
 function Selling() {
+    const { currentUser } = useSelector((state) => state.user);
     return (
         <div className='textcontainer'>
             <div className="textflex-container">
