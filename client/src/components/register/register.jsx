@@ -46,7 +46,7 @@ export default function Register() {
 
 	return (
 		<div className="textcontainer">
-			<form onSubmit={handleSubmit} className="reg-form">
+			<form onSubmit={handleSubmit} className="form">
 				<h1 className="registerHeader">Welcome! <br />
 				<br />
 				We are so glad you are joining us!</h1>
