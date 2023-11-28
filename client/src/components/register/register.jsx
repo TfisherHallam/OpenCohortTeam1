@@ -46,12 +46,12 @@ export default function Register() {
 
 	return (
 		<div className="textcontainer">
-			<form onSubmit={handleSubmit} >
+			<form onSubmit={handleSubmit} className="reg-form">
 				<h1 className="registerHeader">Welcome! <br />
 				<br />
 				We are so glad you are joining us!</h1>
 				<div className="registerflex-container">
-					<div className="registerflex-item-left">Username:</div>
+					<label htmlFor="username" className="registerflex-item-left">Username:
 					<div className="registerflex-item-right">
 						<input
 							type="text"
@@ -60,10 +60,10 @@ export default function Register() {
 							onChange={handleChange}
 							required
 							className="input"
-						/></div>
+						/></div></label>
 				</div>
 				<div className="registerflex-container">
-					<div className="registerflex-item-left">First name:</div>
+					<label htmlFor= "First Name" className="registerflex-item-left">First name:
 					<div className="registerflex-item-right">
 						<input
 							type="text"
@@ -72,9 +72,10 @@ export default function Register() {
 							onChange={handleChange}
 							required
 							className="input"
-						/></div></div>
+						/></div></label>
+						</div>
 				<div className="registerflex-container">
-					<div className="registerflex-item-left">Last name:</div>
+					<label htmlFor="Last Name" className="registerflex-item-left">Last name:
 					<div className="registerflex-item-right">
 						<input
 							type="text"
@@ -83,9 +84,9 @@ export default function Register() {
 							onChange={handleChange}
 							required
 							className="input"
-						/></div>
+						/></div></label>
 				</div><div className="registerflex-container">
-					<div className="registerflex-item-left">Email address:</div>
+					<label htmlFor="email" className="registerflex-item-left">Email address:
 					<div className="registerflex-item-right">
 						<input
 							type="email"
@@ -94,10 +95,10 @@ export default function Register() {
 							onChange={handleChange}
 							required
 							className="input"
-						/></div>
+						/></div></label>
 				</div>
 				<div className="registerflex-container">
-					<div className="registerflex-item-left">Mobile Number:</div>
+					<label htmlFor="telephone" className="registerflex-item-left">Mobile Number:
 					<div className="registerflex-item-right">
 						<input
 							type="tel"
@@ -107,10 +108,10 @@ export default function Register() {
 							required
 							maxLength="11"
 							className="input"
-						/></div>
+						/></div></label>
 				</div>
 				<div className="registerflex-container">
-					<div className="registerflex-item-left">Create Password:</div>
+					<label htmlFor="password" className="registerflex-item-left">Create Password:
 					<div className="registerflex-item-right"><input
 						type="password"
 						placeholder="Password"
@@ -118,7 +119,7 @@ export default function Register() {
 						onChange={handleChange}
 						required
 						className="input"
-					/></div>
+					/></div></label>
 				</div>
 				<button className="registerbutton">
 					Register

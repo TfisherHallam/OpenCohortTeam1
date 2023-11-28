@@ -1,3 +1,19 @@
+/* .textcontainer {
+  display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(249, 249, 249);
+    margin: 0 auto;
+    flex-wrap: wrap; 
+}
+
+.reg-form{
+  display: flex;
+  flex-direction: column;
+
+} */
+
 .registerflex-container {
   display: flex;
   flex-direction: row;
@@ -22,11 +38,12 @@ text-align: center;
   }
 
   .registerflex-item-left {
-    text-align: center;
+   
   }
 }
 
 .registerflex-item-left {
+  text-align: center;
   flex: auto;
   font-family: Arial;
   font-size: 16px;
@@ -34,13 +51,15 @@ text-align: center;
   color: rgb(24, 24, 24);
   line-height: 1.4;
   height: 48px;
+  margin-right: 0px;
 }
 
 .registerflex-item-right {
   flex: auto;
   font-family: Arial;
   font-size: 16px;
-  align-content: flex-start;
+  /* align-content: center; */
+  
 }
 
 
