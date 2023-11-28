@@ -1,88 +1,112 @@
-.registerflex-container {
-  display: flex;
-  flex-direction: row;
+.text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(249, 249, 249);
+    margin: 0 auto;
+    flex-wrap: wrap; 
+}
 
-  border: 1px;
-  padding-top: 2%;
-  width: auto;
-  align-items: center;
+
+ .form{
+    display: flex;
+    flex-direction: column;
+    /* max-width: 0px; */
+
+}
+
+
+.registerflex-container{
+    display: flex; 
+    margin: 10px 0;
 }
 
 .registerHeader {
-text-align: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 700; /* Adjust font-weight for desired thickness */
+  color: #333; /* Change to your preferred text color */
+  margin-bottom: 20px; /* Add spacing between the heading and the form */
+  text-align: center; /* Center the heading */
+  letter-spacing: 1px; /* Add a bit of letter-spacing for a modern look */
 }
 
-/* Responsive layout - makes a one column-layout instead of two-column layout */
-@media (max-width: 450px) {
-  .registerflex-container {
+.registerflex-item-left{
+    flex: auto;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(24, 24, 24);
+    line-height: 1.4;
+    height: 48px;
+    margin-top: 5px;
+    margin-left: 140px;
+    width : 0px;
+}
+    
+.input {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 6px;
+    opacity: 1;
+    align-self: center;
+    height: 30px;
+    flex-grow: 1;
+    width: 300px;
+    margin-left: 10px;
+}
+
+.registerbutton {
+    
+    background-color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    line-height: 1;
+    border-radius: 5px;
+    padding: 12px 24px;
+    opacity: 1;
+    cursor: pointer;
+    align-self:center;
+    width: 150px;
+    order: 9;
+    height: 45px;
+    flex-grow: 1;
+    width: 150px;
+    margin-left: -40px;
+  }
+
+
+@media (max-width: 480px) {
+  .text-container {
     flex-direction: column;
     width: 100%;
     margin-left: 0;
     margin-right: 0;
   }
-
-  .registerflex-item-left {
+  .form{
+    width: 70%;
+  }
+  .registerflex-container {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
-}
 
-.registerflex-item-left {
-  flex: auto;
-  font-family: Arial;
-  font-size: 16px;
-  font-weight: bold;
-  color: rgb(24, 24, 24);
-  line-height: 1.4;
-  height: 48px;
-}
+  .registerflex-item-left {
+    width: 100%;
+    padding-bottom: 0;
+  }
 
-.registerflex-item-right {
-  flex: auto;
-  font-family: Arial;
-  font-size: 16px;
-  align-content: flex-start;
-}
-
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-.input {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 6px;
-  opacity: 1;
-  align-self: center;
-  width: 200px;
-  height: 30px;
-  flex-grow: 1;
-  width: 250px;
-  margin: 0px;
-
-}
-
-.registerbutton {
-  background-color: blue;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: white;
-  text-align: center;
-  line-height: 1;
-  border-radius: 5px;
-  padding: 12px 24px;
-  opacity: 1;
-  cursor: pointer;
-  align-self: center;
-  width: 150px;
-  order: 9;
-  height: 45px;
-  flex-grow: 1;
-  width: 150px;
-  margin: 0px;
+  .input{
+    padding-top: 0;
+    width: 100%; /* Take full width */
+    margin-left: 0; /* Remove left margin */
+  }
 }

@@ -46,12 +46,12 @@ export default function Register() {
 
 	return (
 		<div className="textcontainer">
-			<form onSubmit={handleSubmit} >
+			<form onSubmit={handleSubmit} className="form">
 				<h1 className="registerHeader">Welcome! <br />
 				<br />
 				We are so glad you are joining us!</h1>
 				<div className="registerflex-container">
-					<div className="registerflex-item-left">Username:</div>
+					<label htmlFor="username" className="registerflex-item-left">Username:</label>
 					<div className="registerflex-item-right">
 						<input
 							type="text"
@@ -63,7 +63,7 @@ export default function Register() {
 						/></div>
 				</div>
 				<div className="registerflex-container">
-					<div className="registerflex-item-left">First name:</div>
+					<label htmlFor= "First Name" className="registerflex-item-left">First name:</label>
 					<div className="registerflex-item-right">
 						<input
 							type="text"
@@ -74,7 +74,7 @@ export default function Register() {
 							className="input"
 						/></div></div>
 				<div className="registerflex-container">
-					<div className="registerflex-item-left">Last name:</div>
+					<label htmlFor="Last Name" className="registerflex-item-left">Last name:</label>
 					<div className="registerflex-item-right">
 						<input
 							type="text"
@@ -85,7 +85,7 @@ export default function Register() {
 							className="input"
 						/></div>
 				</div><div className="registerflex-container">
-					<div className="registerflex-item-left">Email address:</div>
+					<label htmlFor="email" className="registerflex-item-left">Email address:</label>
 					<div className="registerflex-item-right">
 						<input
 							type="email"
@@ -97,7 +97,7 @@ export default function Register() {
 						/></div>
 				</div>
 				<div className="registerflex-container">
-					<div className="registerflex-item-left">Mobile Number:</div>
+					<label htmlFor="telephone" className="registerflex-item-left">Mobile Number:</label>
 					<div className="registerflex-item-right">
 						<input
 							type="tel"
@@ -110,7 +110,7 @@ export default function Register() {
 						/></div>
 				</div>
 				<div className="registerflex-container">
-					<div className="registerflex-item-left">Create Password:</div>
+					<label htmlFor="password" className="registerflex-item-left">Create Password:</label>
 					<div className="registerflex-item-right"><input
 						type="password"
 						placeholder="Password"

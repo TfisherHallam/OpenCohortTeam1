@@ -25,8 +25,8 @@
 
 .headerAvatar{
   border-radius: 50%;
-  height: 10px;
-
+  height: 6vh;
+left: 90%;
 }
 
 .headerButtons {

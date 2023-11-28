@@ -37,13 +37,14 @@ function Header() {
               {currentUser && currentUser.userStateCode === "Admin" ? (
                 <Link to={"/Admin"}><button className="headerButtons">Admin</button></Link>
               ) : ("")}
-            </div>
-            <Link to={"/Account"}>
+                        <Link to={"/Account"}>
               {currentUser ? (
                 <img className='headerAvatar' src={currentUser.avatar} alt="profile-pic" />
               ) : (<button className="loginButtons">Log in</button>
               )}
             </Link>
+            </div>
+
           </div>
           <div>
             <p className="homePageTitle">TicketScalper</p>
@@ -80,13 +81,13 @@ function Header() {
           {currentUser && currentUser.userStateCode === "Admin" ? (
             <Link to={"/Admin"}><button className="headerButtons">Admin</button></Link>
           ) : ("")}
-        </div>
         <Link to={"/Account"}>
           {currentUser ? (
             <img className='headerAvatar' src={currentUser.avatar} alt="profile-pic" />
           ) : (<button className="loginButtons">Log in</button>
           )}
-        </Link>
+        </Link></div>
+        
       </div>
     </div>
   )
