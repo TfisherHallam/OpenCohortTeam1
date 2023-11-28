@@ -12,12 +12,19 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  font-size: 1.2rem;
 }
 
 main {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.itemView-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 16px;
 }
 
 .itemView {
@@ -27,7 +34,6 @@ main {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
-
 .itemView-details {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -45,4 +51,30 @@ main {
 
 .itemView-value {
   word-break: break-word;
+
+}
+.spacer {
+  margin-bottom: 16px;
+}
+.currentBid{
+  font-size: 2rem;
+  font-weight: bold;
+
+}
+.itemView-section {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.bidSection,
+.auctionFunction {
+  text-align: center;
+  text-font: bold;
+  font-size: 1.2rem;
+  background-color: #f8f8f8;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: #555555 0px 0px 10px;
 }

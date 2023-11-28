@@ -3,10 +3,12 @@ import CurrencyInput from 'react-currency-input-field';
 import "./listing.css";
 import Image from "./imageupload.jsx";
 import submitListing from "./submitListing.js";
+import { useSelector } from 'react-redux/es/hooks/useSelector.js';
 
 function Listing() {
 
   const [formData, setFormData] = useState({});
+  const { currentUser } = useSelector(state => state.user)
 
 
   const handleImageChange = async (selectedFile) => {
@@ -24,7 +26,7 @@ function Listing() {
     console.log('formData:', formData);
     try {
       // Call the submitListing.js function with the formData
-      const data = await submitListing(formData);
+      const data = await submitListing(formData, currentUser);
     } catch (error) {
       console.error('Error in handleSubmit:', error);
     }
@@ -109,6 +111,7 @@ function Listing() {
                     id="startingBid"
                     name="startingBid"
                     placeholder="£00.00"
+                    prefix="£"
                     decimalsLimit={2}
                     required={true}
                     onValueChange={(value, name) => handleChange(
@@ -129,7 +132,6 @@ function Listing() {
                     value={formData.auctionEndDate || ''}
                     min=""
                 />
-
               </div>
 
               <div className="input-wrapper">

@@ -2,13 +2,51 @@
   margin: 20px;
 }
 
-/* Full-width container */
 .Container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-/* Carousel container styles */
+.SearchAndSort {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.SearchAndSort input {
+  flex: 2;
+  padding: 15px;
+  margin-right: 10px;
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px;
+  background-color: #f8f8f8; /* Light gray background */
+  color: #333; /* Dark text color */
+}
+
+.SearchAndSort select,
+.BidFilter select{
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  color: #333;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.SearchAndSort label,
+.BidFilter label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+.SearchAndSort .EventSelectorContainer {
+  display: flex;
+  align-items: center;
+}
+
+
 .Carousel {
   display: flex;
   flex-wrap: wrap;
@@ -16,25 +54,17 @@
   overflow: hidden;
 }
 
-.eventTitle {
-
-}
-
-/* Style for each carousel item (card) */
 .AuctionItem {
   flex: 0 0 calc(30% - 20px);
-  min-width: 20vw; /* Set a minimum width for the cards */
-  margin: 0 10px 20px;
+  min-width: 20vw;   margin: 0 10px 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: rgba(15, 26, 56, 0.7); /* Updated gradient background with transparency */
-  color: #fff;
+  background: rgba(15, 26, 56, 0.7);   color: #fff;
 }
 
-/* Style for auction image within each card */
 .AuctionImage {
   width: 100%;
   height: 150px;
@@ -42,70 +72,58 @@
   border-bottom: 1px solid #ddd;
 }
 
-/* Style for auction details within each card */
 .AuctionDetails {
   padding: 15px;
 }
 
-/* Style for the card title (event name) */
 .AuctionDetails h2 {
   font-size: 2em;
-  margin-bottom: 10px; /* Added margin to separate title from other details */
-  text-align: center;
+  margin-bottom: 10px;   text-align: center;
   color: #ffffff;
   margin: 20px 0;
 }
 
-/* Style for other details within each card */
 .AuctionDetails p {
   margin: 8px 0;
   line-height: 1.4;
 }
 
-/* Style for the description */
 .AuctionDetails p.description {
   font-style: italic;
-  margin-bottom: 10px; /* Added margin to separate description from other details */
-}
+  margin-bottom: 10px; }
 
-/* Style for the current bid and reserve */
 .AuctionDetails p.bids {
   font-weight: bold;
-  margin-bottom: 10px; /* Added margin to separate bids from other details */
-}
+  margin-bottom: 10px; }
 
-/* Style for the countdown and current bid container */
 .bidAndCountdown {
   display: flex;
-  flex-direction: column; /* Display countdown and bid in a column layout */
-  align-items: center;
+  flex-direction: column;   align-items: center;
   padding: 10px;
 }
 
-/* Style for the countdown */
 .Countdown {
   text-align: center;
   font-size: 2em;
   font-weight: bold;
-  margin-bottom: 10px; /* Added margin to separate countdown from other details */
-}
+  margin-bottom: 10px; }
 
-/* Style for the current bid */
 .CurrentBid {
   padding-left: 10px;
 }
 
-/* Hover effect for cards */
+.bidFilter input[type="range"] {
+  width: 100%; /* Ensure the slider takes up the full width of its container */
+  margin: 10px 0; /* Adjust margin as needed */
+}
+
 .AuctionItem:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjusted shadow on hover */
-}
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); }
 .line {
   border-top: 2px solid #ddd;
-  margin-top: 10px; /* Adjust the margin as needed */
-  width:100%;
+  margin-top: 10px;   width:100%;
 }
-/* Adjust styles for smaller screens (e.g., mobile) */
 @media only screen and (max-width: 768px) {
   .AuctionItem {
     flex: 0 0 calc(45% - 20px);
@@ -113,10 +131,66 @@
   }
 }
 
-/* Adjust styles for even smaller screens (e.g., very small devices) */
+
+
+  .SearchAndSort select,
+  .BidFilter select {
+    width: 100%; /* Make the select element full width on small screens */
+    margin-bottom: 10px; /* Add some margin at the bottom for spacing */
+  }
+/* Add this to your existing CSS */
+.BidFilter {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Push Bid Filter to the right side */
+}
+
+/* Style for Bid Filter label */
+.BidFilter label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Style for Bid Filter input elements */
+.BidFilter input[type="number"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  color: #333;
+  margin-right: 10px; /* Add some margin for spacing */
+}
+
+/* Style for Bid Filter price range display */
+.BidFilter p {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Style for Bid Filter container on smaller screens */
+@media only screen and (max-width: 480px) {
+  .BidFilter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .BidFilter input[type="number"] {
+    width: 100%; /* Make the input element full width on small screens */
+    margin-bottom: 10px; /* Add some margin at the bottom for spacing */
+  }
+}
+
+
 @media only screen and (max-width: 480px) {
   .AuctionItem {
     flex: 0 0 100%;
     min-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .SearchAndSort .EventSelectorContainer {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

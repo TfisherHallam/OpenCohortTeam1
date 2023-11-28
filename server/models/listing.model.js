@@ -8,11 +8,16 @@ const listingSchema = new mongoose.Schema({
   eventName: {
     type: String, required: true,
   },
+  bidder: {
+    type: String
+  },
 
   eventDate: {
     type: Date, required: true,
   },
-
+  currentBidder: {
+    type: String
+  },
   eventTime: {
     type: String, required: true,
   },

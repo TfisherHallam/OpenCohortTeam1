@@ -1,8 +1,10 @@
 import './results.css';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
+
 const PORT = process.env.PORT || 3001;
+
 export function formatTime(timeString) {
-  const options = { hour: 'numeric', minute: 'numeric', hour12: true };
+  const options = {hour: 'numeric', minute: 'numeric', hour12: true};
   return new Date(`1970-01-01T${timeString}Z`).toLocaleTimeString([], options);
 }
 
@@ -18,8 +20,10 @@ export function calculateCountdown(endDate, endTime) {
       return "Auction has ended";
     }
     const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const hours = Math.floor(
+        (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor(
+        (timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
     return `${days}d ${hours}h ${minutes}m ${seconds}s`;
@@ -31,16 +35,36 @@ export function calculateCountdown(endDate, endTime) {
   }
 }
 
-
 function SearchResults() {
-
-
   const [results, setResults] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortOption, setSortOption] = useState('lowestCountdown');
+  const [selectedEventType, setSelectedEventType] = useState('');
+  const [bidRange, setBidRange] = useState([0, 2000]);
+  const [selectedDateRange, setSelectedDateRange] = useState({
+    startDate: null,
+    endDate: null,
+  });
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:${PORT}/api/listings/`);
+        const queryParams = new URLSearchParams({
+          minBid: bidRange[0],
+          maxBid: bidRange[1],
+          startDate: selectedDateRange.startDate
+              ? selectedDateRange.startDate.toISOString().split('T')[0]
+              : null,
+          endDate: selectedDateRange.endDate
+              ? selectedDateRange.endDate.toISOString().split('T')[0]
+              : null,
+          eventType: selectedEventType,
+        });
+
+        const response = await fetch(
+            `http://localhost:${PORT}/api/listings/?${queryParams}`
+        );
+
         if (response.ok) {
           const data = await response.json();
           setResults(data);
@@ -53,57 +77,189 @@ function SearchResults() {
     }
 
     fetchData();
-  }, []);
+  }, [bidRange, selectedDateRange, selectedEventType]);
+
+
   useEffect(() => {
     // Update countdown every second
     const intervalId = setInterval(() => {
-      setResults((prevResults) =>
-          prevResults.map((result) => ({
-            ...result,
-            countdown: calculateCountdown(result.auctionEndDate, result.auctionEndTime),
-          }))
-      );
-    }, 1000);
+      setResults((prevResults) => prevResults.map((result) => ({
+        ...result,
+        countdown: calculateCountdown(result.auctionEndDate,
+            result.auctionEndTime),
 
+      })));
+    }, 1000);
     return () => clearInterval(intervalId);
   }, []);
 
-  return (
-      <div className="Results">
-        <h1 className={"resultsTitle"}>Search Results:</h1>
+  const handleDateChange = (dateType, dateValue) => {
+    setSelectedDateRange((prevDateRange) => ({
+      ...prevDateRange,
+      [dateType]: dateValue ? new Date(dateValue) : null,
+    }));
+  };
+
+
+  const sortOptions = {
+    lowestCountdown: (a, b) => {
+      const endDateComparison = new Date(a.auctionEndDate) - new Date(
+          b.auctionEndDate);
+      if (endDateComparison === 0) {
+        return new Date(a.auctionEndTime) - new Date(b.auctionEndTime);
+      } else {
+        return endDateComparison;
+      }
+    },
+    longestCountdown: (a, b) => {
+      const endDateComparison = new Date(b.auctionEndDate) - new Date(
+          a.auctionEndDate);
+      if (endDateComparison === 0) {
+        return new Date(b.auctionEndTime) - new Date(a.auctionEndTime);
+      } else {
+        return endDateComparison;
+      }
+    },
+    highestPrice: (a, b) => b.currentBid - a.currentBid,
+    lowestPrice: (a, b) => a.currentBid - b.currentBid,
+
+  };
+
+  const filteredAndSortedResults = results
+  ?.filter((result) => {
+    const isNameDescriptionMatch =
+        result.eventName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        result.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+    const isBidInRange =
+        result.currentBid >= bidRange[0] && result.currentBid <= bidRange[1];
+
+    const isDateInRange =
+        (!selectedDateRange.startDate || new Date(result.eventDate) >= selectedDateRange.startDate) &&
+        (!selectedDateRange.endDate || new Date(result.eventDate) <= selectedDateRange.endDate);
+
+    const isEventTypeMatch =
+        selectedEventType === '' || result.eventType === selectedEventType;
+
+    return isNameDescriptionMatch && isBidInRange && isDateInRange && isEventTypeMatch;
+  })
+  .sort(sortOptions[sortOption]);
+
+
+  return (<div className="Results">
+        <div className="SearchAndSort">
+          <input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+        <div className="SearchAndSort">
+          <label htmlFor="sortOption">Sort by:</label>
+          <select
+              id="sortOption"
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value)}
+          >
+            <option value="lowestCountdown">Shortest Countdown</option>
+            <option value="longestCountdown">Longest Countdown</option>
+            <option value="highestPrice">Highest Price</option>
+            <option value="lowestPrice">Lowest Price</option>
+          </select>
+          <select
+              value={selectedEventType}
+              onChange={(e) => setSelectedEventType(e.target.value)}
+          >
+            <option value="">All Event Types</option>
+            <option value="Gig">Gig</option>
+            <option value="Concert">Concert</option>
+            <option value="Festival">Festival</option>
+            <option value="Comedy Night">Comedy Night</option>
+            {/* Add more event types based on your data */}
+          </select>
+          <div className="BidFilter">
+            <label>Price Range:</label>
+            <input
+                type="number"
+                min="0"
+                max="1000"
+                step="10"
+                value={bidRange[0]}
+                onChange={(e) => setBidRange([parseInt(e.target.value), bidRange[1]])}
+            />
+            <input
+                type="number"
+                min="0"
+                max="1000"
+                step="10"
+                value={bidRange[1]}
+                onChange={(e) => setBidRange([bidRange[0], parseInt(e.target.value)])}
+            />
+            <p>{`£${bidRange[0]} - £${bidRange[1]}`}</p>
+          </div>
+          <div className="DateRange">
+            <label>Start Date:</label>
+            <input
+                type="date"
+                value={
+                  selectedDateRange.startDate
+                      ? selectedDateRange.startDate.toISOString().split('T')[0]
+                      : ''
+                }
+                onChange={(e) => handleDateChange('startDate', e.target.value)}
+            />
+            <label>End Date:</label>
+            <input
+                type="date"
+                value={
+                  selectedDateRange.endDate
+                      ? selectedDateRange.endDate.toISOString().split('T')[0]
+                      : ''
+                }
+                onChange={(e) => handleDateChange('endDate', e.target.value)}
+            />
+          </div>
+
+        </div>
         <div className="Container">
           <div className="Carousel">
-        {results && results.length > 0 ? (
-            results.map((result) => (
-                <a key={result._id} href={`/itemView/${result._id}`} className="AuctionItem">
-                  <img src={result.image} alt={result.eventName} className="AuctionImage" />
-                  <div key={result.id} className="AuctionDetails">
-                    <h2 className={"eventTitle"}>{result.eventName}</h2>
-                    <p style={{ textAlign: 'right' }}>Date: {new Date(result.eventDate).toLocaleDateString()}  </p>
-                    <p style={{ textAlign: 'right'}}>Time: {formatTime(result.eventTime)}</p>
-                    <p style={{textAlign:'right'}}>Sold By: {result.username}</p>
-                    <p style={{textAlign:'left'}}> {result.description}</p>
-                    <div className="line"></div>
-                    <div className="bidAndCountdown">
-                    <p className="CurrentBid">Current Bid: £{result.startingBid}</p>
-                    <div className="Countdown">
-                      <p>{calculateCountdown(result.auctionEndDate, result.auctionEndTime)}</p>
-                    </div>
-                    </div>
-                    <p className={"auctionEnd"}>Auction End: {new Date(result.auctionEndDate).toLocaleDateString()} at {formatTime(result.auctionEndTime)}</p>
-                  </div>
+            {filteredAndSortedResults && filteredAndSortedResults.length > 0
+                ? (filteredAndSortedResults.map((result) => (
+                        <a key={result._id} href={`/itemView/${result._id}`}
+                           className="AuctionItem">
+                          <img src={result.image} alt={result.eventName}
+                               className="AuctionImage"/>
+                          <div key={result.id} className="AuctionDetails">
+                            <h2 className={"eventTitle"}>{result.eventName}</h2>
+                            <p style={{textAlign: 'right'}}>Date: {new Date(
+                                result.eventDate).toLocaleDateString()}  </p>
+                            <p style={{textAlign: 'right'}}>Time: {formatTime(
+                                result.eventTime)}</p>
+                            <p style={{textAlign: 'right'}}>Sold
+                              By: {result.username}</p>
+                            <p style={{textAlign: 'left'}}> {result.description}</p>
+                            <div className="line"></div>
+                            <div className="bidAndCountdown">
+                              <p className="CurrentBid">Current Bid:
+                                £{result.currentBid}</p>
+                              <div className="Countdown">
+                                <p>{calculateCountdown(result.auctionEndDate,
+                                    result.auctionEndTime)}</p>
+                              </div>
+                            </div>
+                            <p className={"auctionEnd"}>Auction End: {new Date(
+                                result.auctionEndDate).toLocaleDateString()} at {formatTime(
+                                result.auctionEndTime)}</p>
+                          </div>
 
-                </a>
+                        </a>
 
-            ))
-        ) : (
-            // Display a message when no results are available
-            <p>No auction listings found.</p>
-        )}
+                    ))) : (// Display a message when no results are available
+                    <p>No auction listings found.</p>)}
           </div>
-      </div>
-      </div>
-  );
+        </div>
+      </div>);
 }
 
 export default SearchResults;

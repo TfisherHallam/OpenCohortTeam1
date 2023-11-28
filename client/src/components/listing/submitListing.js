@@ -1,6 +1,6 @@
 const PORT = process.env.PORT || 3001;
+function submitListing(formData, currentUser) {
 
-function submitListing(formData) {
   if (Object.keys(formData.image).length === 0){
     switch (formData.eventType) {
       case "Gig":
@@ -20,8 +20,9 @@ function submitListing(formData) {
         break;
     }
   }
-  formData.username="testUser"; //  JUST FOR TESTING BEFORE AUTHENTICATION SORTED
   formData.currentBid = formData.startingBid;
+  formData.username = currentUser.username;
+  formData.bidder = currentUser.username;
 
   return fetch(`http://localhost:${PORT}/api/listings`, {
     method: 'POST',
