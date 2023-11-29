@@ -4,12 +4,12 @@ import '../../App.css';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector.js';
 import Content404items from '../content404/content404';
+import Cookies from 'js-cookie';
 const PORT = process.env.PORT || 3001;
 
 function AdminDashboard() {
   const { currentUser } = useSelector(state => state.user)
   const [results, setResults] = useState(null);
-
   const [formData, setFormData] = useState({});
 
   const handleChange = (e) => {
@@ -33,6 +33,27 @@ function AdminDashboard() {
     fetchData();
   }, []);
 
+const getData = async () => {
+    try {
+      const res = await fetch(`http://localhost:${PORT}/api/admin/`, {
+       method: 'GET',
+       headers: {
+        'Content-Type': 'application/json',
+        'Cookie': Cookies.get('access_token')
+       } 
+      });
+      if (res.ok) {
+        const data = await res.json();
+
+        setResults(data);
+      } else {
+        console.error('Failed to fetch data');
+      }
+    } catch (error) {
+      console.error('Error during data fetching:', error);
+    }
+  };
+
   const handleUserUpdate = async (userId) => {
     try {
       const res = await fetch(`/api/admin/${userId}`, {
@@ -47,8 +68,8 @@ function AdminDashboard() {
         console.log(data.message);
         return;
       }
-      setResults((prev) => prev.filter((result) => result._id !== userId))
-      window.location.reload(false);
+      setResults((prev) => prev.filter((result) => result._id !== userId));
+      getData();
     } catch (error) {
       console.log(error.message);
     }
@@ -65,6 +86,7 @@ function AdminDashboard() {
         return;
       }
       setResults((prev) => prev.filter((result) => result._id !== userId))
+      getData();
     } catch (error) {
       console.log(error.message);
     }
