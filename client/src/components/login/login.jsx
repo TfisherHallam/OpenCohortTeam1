@@ -8,7 +8,7 @@ import '../../App.css';
 
 export default function Login() {
 	const [formData, setFormData] = useState({});
-const {loading, error} = useSelector((state) => state.user);
+	const { loading, error } = useSelector((state) => state.user);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const handleChange = (e) => {
@@ -35,7 +35,7 @@ const {loading, error} = useSelector((state) => state.user);
 				dispatch(signInFailure(data.message));
 				return;
 			}
-			dispatch(signInSuccess(data));			
+			dispatch(signInSuccess(data));
 			navigate('/');
 			window.location.reload(false);
 		} catch (error) {
@@ -73,11 +73,11 @@ const {loading, error} = useSelector((state) => state.user);
 							required
 							className="inputboxes"
 						/></label>
-						{error && <div className="">{error}</div>}
+						{error && <div className="errortext">{error}</div>}
 						<br />
 						<br />
-						<label><button type="submit" className="loginbutton">
-							SIGN IN
+						<label><button disabled={loading} type="submit" className="loginbutton">
+							{loading ? 'Logging in...' : 'SIGN IN'}
 						</button></label>
 					</form>
 				</div>

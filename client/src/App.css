@@ -51,3 +51,8 @@
   size: 70;
   ;
 }
+
+.errortext {
+  color: red;
+  font-weight: bold;
+}

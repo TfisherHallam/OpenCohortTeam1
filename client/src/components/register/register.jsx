@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import './register.css';
 import '../../App.css';
-import PassStrength from "../passwordStrength/password";
 
 export default function Register() {
 	const [formData, setFormData] = useState({});
@@ -15,7 +14,6 @@ export default function Register() {
 			[e.target.id]: e.target.value,
 		});
 	};
-
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -48,8 +46,8 @@ export default function Register() {
 		<div className="textcontainer">
 			<form onSubmit={handleSubmit} className="form">
 				<h1 className="registerHeader">Welcome! <br />
-				<br />
-				We are so glad you are joining us!</h1>
+					<br />
+					We are so glad you are joining us!</h1>
 				<div className="registerflex-container">
 					<label htmlFor="username" className="registerflex-item-left">Username:</label>
 					<div className="registerflex-item-right">
@@ -60,10 +58,11 @@ export default function Register() {
 							onChange={handleChange}
 							required
 							className="input"
-						/></div>
+						/>
+					</div>
 				</div>
 				<div className="registerflex-container">
-					<label htmlFor= "First Name" className="registerflex-item-left">First name:</label>
+					<label htmlFor="First Name" className="registerflex-item-left">First name:</label>
 					<div className="registerflex-item-right">
 						<input
 							type="text"
@@ -72,7 +71,9 @@ export default function Register() {
 							onChange={handleChange}
 							required
 							className="input"
-						/></div></div>
+						/>
+					</div>
+				</div>
 				<div className="registerflex-container">
 					<label htmlFor="Last Name" className="registerflex-item-left">Last name:</label>
 					<div className="registerflex-item-right">
@@ -83,7 +84,8 @@ export default function Register() {
 							onChange={handleChange}
 							required
 							className="input"
-						/></div>
+						/>
+					</div>
 				</div><div className="registerflex-container">
 					<label htmlFor="email" className="registerflex-item-left">Email address:</label>
 					<div className="registerflex-item-right">
@@ -94,7 +96,8 @@ export default function Register() {
 							onChange={handleChange}
 							required
 							className="input"
-						/></div>
+						/>
+					</div>
 				</div>
 				<div className="registerflex-container">
 					<label htmlFor="telephone" className="registerflex-item-left">Mobile Number:</label>
@@ -107,7 +110,8 @@ export default function Register() {
 							required
 							maxLength="11"
 							className="input"
-						/></div>
+						/>
+					</div>
 				</div>
 				<div className="registerflex-container">
 					<label htmlFor="password" className="registerflex-item-left">Create Password:</label>
@@ -118,12 +122,16 @@ export default function Register() {
 						onChange={handleChange}
 						required
 						className="input"
-					/></div>
+					/>
+					</div>
 				</div>
-				<button className="registerbutton">
-					Register
+				<button disabled={loading} className="registerbutton">
+					{loading ? 'Signing you up...' : 'REGISTER'}
 				</button>
 			</form>
+			{error && <p className='errortext'>{error}</p>}
+			<br />
+			<br />
 			<p><Link to={"/login"}>Already a member? Click here to login</Link></p>
 		</div>);
 };

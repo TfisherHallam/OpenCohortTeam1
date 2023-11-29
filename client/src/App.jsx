@@ -15,12 +15,9 @@ import Privacy from './pages/Privacy.js';
 import Termsofuse from './pages/Termsofuse.js';
 import Page404 from './pages/404.js';
 import Itemview from './components/ItemView/itemView.jsx';
-
 import PrivateRoute from './components/privateRoute.jsx';
 import AdminRoute from './components/adminRoute.jsx';
-import AdminDashboard from './components/adminDashboard/adminDashboard.jsx';
-import AdminUserViewPage from './pages/AdminUserView.js';
-
+import AdminContent from './pages/Admin.js';
 function App() {
 
   return (
@@ -37,8 +34,7 @@ function App() {
           <Route path='/Itemview/:itemid' element={<Itemview />} />
           </Route>
           <Route element={<AdminRoute/>}>
-          <Route path='/Admin' element={<AdminDashboard/>} />
-          <Route path='/AdminUserview/:userid' element={<AdminUserViewPage/>} />
+          <Route path='/Admin' element={<AdminContent/>} />
           </Route>
           <Route path='/Login' element={<Loginpage />} />
           <Route path='/Register' element={<Registerpage />} />

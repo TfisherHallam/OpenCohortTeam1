@@ -2,11 +2,9 @@ import React from 'react';
 import './adminDashboard.css';
 import '../../App.css';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector.js';
 import Content404items from '../content404/content404';
 const PORT = process.env.PORT || 3001;
-
 
 function AdminDashboard() {
   const { currentUser } = useSelector(state => state.user)
@@ -14,11 +12,11 @@ function AdminDashboard() {
 
   const [formData, setFormData] = useState({});
 
-const handleChange = (e) => {
-  setFormData({ ...formData, [e.target.id]: e.target.value });
-};
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
 
-useEffect(() => {
+  useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch(`http://localhost:${PORT}/api/admin/`);
@@ -34,22 +32,6 @@ useEffect(() => {
     }
     fetchData();
   }, []);
-
-  const handleUserDeletion = async (userId) => {
-    try {
-      const res = await fetch(`/api/admin/${userId}`, {
-        method: 'DELETE',
-      });
-      const data = await res.json();
-      if (data.success === false) {
-        console.log(data.message);
-        return;
-      }
-      setResults((prev) => prev.filter((result) => result._id !== userId))
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
 
   const handleUserUpdate = async (userId) => {
     try {
@@ -67,6 +49,22 @@ useEffect(() => {
       }
       setResults((prev) => prev.filter((result) => result._id !== userId))
       window.location.reload(false);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const handleUserDeletion = async (userId) => {
+    try {
+      const res = await fetch(`/api/admin/${userId}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        console.log(data.message);
+        return;
+      }
+      setResults((prev) => prev.filter((result) => result._id !== userId))
     } catch (error) {
       console.log(error.message);
     }
@@ -95,12 +93,12 @@ useEffect(() => {
                       <td className='userCol'>{result.userStateCode}
                       </td>
                       <td className='userCollong'><form>
-                        <select id= 'userStateCode' onChange={handleChange}>
-                        <option value="New User">New User</option>
-                        <option value="Blocked User">Blocked User</option>
-                        <option value="Super User">Super User</option>
-                        <option value="Admin">Admin</option>
-                      </select></form><button onClick={() => handleUserUpdate(result._id)}>Change access</button></td>                      
+                        <select id='userStateCode' onChange={handleChange}>
+                          <option value="New User">New User</option>
+                          <option value="Blocked User">Blocked User</option>
+                          <option value="Super User">Super User</option>
+                          <option value="Admin">Admin</option>
+                        </select></form><button onClick={() => handleUserUpdate(result._id)}>Change access</button></td>
                       <td className='userCol'><button onClick={() => handleUserDeletion(result._id)}>Delete user</button></td>
                     </tr>
                   ))) : (
