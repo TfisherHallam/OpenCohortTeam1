@@ -4,7 +4,7 @@ import logo from "../../images/TransparentLogo.png";
 import BurgerNew from "../burgerNavigation/hamBurgerMenu.jsx";
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector.js';
-const username = useSelector((state) => state.user.username);
+
 
 function Logo() {
   return (<div>
