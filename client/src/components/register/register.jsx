@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { useSelector } from 'react-redux/es/hooks/useSelector.js';
 import './register.css';
 import '../../App.css';
+import Contenterroritems from "../contenterror/contenterror.jsx";
 
 export default function Register() {
+	const {currentUser} = useSelector(state => state.user);
 	const [formData, setFormData] = useState({});
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
@@ -41,7 +44,7 @@ export default function Register() {
 			setError(error.message);
 		}
 	};
-
+	if (!currentUser) {
 	return (
 		<div className="textcontainer">
 			<form onSubmit={handleSubmit} className="form">
@@ -58,6 +61,7 @@ export default function Register() {
 							onChange={handleChange}
 							required
 							className="input"
+							maxLength="11"
 						/>
 					</div>
 				</div>
@@ -105,6 +109,7 @@ export default function Register() {
 						<input
 							type="tel"
 							placeholder="07123456789"
+							pattern="[0-9]{11}"
 							id="telephone"
 							onChange={handleChange}
 							required
@@ -134,4 +139,9 @@ export default function Register() {
 			<br />
 			<p><Link to={"/login"}>Already a member? Click here to login</Link></p>
 		</div>);
-};
+} return (
+	<div>
+		<Contenterroritems/>
+	</div>
+)
+ };

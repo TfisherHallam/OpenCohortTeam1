@@ -1,0 +1,29 @@
+.contenterrorbox {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    column-gap: 25%;
+    row-gap: 10%;
+    border: 1px;
+    align-content: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(82, 82, 82);
+    height: auto;
+    line-height: 3;
+    text-align: center;
+    order: 2;
+    margin-top: 8px;
+    background: white;
+    vertical-align: middle;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 0;
+    border-top-style: solid;
+    border-top-color: rgba(235, 235, 235, 1);
+}
