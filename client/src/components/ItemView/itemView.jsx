@@ -36,9 +36,14 @@ export default function ItemView() {
       alert("Bid must be at least 50p more than the current bid");
       return;
     }
-
+    if(currentUser.username === item.username){
+      window.alert("You cannot bid on your own item");
+      window.location.reload();
+      return;
+    }
 
     const isConfirmed = window.confirm(
+
         `You are about to bid £${newBid.currentBid}, if you win the bidding and do not follow through this could result in termination of your account, are you sure you want to submit this bid?`);
     if (!isConfirmed) {
       return;
@@ -188,10 +193,16 @@ export default function ItemView() {
                             {target: {value}}, item._id)}
                     />
                   </div>
-                  <div className={"bidButton"}>
-                    <button type="submit" className="bidButtonBox">Place Your
-                      Bid
-                    </button>
+                  <div className="bidButton">
+                    {item.username === currentUser.username ? (
+                        <button className="bidButtonBox" disabled>
+                          Cannot Bid On Your Own Item
+                        </button>
+                    ) : (
+                        <button type="submit" className="bidButtonBox">
+                          Place Your Bid
+                        </button>
+                    )}
                   </div>
                 </div>
               </form>
