@@ -3,13 +3,13 @@ import CurrencyInput from 'react-currency-input-field';
 import "./listing.css";
 import Image from "./imageupload.jsx";
 import submitListing from "./submitListing.js";
-import { useSelector } from 'react-redux/es/hooks/useSelector.js';
+import {useSelector} from 'react-redux/es/hooks/useSelector.js';
+import {useNavigate} from 'react-router-dom';
 
 function Listing() {
-
   const [formData, setFormData] = useState({});
-  const { currentUser } = useSelector(state => state.user)
-
+  const {currentUser} = useSelector(state => state.user)
+  const navigate = useNavigate();
 
   const handleImageChange = async (selectedFile) => {
     console.log("selectedFile:", selectedFile);
@@ -20,25 +20,31 @@ function Listing() {
     });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('formData:', formData);
-    try {
 
+    try {
       const data = await submitListing(formData, currentUser);
+      const newId = data.id;
+      try {
+        window.location.href = `http://localhost:3000/itemView/${newId}`;
+      } catch (error) {
+        console.log("unable to redirect: ", error);
+      }
+
     } catch (error) {
+      window.alert("Not all required fields have been filled in.");
       console.error('Error in handleSubmit:', error);
     }
   };
 
-
-	const handleChange = (e) => {
-		setFormData({
-			...formData,
-			[e.target.id]: e.target.value,
-		});
-	};
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
 
   return (
       <div className="">
@@ -175,7 +181,8 @@ function Listing() {
               <button type="submit" className="submit-button">
                 Submit
               </button>
-              <button type="clear" className="clear-button" onClick={()=> window.location.reload()}>
+              <button type="clear" className="clear-button"
+                      onClick={() => window.location.reload()}>
                 Clear
               </button>
             </form>

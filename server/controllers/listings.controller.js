@@ -51,8 +51,8 @@ const createListing = async (req, res, next) => {
     image,
   });
   try {
-    await newListing.save();
-    res.status(201).json('Listing created');
+    const savedListing = await newListing.save();
+    res.status(201).json({ id: savedListing._id, message: 'Listing created' });
   } catch (error) {
     next(error);
 
