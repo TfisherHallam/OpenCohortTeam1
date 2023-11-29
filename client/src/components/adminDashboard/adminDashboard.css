@@ -1,5 +1,39 @@
 .userTable{
     border: 1px solid;
     border-collapse: collapse;
-
+width: 50%;
+font-size: 16px;
+flex-wrap: wrap;
+table-layout:auto
 }
+.userCol{
+    width: 20%;
+    word-wrap: break-word;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.userColemail{
+    
+    width: 20%;
+    word-wrap: break-word;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+@media (max-width: 780px) {
+    .userTable{       
+    width: 100%;
+    font-size: 12px;
+    flex-wrap: wrap;
+    table-layout:auto
+    }
+    .userCollong{
+    
+        width: 20%;
+        word-break: break-all;
+        border: 1px solid;
+        border-collapse: collapse;
+    }
+
+  }

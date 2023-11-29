@@ -15,7 +15,7 @@ export default function AdminUserView() {
         const fetchUser = async () => {
             try {
                 setLoading(true)
-                const res = await fetch(`/api/admin/get/${params._id}`);
+                const res = await fetch(`/api/admin/get/${params.id}`);
                 const data = await res.json();
                 if (data.success === false) {
                     setError(true);

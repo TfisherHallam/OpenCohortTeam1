@@ -1,5 +1,6 @@
 import React from 'react';
 import './adminDashboard.css';
+import '../../App.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector.js';
@@ -48,26 +49,26 @@ function AdminDashboard() {
       <div>
         <h1>Users:</h1>
         <div>
-          <div>
+          <div className='textcontainer'>
             <table className='userTable'>
               <tr>
-                <th width="200px" className='userTable'>Username</th>
-                <th width="200px" className='userTable'>Email</th>
-                <th width="200px" className='userTable'>State</th>
-                <th width="200px" className='userTable'>Change State</th>
-                <th width="200px" className='userTable'>Delete</th>
+                <th className='userCollong'>Username</th>
+                <th className='userCollong'>Email</th>
+                <th className='userCol'>State</th>
+                <th className='userCol'>Change State</th>
+                <th className='userCol'>Delete</th>
               </tr>
               <tbody className='userTable'>
                 {results && results.length > 0 ? (
                   results.map((result) => (
                     <tr key={result.id}>
-                      <td className='userTable'>{result.username}</td>
-                      <td className='userTable'>{result.email}</td>
-                      <td className='userTable'>{result.userStateCode}
+                      <td className='userCollong'>{result.username}</td>
+                      <td className='userCollong'>{result.email}</td>
+                      <td className='userCol'>{result.userStateCode}
                       </td>
 
-                      <td className='userTable'><Link to={`/AdminUserview/${result._id}`}><button>Change access</button></Link></td>
-                      <td className='userTable'><button onClick={() => handleUserDeletion(result._id)}>Delete user</button></td>
+                      <td className='userCol'><Link to={`/AdminUserview/${result._id}`}><button>Change access</button></Link></td>
+                      <td className='userCol'><button onClick={() => handleUserDeletion(result._id)}>Delete user</button></td>
                     </tr>
                   ))) : (
                   <tr>
