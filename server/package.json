@@ -24,6 +24,8 @@
     "mongodb": "^6.2.0",
     "mongoose": "^5.3.11",
     "morgan": "^1.10.0",
+    "node-cron": "^3.0.3",
+    "node-fetch": "^3.3.2",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "redux-persist": "^6.0.0",

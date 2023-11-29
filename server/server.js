@@ -2,7 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import { connectDatabase } from './connectMongo.js';
-
+import './scheduler.js';
 import cors from 'cors';
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
@@ -22,7 +22,6 @@ app.use('/api/listings', listingRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/completedAuctions', completedAuctionsRouter);
 app.use(express.static(path.join(__dirname, '/client/dist')));
-
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });

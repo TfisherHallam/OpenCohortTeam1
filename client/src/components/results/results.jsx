@@ -225,10 +225,7 @@ function SearchResults() {
                 </label>
               </label>
             </div>
-            <p style={{
-              textAlign: 'center',
-              fontWeight: 'bold'
-            }}>{`£${bidRange[0]} - £${bidRange[1]}`}</p>
+
             <div className="DateRange">
 
               <label> Event Date Range: {`\n`}
