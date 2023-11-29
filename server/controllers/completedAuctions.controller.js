@@ -13,8 +13,8 @@ const getAllCompletedAuctions = async (req, res, next) => {
 //get a single CompletedAuction
 const getCompletedAuction = async (req, res, next) => {
   try {
-    const CompletedAuction = await CompletedAuction.findById(req.params.id);
-    res.status(200).json(CompletedAuction);
+    const singleCompletedAuction = await CompletedAuction.findById(req.params.id);
+    res.status(200).json(singleCompletedAuction);
   } catch (error) {
     next(error);
   }

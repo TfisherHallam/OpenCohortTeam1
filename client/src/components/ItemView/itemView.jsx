@@ -194,9 +194,9 @@ export default function ItemView() {
                     />
                   </div>
                   <div className="bidButton">
-                    {item.username === currentUser.username ? (
+                    {item.username === currentUser.username|| calculateCountdown(item.auctionEndDate, item.auctionEndTime) <= 0 ? (
                         <button className="bidButtonBox" disabled>
-                          Cannot Bid On Your Own Item
+                          Cannot Bid On This Item
                         </button>
                     ) : (
                         <button type="submit" className="bidButtonBox">

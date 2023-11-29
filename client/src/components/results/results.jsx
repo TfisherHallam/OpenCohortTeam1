@@ -7,6 +7,11 @@ export function formatTime(timeString) {
   const options = {hour: 'numeric', minute: 'numeric', hour12: true};
   return new Date(`1970-01-01T${timeString}Z`).toLocaleTimeString([], options);
 }
+export function calculateSeconds(timeString) {
+  const [hours, minutes] = timeString.split(':').map(Number);
+  const totalSeconds = (hours % 12) * 3600 + minutes * 60;
+  return totalSeconds;
+}
 
 export function calculateCountdown(endDate, endTime) {
   try {
@@ -103,26 +108,27 @@ function SearchResults() {
 
   const sortOptions = {
     lowestCountdown: (a, b) => {
-      const endDateComparison = new Date(a.auctionEndDate) - new Date(
-          b.auctionEndDate);
+      const endDateComparison = new Date(a.auctionEndDate) - new Date(b.auctionEndDate);
       if (endDateComparison === 0) {
-        return new Date(a.auctionEndTime) - new Date(b.auctionEndTime);
+        const secondsA = calculateSeconds(a.auctionEndTime);
+        const secondsB = calculateSeconds(b.auctionEndTime);
+        return secondsA - secondsB;
       } else {
         return endDateComparison;
       }
     },
     longestCountdown: (a, b) => {
-      const endDateComparison = new Date(b.auctionEndDate) - new Date(
-          a.auctionEndDate);
+      const endDateComparison = new Date(b.auctionEndDate) - new Date(a.auctionEndDate);
       if (endDateComparison === 0) {
-        return new Date(b.auctionEndTime) - new Date(a.auctionEndTime);
+        const secondsA = calculateSeconds(a.auctionEndTime);
+        const secondsB = calculateSeconds(b.auctionEndTime);
+        return secondsB - secondsA;
       } else {
         return endDateComparison;
       }
     },
     highestPrice: (a, b) => b.currentBid - a.currentBid,
     lowestPrice: (a, b) => a.currentBid - b.currentBid,
-
   };
 
   const filteredAndSortedResults = results

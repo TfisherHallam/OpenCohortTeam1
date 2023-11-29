@@ -13,6 +13,7 @@ const pushToCompletedAuctions = async (item) => {
   const {
     username,
     bidder,
+      currentBid,
     eventName,
     eventDate,
     eventTime,
@@ -22,6 +23,7 @@ const pushToCompletedAuctions = async (item) => {
 
   const seller = username;
   const buyer = bidder;
+  const price = currentBid;
 
   try {
     const response = await fetch(`http://localhost:${PORT}/api/completedAuctions`,
@@ -33,6 +35,7 @@ const pushToCompletedAuctions = async (item) => {
           body: JSON.stringify({
             seller,
             buyer,
+            price,
             eventName,
             eventDate,
             eventTime,
