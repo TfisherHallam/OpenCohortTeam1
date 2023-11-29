@@ -1,16 +1,20 @@
 .Results {
   margin: 20px;
 }
-
 .Container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.SearchAndSort {
+.SearchMain {
   display: flex;
-  align-items: center;
+
+}
+
+.SearchAndSort {
+  display:flex;
+  flex-direction: column;
   width: 100%;
   max-width: 800px;
   margin: 20px auto;
@@ -20,14 +24,14 @@
   flex: 2;
   padding: 15px;
   margin-right: 10px;
-  border: 1px solid #ccc; /* Light gray border */
+  border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #f8f8f8; /* Light gray background */
-  color: #333; /* Dark text color */
+  background-color: #f8f8f8;
+  color: #333;
 }
 
 .SearchAndSort select,
-.BidFilter select{
+.BidFilter select {
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -36,14 +40,17 @@
   cursor: pointer;
   margin-right: 10px;
 }
+
 .SearchAndSort label,
 .BidFilter label {
   margin-right: 10px;
   font-weight: bold;
 }
+
 .SearchAndSort .EventSelectorContainer {
   display: flex;
   align-items: center;
+
 }
 
 
@@ -56,13 +63,15 @@
 
 .AuctionItem {
   flex: 0 0 calc(30% - 20px);
-  min-width: 20vw;   margin: 0 10px 20px;
+  min-width: 20vw;
+  margin: 0 10px 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: rgba(15, 26, 56, 0.7);   color: #fff;
+  background: rgba(15, 26, 56, 0.7);
+  color: #fff;
 }
 
 .AuctionImage {
@@ -78,7 +87,8 @@
 
 .AuctionDetails h2 {
   font-size: 2em;
-  margin-bottom: 10px;   text-align: center;
+  margin-bottom: 10px;
+  text-align: center;
   color: #ffffff;
   margin: 20px 0;
 }
@@ -90,15 +100,18 @@
 
 .AuctionDetails p.description {
   font-style: italic;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
 .AuctionDetails p.bids {
   font-weight: bold;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
 .bidAndCountdown {
   display: flex;
-  flex-direction: column;   align-items: center;
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
 }
 
@@ -106,24 +119,29 @@
   text-align: center;
   font-size: 2em;
   font-weight: bold;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
 .CurrentBid {
   padding-left: 10px;
 }
 
 .bidFilter input[type="range"] {
-  width: 100%; /* Ensure the slider takes up the full width of its container */
-  margin: 10px 0; /* Adjust margin as needed */
+  width: 100%;
+  margin: 10px 0;
 }
 
 .AuctionItem:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 .line {
   border-top: 2px solid #ddd;
-  margin-top: 10px;   width:100%;
+  margin-top: 10px;
+  width: 100%;
 }
+
 @media only screen and (max-width: 768px) {
   .AuctionItem {
     flex: 0 0 calc(45% - 20px);
@@ -132,42 +150,100 @@
 }
 
 
-
-  .SearchAndSort select,
-  .BidFilter select {
-    width: 100%; /* Make the select element full width on small screens */
-    margin-bottom: 10px; /* Add some margin at the bottom for spacing */
-  }
-/* Add this to your existing CSS */
-.BidFilter {
-  display: flex;
+.SearchAndSort select,
+.BidFilter select {
   align-items: center;
-  margin-left: auto; /* Push Bid Filter to the right side */
+  align-self: stretch;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-/* Style for Bid Filter label */
-.BidFilter label {
-  margin-right: 10px;
-  font-weight: bold;
-}
 
-/* Style for Bid Filter input elements */
-.BidFilter input[type="number"] {
+
+
+
+.toggleFilterButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filterContainer {
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  overflow: hidden;
+
+}
+.filterContainer.open,
+.filterContainer.closed{
+  justify-content: center;
+}
+
+.filterSection {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  transition: max-height 0.3s ease-out;
+
+}
+
+.filterSection input,
+.filterSection select {
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f8f8f8;
   color: #333;
-  margin-right: 10px; /* Add some margin for spacing */
+  margin-bottom: 10px;
 }
 
-/* Style for Bid Filter price range display */
-.BidFilter p {
+.filterSection label {
   margin-right: 10px;
   font-weight: bold;
 }
+.filterSection label,
+.filterSection input,
+.filterSection select {
+  width: 100%;
+  margin-bottom: 10px;
+}
 
-/* Style for Bid Filter container on smaller screens */
+.First,
+.Second {
+  flex: 0 0 calc(50% - 10px);
+}
+
+
+@media only screen and (max-width: 768px) {
+  .SearchAndSort {
+    flex-direction: column;
+  }
+
+  .toggleFilterButton {
+
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .filterContainer {
+    order: 1;
+    width: 100%;
+  }
+
+  .filterSection {
+    width: 100%;
+  }
+}
+
+
 @media only screen and (max-width: 480px) {
   .BidFilter {
     flex-direction: column;
@@ -175,8 +251,8 @@
   }
 
   .BidFilter input[type="number"] {
-    width: 100%; /* Make the input element full width on small screens */
-    margin-bottom: 10px; /* Add some margin at the bottom for spacing */
+    width: 100%;
+    margin-bottom: 10px;
   }
 }
 
