@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaUserCircle } from 'react-icons/fa';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useSelector } from 'react-redux/es/hooks/useSelector.js';
 import { signInStart, signInFailure, signInSuccess } from "../../redux/user/userSlice";
+import Contenterroritems from "../contenterror/contenterror";
 import './login.css';
 import '../../App.css';
 
 export default function Login() {
 	const [formData, setFormData] = useState({});
-const {loading, error} = useSelector((state) => state.user);
+	const { loading, error } = useSelector((state) => state.user);
+	const {currentUser} = useSelector(state => state.user)
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const handleChange = (e) => {
@@ -35,14 +38,14 @@ const {loading, error} = useSelector((state) => state.user);
 				dispatch(signInFailure(data.message));
 				return;
 			}
-			dispatch(signInSuccess(data));			
+			dispatch(signInSuccess(data));
 			navigate('/');
 			window.location.reload(false);
 		} catch (error) {
 			dispatch(signInFailure(error.message));
 		}
 	};
-
+if (!currentUser) {
 	return (
 		<div className='textflex-container'>
 			<div className='textcontainer'>
@@ -73,15 +76,20 @@ const {loading, error} = useSelector((state) => state.user);
 							required
 							className="inputboxes"
 						/></label>
-						{error && <div className="">{error}</div>}
+						{error && <div className="errortext">{error}</div>}
 						<br />
 						<br />
-						<label><button type="submit" className="loginbutton">
-							SIGN IN
+						<label><button disabled={loading} type="submit" className="loginbutton">
+							{loading ? 'Logging in...' : 'SIGN IN'}
 						</button></label>
 					</form>
 				</div>
 			</div>
 		</div>
 	);
+} return (
+	<div>
+		<Contenterroritems/>
+	</div>
+)
 };

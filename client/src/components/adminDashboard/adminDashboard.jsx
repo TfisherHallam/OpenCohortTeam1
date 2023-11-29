@@ -1,14 +1,20 @@
 import React from 'react';
 import './adminDashboard.css';
+import '../../App.css';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector.js';
 import Content404items from '../content404/content404';
+import Cookies from 'js-cookie';
 const PORT = process.env.PORT || 3001;
 
 function AdminDashboard() {
   const { currentUser } = useSelector(state => state.user)
   const [results, setResults] = useState(null);
+  const [formData, setFormData] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -27,6 +33,48 @@ function AdminDashboard() {
     fetchData();
   }, []);
 
+const getData = async () => {
+    try {
+      const res = await fetch(`http://localhost:${PORT}/api/admin/`, {
+       method: 'GET',
+       headers: {
+        'Content-Type': 'application/json',
+        'Cookie': Cookies.get('access_token')
+       } 
+      });
+      if (res.ok) {
+        const data = await res.json();
+
+        setResults(data);
+      } else {
+        console.error('Failed to fetch data');
+      }
+    } catch (error) {
+      console.error('Error during data fetching:', error);
+    }
+  };
+
+  const handleUserUpdate = async (userId) => {
+    try {
+      const res = await fetch(`/api/admin/${userId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        console.log(data.message);
+        return;
+      }
+      setResults((prev) => prev.filter((result) => result._id !== userId));
+      getData();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   const handleUserDeletion = async (userId) => {
     try {
       const res = await fetch(`/api/admin/${userId}`, {
@@ -38,6 +86,7 @@ function AdminDashboard() {
         return;
       }
       setResults((prev) => prev.filter((result) => result._id !== userId))
+      getData();
     } catch (error) {
       console.log(error.message);
     }
@@ -48,26 +97,31 @@ function AdminDashboard() {
       <div>
         <h1>Users:</h1>
         <div>
-          <div>
+          <div className='textcontainer'>
             <table className='userTable'>
               <tr>
-                <th width="200px" className='userTable'>Username</th>
-                <th width="200px" className='userTable'>Email</th>
-                <th width="200px" className='userTable'>State</th>
-                <th width="200px" className='userTable'>Change State</th>
-                <th width="200px" className='userTable'>Delete</th>
+                <th className='userCollong'>Username</th>
+                <th className='userCollong'>Email</th>
+                <th className='userCol'>State</th>
+                <th className='userCol'>Change State</th>
+                <th className='userCol'>Delete</th>
               </tr>
               <tbody className='userTable'>
                 {results && results.length > 0 ? (
                   results.map((result) => (
                     <tr key={result.id}>
-                      <td className='userTable'>{result.username}</td>
-                      <td className='userTable'>{result.email}</td>
-                      <td className='userTable'>{result.userStateCode}
+                      <td className='userCollong'>{result.username}</td>
+                      <td className='userCollong'>{result.email}</td>
+                      <td className='userCol'>{result.userStateCode}
                       </td>
-
-                      <td className='userTable'><Link to={`/AdminUserview/${result._id}`}><button>Change access</button></Link></td>
-                      <td className='userTable'><button onClick={() => handleUserDeletion(result._id)}>Delete user</button></td>
+                      <td className='userCollong'><form>
+                        <select id='userStateCode' onChange={handleChange}>
+                          <option value="New User">New User</option>
+                          <option value="Blocked User">Blocked User</option>
+                          <option value="Super User">Super User</option>
+                          <option value="Admin">Admin</option>
+                        </select></form><button onClick={() => handleUserUpdate(result._id)}>Change access</button></td>
+                      <td className='userCol'><button onClick={() => handleUserDeletion(result._id)}>Delete user</button></td>
                     </tr>
                   ))) : (
                   <tr>

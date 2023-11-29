@@ -7,7 +7,7 @@ import { FaTicketAlt, FaPoundSign, FaHourglassHalf } from 'react-icons/fa';
 import { LuHardDriveUpload } from "react-icons/lu"
 
 function Selling() {
-    const { currentUser } = useSelector((state) => state.user);
+    const { currentUser } = useSelector((state) => state.user);    
     return (
         <div className='textcontainer'>
             <div className="textflex-container">

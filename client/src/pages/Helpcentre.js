@@ -5,10 +5,7 @@ function Helpcentre() {
   return (
     <div>
       <HelpCentreContent/>
-
     </div>
   )
 }
 export default Helpcentre;
-
-

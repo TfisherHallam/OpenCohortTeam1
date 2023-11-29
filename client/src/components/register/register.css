@@ -1,25 +1,23 @@
 .text-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(249, 249, 249);
-    margin: 0 auto;
-    flex-wrap: wrap; 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(249, 249, 249);
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
-
- .form{
-    display: flex;
-    flex-direction: column;
+.form {
+  display: flex;
+  flex-direction: column;
 
 
 }
 
-
-.registerflex-container{
-    display: flex; 
-    margin: 10px 0;
+.registerflex-container {
+  display: flex;
+  margin: 10px 0;
 }
 
 .registerHeader {
@@ -32,56 +30,55 @@
   letter-spacing: 1px;
 }
 
-.registerflex-item-left{
-    flex: auto;
-    font-family: Arial;
-    font-size: 16px;
-    font-weight: bold;
-    color: rgb(24, 24, 24);
-    line-height: 1.4;
-    height: 48px;
-    margin-top: 5px;
-    margin-left: 140px;
-    width : 0px;
+.registerflex-item-left {
+  flex: auto;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(24, 24, 24);
+  line-height: 1.4;
+  height: 48px;
+  margin-top: 5px;
+  margin-left: 140px;
+  width: 0px;
 }
-    
+
 .input {
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 400;
-    padding: 6px;
-    opacity: 1;
-    align-self: center;
-    height: 30px;
-    flex-grow: 1;
-    width: 300px;
-    margin-left: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px;
+  opacity: 1;
+  align-self: center;
+  height: 30px;
+  flex-grow: 1;
+  width: 300px;
+  margin-left: 10px;
 }
 
 .registerbutton {
-    
-    background-color: blue;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: white;
-    text-align: center;
-    line-height: 1;
-    border-radius: 5px;
-    padding: 12px 24px;
-    opacity: 1;
-    cursor: pointer;
-    align-self:center;
-    width: 150px;
-    order: 9;
-    height: 45px;
-    flex-grow: 1;
-    width: 150px;
-    margin-left: -40px;
-  }
 
+  background-color: blue;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  line-height: 1;
+  border-radius: 5px;
+  padding: 12px 24px;
+  opacity: 1;
+  cursor: pointer;
+  align-self: center;
+  width: 150px;
+  order: 9;
+  height: 45px;
+  flex-grow: 1;
+  width: 150px;
+  margin-left: -40px;
+}
 
 @media (max-width: 480px) {
   .text-container {
@@ -90,9 +87,11 @@
     margin-left: 0;
     margin-right: 0;
   }
-  .form{
+
+  .form {
     width: 70%;
   }
+
   .registerflex-container {
     flex-direction: column;
     align-items: center;
@@ -104,7 +103,7 @@
     padding-bottom: 0;
   }
 
-  .input{
+  .input {
     padding-top: 0;
     width: 100%;
     margin-left: 0;
