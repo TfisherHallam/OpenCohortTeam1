@@ -2,8 +2,6 @@ import { useState,Button, Text, View, StatusBar } from "react";
 import axios from "axios";
 import DateTimerPicker from "react-date-picker";
 import { Link, useNavigate } from "react-router-dom";
-//import { Button, Text, View, StatusBar } from "react-bootstrap";
-
 export default function Datetimepicker() {
 
 	const [date, setDate] = useState(new Date());

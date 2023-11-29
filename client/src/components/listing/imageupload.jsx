@@ -6,7 +6,7 @@ function Image({ onFileChange }) {
 	async function handleChange(e) {
 		const selectedFile = e.target.files[0];
 
-		// Set the file state
+
 		setFile(selectedFile);
 		await onFileChange(selectedFile);
 	}

@@ -12,7 +12,7 @@
   z-index: 2;
 }
 
-/* Responsive layout - makes a one column layout instead of a two-column layout when hits 450px screen width */
+
 @media (max-width: 450px) {
   .flex-container {
     flex-direction: column;

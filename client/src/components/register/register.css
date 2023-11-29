@@ -12,7 +12,7 @@
  .form{
     display: flex;
     flex-direction: column;
-    /* max-width: 0px; */
+
 
 }
 
@@ -25,11 +25,11 @@
 .registerHeader {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 32px;
-  font-weight: 700; /* Adjust font-weight for desired thickness */
-  color: #333; /* Change to your preferred text color */
-  margin-bottom: 20px; /* Add spacing between the heading and the form */
-  text-align: center; /* Center the heading */
-  letter-spacing: 1px; /* Add a bit of letter-spacing for a modern look */
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
 .registerflex-item-left{
@@ -106,7 +106,7 @@
 
   .input{
     padding-top: 0;
-    width: 100%; /* Take full width */
-    margin-left: 0; /* Remove left margin */
+    width: 100%;
+    margin-left: 0;
   }
 }

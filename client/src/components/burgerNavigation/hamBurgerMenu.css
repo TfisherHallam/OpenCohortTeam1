@@ -1,12 +1,12 @@
 /* hamBurgerMenu.css */
 
-/* Reset default margin and padding on body */
+
 body {
   margin: 0;
   padding: 0;
 }
 
-/* Styles for the menu button */
+
 .bm-burger-button {
   position: fixed;
   width: calc(4vw + 20px);
@@ -16,57 +16,57 @@ body {
   visibility: collapse;
 }
 
-/* Styles for the burger icon bars */
+
 .bm-burger-bars {
   background: #9d9d9d;
-  /* Color of the bars */
+
 }
 
-/* Styles for the burger icon bars on hover */
+
 .bm-burger-bars-hover {
   background: #555;
-  /* Color on hover */
+
 }
 
-/* Styles for the cross button */
+
 .bm-cross-button {
   margin-right: 10px;
   height: 100px;
   width: 100px;
 }
 
-/* Styles for the close button cross */
+
 .bm-cross {
   background: #555;
-  /* Color of the cross */
+
   height: 40px !important;
   width: 6px !important;
 }
 
-/* Styles for the sidebar wrapper */
+
 .bm-menu-wrap {
   position: fixed;
   height: 100%;
   top: 0;
-  /* Ensure the menu starts from the top of the screen */
+
 }
 
-/* Styles for the main menu */
+
 .bm-menu {
   background: #fff;
-  /* Background color of the menu */
+
   padding: 2em;
   padding-top: 8vh;
   font-size: 1.2em;
 }
 
-/* Styles for individual menu items */
+
 .bm-item {
   padding: 1em;
   display: block;
   margin-bottom: 1em;
   color: #333;
-  /* Text color */
+
   text-decoration: none;
   font-weight: bold;
   font-size: 1.5em;
@@ -74,19 +74,19 @@ body {
 
 .bm-item:hover {
   color: #ffffff;
-  /* Text color on hover */
+
   background-color: #000000;
-  /* Background color on hover */
+
 }
 
 
-/* Styles for the overlay background */
+
 .bm-overlay {
   background: rgba(255, 0, 0, 0.5);
-  /* Overlay color and transparency */
+
 }
 
-/* Responsive layout - makes a one column layout instead of a two-column layout when hits 450px screen width */
+
 @media (max-width: 780px) {
   .bm-burger-button {
 

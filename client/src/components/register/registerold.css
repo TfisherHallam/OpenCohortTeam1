@@ -11,19 +11,13 @@
 .reg-form{
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
+
 
 }
 
 .registerflex-container {
   display: flex;
-  /* flex-direction: row;
-  justify-content: right;
-  border: 1px;
-  padding-top: 2%;
-  width: auto;
-  align-items: center; */
+
   margin: 10px;
 }
 
@@ -31,7 +25,7 @@
 text-align: center;
 }
 
-/* Responsive layout - makes a one column-layout instead of two-column layout */
+
 @media (max-width: 450px) {
   .registerflex-container {
     flex-direction: column;
@@ -42,7 +36,7 @@ text-align: center;
 }
 
 .registerflex-item-left {
-  /* text-align: center; */
+
   flex: auto;
   font-family: Arial;
   font-size: 16px;
@@ -52,8 +46,7 @@ text-align: center;
   height: 48px;
   margin-top: 0px;
   margin-right: 0px;
-  /* justify-content: left;
-  align-self: flex-start; */
+
   opacity: 1;
   align-self: center;
   flex-grow: 1;
@@ -67,8 +60,7 @@ text-align: center;
   flex: auto;
   font-family: Arial;
   font-size: 16px;
-  /* align-self: flex-end;
-  justify-content: right; */
+
   
 }
 
@@ -86,7 +78,7 @@ a {
   font-weight: 400;
   padding: 6px;
   opacity: 1;
-  /* align-self: center; */
+
   
   height: 30px;
   flex-grow: 1;

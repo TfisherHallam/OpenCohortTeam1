@@ -25,7 +25,7 @@ function Listing() {
     e.preventDefault();
     console.log('formData:', formData);
     try {
-      // Call the submitListing.js function with the formData
+
       const data = await submitListing(formData, currentUser);
     } catch (error) {
       console.error('Error in handleSubmit:', error);

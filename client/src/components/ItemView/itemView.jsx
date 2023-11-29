@@ -37,7 +37,7 @@ export default function ItemView() {
       return;
     }
 
-    // Ask for confirmation before submitting the bid
+
     const isConfirmed = window.confirm(
         `You are about to bid £${newBid.currentBid}, if you win the bidding and do not follow through this could result in termination of your account, are you sure you want to submit this bid?`);
     if (!isConfirmed) {

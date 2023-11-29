@@ -27,19 +27,19 @@
   transform: translateY(-50%);
   position: absolute;
   border-radius: 50%;
-  height: 10vh; /* Adjust the height as needed */
+  height: 10vh;
 }
 
 
 .headerButtons {
-  justify-content: space-between; /* Adjust as needed */
+  justify-content: space-between;
   height: 15vh;
   background-color: transparent;
   font-size: 1.9rem;
   color: white;
   font-weight: bold;
   border: none;
-  padding: 3vh; /* Remove padding */
+  padding: 3vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -108,7 +108,7 @@
   position: absolute;
   color: white;
   font-size: 2.5rem;
-  top: 24vh; /* Adjust the margin-top as needed */
+  top: 24vh;
 }
 
 .tagLine {
@@ -140,7 +140,7 @@ body.homepage .headerAvatar {
   transform: translateY(-50%);
   position: absolute;
   border-radius: 50%;
-  height: 10vh; /* Adjust the height as needed */
+  height: 10vh;
 }
 
 .mobileInstruction {
@@ -148,19 +148,19 @@ body.homepage .headerAvatar {
   font-size: 1.5rem;
   text-align: center;
   font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha (last) value for transparency */
-  padding: 10px; /* Add padding for better spacing */
-  display: none; /* Hide the mobile instruction by default */
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  display: none;
 }
 
-/* Responsive layout - makes a one column layout instead of a two-column layout when hits 450px screen width */
+
 @media (max-width: 780px) {
   .headerButtons,
   .loginButtons {
     display: none;
   }
   .mobileInstruction {
-    display: block; /* Show the mobile instruction when the screen width is 480px or less */
+    display: block;
   }
 
   .burger,

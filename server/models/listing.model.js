@@ -47,7 +47,7 @@ const listingSchema = new mongoose.Schema({
   },
 
   image: {
-    type: String, //store the url/file path as a string
+    type: String,
     required: true,
   },
 

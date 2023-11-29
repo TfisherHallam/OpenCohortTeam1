@@ -17,7 +17,7 @@ function Header() {
   const location = useLocation();
 
   useEffect(() => {
-    // Add the "homepage" class to the body if on the homepage
+
     if (location.pathname === '/') {
       document.body.classList.add('homepage');
     } else {
