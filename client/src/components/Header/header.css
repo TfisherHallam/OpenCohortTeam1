@@ -2,17 +2,14 @@
   left: 0;
   top: 0;
   position: sticky;
-  width: 100%;
-  height: 10vh;
-  /* Made responsive */
-  flex-grow: 1;
-  align-self: flex-start;
-  justify-content: space-between;
+  width: 100vw;
+  height: 15vh;
   background-image: url(../../images/HomeScreenBackground.jpeg);
   background-size: cover;
   background-position: center;
   z-index: 1;
 }
+
 
 .headerTitle a {
   color: inherit;
@@ -23,30 +20,59 @@
   display: none;
 }
 
-.headerAvatar{
+
+.headerAvatar {
+  top: 50%;
+  right: 2vw;
+  transform: translateY(-50%);
+  position: absolute;
   border-radius: 50%;
-  height: 6vh;
-left: 90%;
+  height: 10vh; /* Adjust the height as needed */
 }
 
-.headerButtons {
 
-  height: 100px;
-  width: 5%;
+.headerButtons {
+  justify-content: space-between; /* Adjust as needed */
+  height: 15vh;
   background-color: transparent;
-  font-size: 16px;
+  font-size: 1.9rem;
   color: white;
   font-weight: bold;
   border: none;
+  padding: 3vh; /* Remove padding */
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .headerButtongroup {
-  margin-left: 100px;
-  width: 90%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+
+}
+
+
+.headerButtons.active {
+  position: relative;
+}
+
+.headerButtons.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(142, 139, 139, 0.34);
+}
+
+.headerButtons:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .loginButtons {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(30, 44, 69, 0.47);
 }
 
 .loginButtongroup {
@@ -71,28 +97,70 @@ left: 90%;
 }
 
 .headerLogo {
+  height: 15vh;
   position: absolute;
   top: 0;
-  left: 0;
-  height: 75%;
-  /* image ratio is 531 px height 810 px width = therefore width = calc(15vh *8310/531) */
+  left: calc(50vw - 15vh / 2);
+
+}
+
+.homePageTitle {
+  position: absolute;
+  color: white;
+  font-size: 2.5rem;
+  top: 24vh; /* Adjust the margin-top as needed */
+}
+
+.tagLine {
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 24vh;
+  text-align: center;
+
+}
+
+
+body.homepage .headerLogo {
+  left: calc(50vw - 30vh / 2);
+  top: 0;
+  height: 30vh;
+}
+
+body.homepage .headerButtongroup {
+  height: 15vh;
+  margin-left: 0;
+  display: flex;
+  align-items: center;
+
+}
+
+body.homepage .headerAvatar {
+  top: 7.5vh;
+  right: 2vw;
+  transform: translateY(-50%);
+  position: absolute;
+  border-radius: 50%;
+  height: 10vh; /* Adjust the height as needed */
+}
+
+.mobileInstruction {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha (last) value for transparency */
+  padding: 10px; /* Add padding for better spacing */
+  display: none; /* Hide the mobile instruction by default */
 }
 
 /* Responsive layout - makes a one column layout instead of a two-column layout when hits 450px screen width */
 @media (max-width: 780px) {
-
   .headerButtons,
   .loginButtons {
     display: none;
   }
-
-  .headerLogo {
-    position: absolute;
-    top: 0;
-    left: calc(50vw - 15vh/2);
-    /*the middle of the screen minus half the width of the logo*/
-    height: 75%;
-    /* image ratio is 531 px height 810 px width = therefore width = calc(15vh *8310/531) */
+  .mobileInstruction {
+    display: block; /* Show the mobile instruction when the screen width is 480px or less */
   }
 
   .burger,

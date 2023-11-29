@@ -7,8 +7,8 @@ function BurgerNew() {
   return (
     <Menu>
       <a id="/Home" className="menu-item" href="/">Home</a>
-      <a id="/Sell" className="menu-item" href="/Sell">Listing</a>
-      <a id="/Buying" className="menu-item" href="/Buying">Buying</a>
+      <a id="/Sell" className="menu-item" href="/Sell">Sell</a>
+      <a id="/Buying" className="menu-item" href="/Buying">Buy</a>
       <a id="/Account" className="menu-item" href="/Account">Account</a>
     </Menu>
   );
