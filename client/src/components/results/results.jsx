@@ -1,10 +1,12 @@
 import './results.css';
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux/es/hooks/useSelector.js';
+import Blockederroritems from "../blockederror/blockederror.jsx";
 
 const PORT = process.env.PORT || 3001;
 
 export function formatTime(timeString) {
-  const options = {hour: 'numeric', minute: 'numeric', hour12: true};
+  const options = { hour: 'numeric', minute: 'numeric', hour12: true };
   return new Date(`1970-01-01T${timeString}Z`).toLocaleTimeString([], options);
 }
 export function calculateTimeRemaining(endDate, endTime) {
@@ -15,7 +17,6 @@ export function calculateTimeRemaining(endDate, endTime) {
   return auctionDateTime - now;
 }
 
-
 export function calculateCountdown(endDate, endTime) {
   try {
     const timeRemaining = calculateTimeRemaining(endDate, endTime)
@@ -25,9 +26,9 @@ export function calculateCountdown(endDate, endTime) {
     }
     const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
-        (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor(
-        (timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      (timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
     return `${days}d ${hours}h ${minutes}m ${seconds}s`;
@@ -39,6 +40,7 @@ export function calculateCountdown(endDate, endTime) {
 
 function SearchResults() {
   const [results, setResults] = useState(null);
+  const { currentUser } = useSelector(state => state.user)
   const [searchQuery, setSearchQuery] = useState('');
   const [sortOption, setSortOption] = useState('lowestCountdown');
   const [selectedEventType, setSelectedEventType] = useState('');
@@ -57,16 +59,16 @@ function SearchResults() {
           minBid: bidRange[0],
           maxBid: bidRange[1],
           startDate: selectedDateRange.startDate
-              ? selectedDateRange.startDate.toISOString().split('T')[0]
-              : null,
+            ? selectedDateRange.startDate.toISOString().split('T')[0]
+            : null,
           endDate: selectedDateRange.endDate
-              ? selectedDateRange.endDate.toISOString().split('T')[0]
-              : null,
+            ? selectedDateRange.endDate.toISOString().split('T')[0]
+            : null,
           eventType: selectedEventType,
         });
 
         const response = await fetch(
-            `http://localhost:${PORT}/api/listings/?${queryParams}`
+          `http://localhost:${PORT}/api/listings/?${queryParams}`
         );
 
         if (response.ok) {
@@ -89,7 +91,7 @@ function SearchResults() {
       setResults((prevResults) => prevResults.map((result) => ({
         ...result,
         countdown: calculateCountdown(result.auctionEndDate,
-            result.auctionEndTime),
+          result.auctionEndTime),
 
       })));
     }, 1000);
@@ -119,177 +121,177 @@ function SearchResults() {
   };
 
   const filteredAndSortedResults = results
-  ?.filter((result) => {
-    const isNameDescriptionMatch =
+    ?.filter((result) => {
+      const isNameDescriptionMatch =
         result.eventName.toLowerCase().includes(searchQuery.toLowerCase()) ||
         result.description.toLowerCase().includes(searchQuery.toLowerCase());
 
-    const isBidInRange =
+      const isBidInRange =
         result.currentBid >= bidRange[0] && result.currentBid <= bidRange[1];
 
-    const isDateInRange =
+      const isDateInRange =
         (!selectedDateRange.startDate || new Date(result.eventDate)
-            >= selectedDateRange.startDate) &&
+          >= selectedDateRange.startDate) &&
         (!selectedDateRange.endDate || new Date(result.eventDate)
-            <= selectedDateRange.endDate);
+          <= selectedDateRange.endDate);
 
-    const isEventTypeMatch =
+      const isEventTypeMatch =
         selectedEventType === '' || result.eventType === selectedEventType;
 
-    return isNameDescriptionMatch && isBidInRange && isDateInRange
+      return isNameDescriptionMatch && isBidInRange && isDateInRange
         && isEventTypeMatch;
-  })
-  .sort(sortOptions[sortOption]);
+    })
+    .sort(sortOptions[sortOption]);
 
   useEffect(() => {
     filterSectionRef.current?.style &&
-    (filterSectionRef.current.style.maxHeight = isFilterOpen
+      (filterSectionRef.current.style.maxHeight = isFilterOpen
         ? filterSectionRef.current.scrollHeight + 'px'
         : '0');
   }, [isFilterOpen]);
+  if (!currentUser || currentUser.userStateCode !== "Blocked user") {
+    return (<div className="Results">
 
-  return (<div className="Results">
-
-    <div className="SearchAndSort SearchMain">
-      <input
+      <div className="SearchAndSort SearchMain">
+        <input
           type="text"
           placeholder="Search..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-      />
-    </div>
-    <div className="SearchAndSort">
-      <button
+        />
+      </div>
+      <div className="SearchAndSort">
+        <button
           className="toggleFilterButton"
           onClick={() => setIsFilterOpen(!isFilterOpen)}
-      >
-        {isFilterOpen ? 'Hide Filters' : 'Show Filters'}
-      </button>
-      <div className={`filterContainer ${isFilterOpen ? 'open' : 'closed'}`}>
-        <div className="filterSection First" ref={filterSectionRef}>
+        >
+          {isFilterOpen ? 'Hide Filters' : 'Show Filters'}
+        </button>
+        <div className={`filterContainer ${isFilterOpen ? 'open' : 'closed'}`}>
+          <div className="filterSection First" ref={filterSectionRef}>
 
-          <label htmlFor="sortOption">Sort by:</label>
-          <select
+            <label htmlFor="sortOption">Sort by:</label>
+            <select
               id="sortOption"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
-          >
-            <option value="lowestCountdown">Shortest Countdown</option>
-            <option value="longestCountdown">Longest Countdown</option>
-            <option value="highestPrice">Highest Price</option>
-            <option value="lowestPrice">Lowest Price</option>
-          </select>
-          <label htmlFor="eventType">Event Type:
-            <select
+            >
+              <option value="lowestCountdown">Shortest Countdown</option>
+              <option value="longestCountdown">Longest Countdown</option>
+              <option value="highestPrice">Highest Price</option>
+              <option value="lowestPrice">Lowest Price</option>
+            </select>
+            <label htmlFor="eventType">Event Type:
+              <select
                 value={selectedEventType}
                 onChange={(e) => setSelectedEventType(e.target.value)}
-            >
-              <option value="">All Event Types</option>
-              <option value="Gig">Gig</option>
-              <option value="Concert">Concert</option>
-              <option value="Festival">Festival</option>
-              <option value="Comedy Night">Comedy Night</option>
-            </select></label>
-          <div className="filterSection Second" ref={filterSectionRef}>
-            <div className="BidFilter">
-              <label>Price Range:
-                <div></div>
-                <label>Min:
-                  <input
+              >
+                <option value="">All Event Types</option>
+                <option value="Gig">Gig</option>
+                <option value="Concert">Concert</option>
+                <option value="Festival">Festival</option>
+                <option value="Comedy Night">Comedy Night</option>
+              </select></label>
+            <div className="filterSection Second" ref={filterSectionRef}>
+              <div className="BidFilter">
+                <label>Price Range:
+                  <div></div>
+                  <label>Min:
+                    <input
                       type="number"
                       min="0"
                       max="1000"
                       step="10"
                       value={bidRange[0]}
                       onChange={(e) => setBidRange(
-                          [parseInt(e.target.value), bidRange[1]])}
-                  />
-                </label>
-                <label>Max:
-                  <input
+                        [parseInt(e.target.value), bidRange[1]])}
+                    />
+                  </label>
+                  <label>Max:
+                    <input
                       type="number"
                       min="0"
                       max="1000"
                       step="10"
                       value={bidRange[1]}
                       onChange={(e) => setBidRange(
-                          [bidRange[0], parseInt(e.target.value)])}
-                  />
+                        [bidRange[0], parseInt(e.target.value)])}
+                    />
+                  </label>
                 </label>
-              </label>
-            </div>
+              </div>
 
-            <div className="DateRange">
+              <div className="DateRange">
 
-              <label> Event Date Range: {`\n`}
-                <label>Start Date:
-                  <input
+                <label> Event Date Range: {`\n`}
+                  <label>Start Date:
+                    <input
                       type="date"
                       value={
                         selectedDateRange.startDate
-                            ? selectedDateRange.startDate.toISOString().split(
-                                'T')[0]
-                            : ''
+                          ? selectedDateRange.startDate.toISOString().split(
+                            'T')[0]
+                          : ''
                       }
                       onChange={(e) => handleDateChange('startDate',
-                          e.target.value)}
-                  /></label>
-                <label>End Date:
-                  <input
+                        e.target.value)}
+                    /></label>
+                  <label>End Date:
+                    <input
                       type="date"
                       value={
                         selectedDateRange.endDate
-                            ? selectedDateRange.endDate.toISOString().split(
-                                'T')[0]
-                            : ''
+                          ? selectedDateRange.endDate.toISOString().split(
+                            'T')[0]
+                          : ''
                       }
                       onChange={(e) => handleDateChange('endDate',
-                          e.target.value)}
-                  /></label></label></div>
+                        e.target.value)}
+                    /></label></label></div>
+            </div>
           </div>
         </div>
       </div>
-
-    </div>
-    <div className="Container">
-      <div className="Carousel">
-        {filteredAndSortedResults && filteredAndSortedResults.length > 0
+      <div className="Container">
+        <div className="Carousel">
+          {filteredAndSortedResults && filteredAndSortedResults.length > 0
             ? (filteredAndSortedResults.map((result) => (
-                <a key={result._id} href={`/itemView/${result._id}`}
-                   className="AuctionItem">
-                  <img src={result.image} alt={result.eventName}
-                       className="AuctionImage"/>
-                  <div key={result.id} className="AuctionDetails">
-                    <h2 className={"eventTitle"}>{result.eventName}</h2>
-                    <p style={{textAlign: 'right'}}>Date: {new Date(
-                        result.eventDate).toLocaleDateString()}  </p>
-                    <p style={{textAlign: 'right'}}>Time: {formatTime(
-                        result.eventTime)}</p>
-                    <p style={{textAlign: 'right'}}>Sold
-                      By: {result.username}</p>
-                    <p style={{textAlign: 'left'}}> {result.description}</p>
-                    <div className="line"></div>
-                    <div className="bidAndCountdown">
-                      <p className="CurrentBid">Current Bid:
-                        £{result.currentBid}</p>
-                      <div className="Countdown">
-                        <p>{calculateCountdown(result.auctionEndDate,
-                            result.auctionEndTime)}</p>
-                      </div>
-                    </div>
-                    <p className={"auctionEnd"}>Auction End: {new Date(
-                        result.auctionEndDate).toLocaleDateString()} at {formatTime(
+              <a key={result._id} href={`/itemView/${result._id}`}
+                className="AuctionItem">
+                <img src={result.image} alt={result.eventName}
+                  className="AuctionImage" />
+                <div key={result.id} className="AuctionDetails">
+                  <h2 className={"eventTitle"}>{result.eventName}</h2>
+                  <p style={{ textAlign: 'right' }}>Date: {new Date(
+                    result.eventDate).toLocaleDateString()}  </p>
+                  <p style={{ textAlign: 'right' }}>Time: {formatTime(
+                    result.eventTime)}</p>
+                  <p style={{ textAlign: 'right' }}>Sold
+                    By: {result.username}</p>
+                  <p style={{ textAlign: 'left' }}> {result.description}</p>
+                  <div className="line"></div>
+                  <div className="bidAndCountdown">
+                    <p className="CurrentBid">Current Bid:
+                      £{result.currentBid}</p>
+                    <div className="Countdown">
+                      <p>{calculateCountdown(result.auctionEndDate,
                         result.auctionEndTime)}</p>
+                    </div>
                   </div>
-
-                </a>
-
+                  <p className={"auctionEnd"}>Auction End: {new Date(
+                    result.auctionEndDate).toLocaleDateString()} at {formatTime(
+                      result.auctionEndTime)}</p>
+                </div>
+              </a>
             ))) : (// Display a message when no results are available
-                <p>No auction listings found. Try changing your search
-                  criteria! </p>)}
+              <p>No auction listings found. Try changing your search
+                criteria! </p>)}
+        </div>
       </div>
-    </div>
-  </div>);
+    </div>);
+  } return (
+    <Blockederroritems />
+  )
 }
 
 export default SearchResults;
