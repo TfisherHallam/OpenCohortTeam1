@@ -7,14 +7,18 @@ export function formatTime(timeString) {
   const options = {hour: 'numeric', minute: 'numeric', hour12: true};
   return new Date(`1970-01-01T${timeString}Z`).toLocaleTimeString([], options);
 }
+export function calculateTimeRemaining(endDate, endTime) {
+  const auctionDate = new Date(endDate).toISOString().split('T')[0];
+  const auctionDateTimeString = `${auctionDate}T${endTime}`;
+  const auctionDateTime = new Date(auctionDateTimeString).getTime();
+  const now = new Date().getTime();
+  return auctionDateTime - now;
+}
+
 
 export function calculateCountdown(endDate, endTime) {
   try {
-    const auctionDate = new Date(endDate).toISOString().split('T')[0];
-    const auctionDateTimeString = `${auctionDate}T${endTime}`;
-    const auctionDateTime = new Date(auctionDateTimeString).getTime();
-    const now = new Date().getTime();
-    const timeRemaining = auctionDateTime - now;
+    const timeRemaining = calculateTimeRemaining(endDate, endTime)
 
     if (timeRemaining <= 0) {
       return "Auction has ended";
@@ -29,8 +33,6 @@ export function calculateCountdown(endDate, endTime) {
     return `${days}d ${hours}h ${minutes}m ${seconds}s`;
   } catch (error) {
     console.error('Error in calculateCountdown:', error);
-    console.log('endDate:', endDate);
-    console.log('endTime:', endTime);
     return 'Countdown calculation error';
   }
 }
@@ -103,26 +105,17 @@ function SearchResults() {
 
   const sortOptions = {
     lowestCountdown: (a, b) => {
-      const endDateComparison = new Date(a.auctionEndDate) - new Date(
-          b.auctionEndDate);
-      if (endDateComparison === 0) {
-        return new Date(a.auctionEndTime) - new Date(b.auctionEndTime);
-      } else {
-        return endDateComparison;
-      }
+      const timeRemainingA = calculateTimeRemaining(a.auctionEndDate, a.auctionEndTime);
+      const timeRemainingB = calculateTimeRemaining(b.auctionEndDate, b.auctionEndTime);
+      return timeRemainingA - timeRemainingB;
     },
     longestCountdown: (a, b) => {
-      const endDateComparison = new Date(b.auctionEndDate) - new Date(
-          a.auctionEndDate);
-      if (endDateComparison === 0) {
-        return new Date(b.auctionEndTime) - new Date(a.auctionEndTime);
-      } else {
-        return endDateComparison;
-      }
+      const timeRemainingA = calculateTimeRemaining(a.auctionEndDate, a.auctionEndTime);
+      const timeRemainingB = calculateTimeRemaining(b.auctionEndDate, b.auctionEndTime);
+      return timeRemainingB - timeRemainingA;
     },
     highestPrice: (a, b) => b.currentBid - a.currentBid,
     lowestPrice: (a, b) => a.currentBid - b.currentBid,
-
   };
 
   const filteredAndSortedResults = results

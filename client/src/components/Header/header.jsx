@@ -5,6 +5,7 @@ import BurgerNew from "../burgerNavigation/hamBurgerMenu.jsx";
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector.js';
 
+
 function Logo() {
   return (<div>
     <a href={"/"}><img src={logo} alt="Ticket Scalper Logo"
@@ -17,7 +18,7 @@ function Header() {
   const location = useLocation();
 
   useEffect(() => {
-
+    // Add the "homepage" class to the body if on the homepage
     if (location.pathname === '/') {
       document.body.classList.add('homepage');
     } else {
@@ -56,8 +57,7 @@ function Header() {
             <Link to={"/Account"}>
               {currentUser ? (
                 <img className='headerAvatar' src={currentUser.avatar}
-                  alt="profile-pic" />) : (
-                "")}
+                  alt="profile-pic" />) :''}
             </Link>
           </div>
 
@@ -105,17 +105,16 @@ function Header() {
           <Link to={"/Admin"}>
             <button className="headerButtons">Admin</button>
           </Link>) : ("")}
-          <Link to={"/Account"}>
-              {currentUser ? (<button className={`headerButtons AccountButton ${isCurrentPage(
-                '/Account') ? 'active' : ''}`}>My Account
-              </button>) : (<button className="headerButtons">Log in</button> )}
-            </Link>
-            <Link to={"/Account"}>
-              {currentUser ? (
-                <img className='headerAvatar' src={currentUser.avatar}
-                  alt="profile-pic" />) : (
-                "")}
-            </Link>
+        <Link to={"/Account"}>
+          <button className={`headerButtons AccountButton ${isCurrentPage(
+            '/Account') ? 'active' : ''}`}>My Account
+          </button>
+        </Link>
+        <Link to={"/Account"}>
+          {currentUser ? (
+              <img className='headerAvatar' src={currentUser.avatar}
+                   alt="profile-pic" />) :''}
+        </Link>
       </div>
 
     </div>

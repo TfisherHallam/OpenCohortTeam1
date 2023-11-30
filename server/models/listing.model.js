@@ -35,11 +35,11 @@ const listingSchema = new mongoose.Schema({
   },
 
   auctionEndDate: {
-    type: Date
+    type: Date , required: true
   },
 
   auctionEndTime: {
-    type: String
+    type: String, required: true
   },
 
   description: {
@@ -48,7 +48,6 @@ const listingSchema = new mongoose.Schema({
 
   image: {
     type: String,
-    required: true,
   },
 
 }, {timestamps: true});

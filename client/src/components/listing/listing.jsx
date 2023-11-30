@@ -11,19 +11,31 @@ function Listing() {
   const {currentUser} = useSelector(state => state.user)
   const navigate = useNavigate();
 
-  const handleImageChange = async (selectedFile) => {
-    console.log("selectedFile:", selectedFile);
-
-    setFormData({
-      ...formData,
-      image: selectedFile,
-    });
-  };
+  // const handleImageChange = async (selectedFile) => {
+  //
+  //   setFormData({
+  //     ...formData,
+  //     image: selectedFile,
+  //   });
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('formData:', formData);
-
+    formData.image=null;
+    const auctionDate = new Date(formData.auctionEndDate);
+    const eventDate = new Date(formData.eventDate);
+    const currentDate = new Date();
+    if (auctionDate < currentDate) {
+      window.alert("Auction end date must be tomorrow or later.");
+      return;
+    } else if (auctionDate >= eventDate) {
+      window.alert("Auction end date must be the day before the event date or sooner.");
+      return;
+    }
+    if (eventDate <= currentDate) {
+      window.alert("Event date must be tomorrow or later.");
+      return;
+    }
     try {
       const data = await submitListing(formData, currentUser);
       const newId = data.id;
@@ -105,7 +117,8 @@ function Listing() {
                   <option value="Festival">Festival</option>
                   <option value="Gig">Gig</option>
                   <option value="Comedy Night">Comedy Night</option>
-                  <option value="Club Night">Concert</option>
+                  <option value="Club Night">Club Night</option>
+                  <option value="Other">Other</option>
                 </select>
 
               </div>
@@ -170,14 +183,14 @@ function Listing() {
 
               </div>
 
-              <div className="input-wrapper">
-                <label htmlFor="image" className="form-label">Add an Event
-                  Image</label>
-                <Image
-                    className="form-input"
-                    onFileChange={handleImageChange}
-                />
-              </div>
+              {/*<div className="input-wrapper">*/}
+              {/*  <label htmlFor="image" className="form-label">Add an Event*/}
+              {/*    Image</label>*/}
+              {/*  <Image*/}
+              {/*      className="form-input"*/}
+              {/*      onFileChange={handleImageChange}*/}
+              {/*  />*/}
+              {/*</div>*/}
               <button type="submit" className="submit-button">
                 Submit
               </button>
