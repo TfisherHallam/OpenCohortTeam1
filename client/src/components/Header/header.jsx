@@ -49,15 +49,15 @@ function Header() {
                 <button className="headerButtons">Admin</button>
               </Link>) : ("")}
             <Link to={"/Account"}>
-              <button className={`headerButtons AccountButton ${isCurrentPage(
+              {currentUser ? (<button className={`headerButtons AccountButton ${isCurrentPage(
                 '/Account') ? 'active' : ''}`}>My Account
-              </button>
+              </button>) : (<button className="headerButtons">Log in</button> )}
             </Link>
             <Link to={"/Account"}>
               {currentUser ? (
                 <img className='headerAvatar' src={currentUser.avatar}
                   alt="profile-pic" />) : (
-                <button className="loginButtons">Log in</button>)}
+                "")}
             </Link>
           </div>
 
@@ -105,16 +105,17 @@ function Header() {
           <Link to={"/Admin"}>
             <button className="headerButtons">Admin</button>
           </Link>) : ("")}
-        <Link to={"/Account"}>
-          <button className={`headerButtons AccountButton ${isCurrentPage(
-            '/Account') ? 'active' : ''}`}>My Account
-          </button>
-        </Link>
-        <Link to={"/Account"}>
-          {currentUser ? (<img className='headerAvatar' src={currentUser.avatar}
-            alt="profile-pic" />) : (
-            <button className="loginButtons">Log in</button>)}
-        </Link>
+          <Link to={"/Account"}>
+              {currentUser ? (<button className={`headerButtons AccountButton ${isCurrentPage(
+                '/Account') ? 'active' : ''}`}>My Account
+              </button>) : (<button className="headerButtons">Log in</button> )}
+            </Link>
+            <Link to={"/Account"}>
+              {currentUser ? (
+                <img className='headerAvatar' src={currentUser.avatar}
+                  alt="profile-pic" />) : (
+                "")}
+            </Link>
       </div>
 
     </div>
