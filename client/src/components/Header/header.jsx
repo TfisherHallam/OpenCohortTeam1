@@ -52,12 +52,12 @@ function Header() {
             <Link to={"/Account"}>
               {currentUser ? (<button className={`headerButtons AccountButton ${isCurrentPage(
                 '/Account') ? 'active' : ''}`}>My Account
-              </button>) : (<button className="headerButtons">Log in</button> )}
+              </button>) : (<button className="headerButtons">Log in</button>)}
             </Link>
             <Link to={"/Account"}>
               {currentUser ? (
                 <img className='headerAvatar' src={currentUser.avatar}
-                  alt="profile-pic" />) :''}
+                  alt="profile-pic" />) : ''}
             </Link>
           </div>
 
@@ -112,8 +112,8 @@ function Header() {
         </Link>
         <Link to={"/Account"}>
           {currentUser ? (
-              <img className='headerAvatar' src={currentUser.avatar}
-                   alt="profile-pic" />) :''}
+            <img className='headerAvatar' src={currentUser.avatar}
+              alt="profile-pic" />) : ''}
         </Link>
       </div>
 

@@ -33,14 +33,14 @@ function AdminDashboard() {
     fetchData();
   }, []);
 
-const getData = async () => {
+  const getData = async () => {
     try {
       const res = await fetch(`http://localhost:${PORT}/api/admin/`, {
-       method: 'GET',
-       headers: {
-        'Content-Type': 'application/json',
-        'Cookie': Cookies.get('access_token')
-       } 
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Cookie': Cookies.get('access_token')
+        }
       });
       if (res.ok) {
         const data = await res.json();

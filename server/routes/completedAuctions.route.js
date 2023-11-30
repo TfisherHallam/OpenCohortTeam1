@@ -1,10 +1,10 @@
 import express from 'express';
 import {
   getCompletedAuction,
-    createCompletedAuction,
-    deleteCompletedAuction,
-    updateCompletedAuction,
-    getAllCompletedAuctions
+  createCompletedAuction,
+  deleteCompletedAuction,
+  updateCompletedAuction,
+  getAllCompletedAuctions
 } from '../controllers/completedAuctions.controller.js';
 
 

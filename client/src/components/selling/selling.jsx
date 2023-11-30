@@ -7,7 +7,7 @@ import { FaTicketAlt, FaPoundSign, FaHourglassHalf } from 'react-icons/fa';
 import { LuHardDriveUpload } from "react-icons/lu"
 
 function Selling() {
-    const { currentUser } = useSelector((state) => state.user);    
+    const { currentUser } = useSelector((state) => state.user);
     return (
         <div className='textcontainer'>
             <div className="textflex-container">
@@ -56,9 +56,9 @@ function Selling() {
                     <br />
                     <br />
                     {currentUser ? (
-            <label for="Sell tickets"><Link to={"/Listing"}><button className="sellingbutton">Sell my tickets</button></Link></label>
-          ) : (<label for="Log in here"><Link to={"/Login"}><button className="sellingbutton">Log in here</button></Link></label>
-          )}
+                        <label for="Sell tickets"><Link to={"/Listing"}><button className="sellingbutton">Sell my tickets</button></Link></label>
+                    ) : (<label for="Log in here"><Link to={"/Login"}><button className="sellingbutton">Log in here</button></Link></label>
+                    )}
                 </div>
             </div>
         </div>

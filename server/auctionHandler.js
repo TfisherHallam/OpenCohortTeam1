@@ -13,7 +13,7 @@ const pushToCompletedAuctions = async (item) => {
   const {
     username,
     bidder,
-      currentBid,
+    currentBid,
     eventName,
     eventDate,
     eventTime,
@@ -27,26 +27,26 @@ const pushToCompletedAuctions = async (item) => {
 
   try {
     const response = await fetch(`http://localhost:${PORT}/api/completedAuctions`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            seller,
-            buyer,
-            price,
-            eventName,
-            eventDate,
-            eventTime,
-            eventType,
-            image,
-          }),
-        });
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          seller,
+          buyer,
+          price,
+          eventName,
+          eventDate,
+          eventTime,
+          eventType,
+          image,
+        }),
+      });
 
     if (!response.ok) {
       console.error(`Error pushing item '${eventName}' to completed auctions:`,
-          response.statusText);
+        response.statusText);
     } else {
       console.log(`Item '${eventName}' moved to completed auctions.`);
       await fetch(`http://localhost:${PORT}/api/listings/${item._id}`, {
@@ -55,7 +55,7 @@ const pushToCompletedAuctions = async (item) => {
     }
   } catch (error) {
     console.error(`Error pushing item '${eventName}' to completed auctions:`,
-        error);
+      error);
   }
 };
 

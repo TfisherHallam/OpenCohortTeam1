@@ -4,12 +4,12 @@ import Listing from '../components/listing/listing.jsx';
 
 function ListingPage() {
   return (
-      <div>
-        <Listing />
+    <div>
+      <Listing />
 
-      </div>
+    </div>
   )
 }
 
 
-export default  ListingPage;
+export default ListingPage;

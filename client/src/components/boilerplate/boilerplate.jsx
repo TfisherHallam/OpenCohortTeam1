@@ -14,7 +14,6 @@ function Footer() {
     )
 }
 
-
 function Boilerplate() {
     return (
         <div className='footerGroup'>

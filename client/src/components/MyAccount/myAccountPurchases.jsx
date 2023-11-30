@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import {FaShoppingBasket} from "react-icons/fa";
+import { FaShoppingBasket } from "react-icons/fa";
 import './myAccount.css';
 import '../../App.css';
 import fetch from 'node-fetch';
 import { SalesCard } from './myAccountSales';
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 const PORT = process.env.PORT || 3001;
 
 const MyAccountPurchasesContent = () => {

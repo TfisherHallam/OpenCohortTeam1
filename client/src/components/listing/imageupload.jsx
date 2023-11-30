@@ -12,10 +12,10 @@ function Image({ onFileChange }) {
 	}
 
 	return (
-			<div className="form-input">
-				<input type="file" id={"image"} onChange={handleChange}/>
-				{}
-			</div>
+		<div className="form-input">
+			<input type="file" id={"image"} onChange={handleChange} />
+			{ }
+		</div>
 	);
 }
 

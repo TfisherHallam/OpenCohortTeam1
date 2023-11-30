@@ -1,6 +1,7 @@
 .Results {
   margin: 20px;
 }
+
 .Container {
   display: flex;
   justify-content: center;
@@ -13,7 +14,7 @@
 }
 
 .SearchAndSort {
-  display:flex;
+  display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 800px;
@@ -182,8 +183,9 @@
   overflow: hidden;
 
 }
+
 .filterContainer.open,
-.filterContainer.closed{
+.filterContainer.closed {
   justify-content: center;
 }
 
@@ -209,6 +211,7 @@
   margin-right: 10px;
   font-weight: bold;
 }
+
 .filterSection label,
 .filterSection input,
 .filterSection select {

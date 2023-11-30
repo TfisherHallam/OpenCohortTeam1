@@ -4,7 +4,7 @@ import HelpCentreContent from '../components/helpcentre/helpcentre.jsx';
 function Helpcentre() {
   return (
     <div>
-      <HelpCentreContent/>
+      <HelpCentreContent />
     </div>
   )
 }

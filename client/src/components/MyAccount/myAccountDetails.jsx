@@ -61,60 +61,61 @@ export default function Profile() {
   };
 
   return (
-      <div className="profile-container">
-        <h1></h1>
-        <form onSubmit={handleSubmit} className="profile-form">
-          <div className="form-group">
-            <label htmlFor="firstname">First Name :</label>
-            <input
-                type="text"
-                id="firstname"
-                className="input"
-                placeholder="First Name"
-                defaultValue={currentUser.firstname}
-                required
-                onChange={handleChange}
-            />
-          </div>
+    <div className="profile-container">
+      <h1></h1>
+      <form onSubmit={handleSubmit} className="profile-form">
+        <div className="form-group">
+          <label htmlFor="firstname">First Name :</label>
+          <input
+            type="text"
+            id="firstname"
+            className="input"
+            placeholder="First Name"
+            defaultValue={currentUser.firstname}
+            required
+            onChange={handleChange}
+          />
+        </div>
 
-          <div className="form-group">
-            <label htmlFor="lastname">Last Name: </label>
-            <input
-                type="text"
-                id="lastname"
-                className="input"
-                placeholder="Last Name"
-                defaultValue={currentUser.lastname}
-                required
-                onChange={handleChange}
-            />
-          </div>
+        <div className="form-group">
+          <label htmlFor="lastname">Last Name: </label>
+          <input
+            type="text"
+            id="lastname"
+            className="input"
+            placeholder="Last Name"
+            defaultValue={currentUser.lastname}
+            required
+            onChange={handleChange}
+          />
+        </div>
 
-          <div className="form-group">
-            <label htmlFor="telephone">Telephone:    </label>
-            <input
-                type="tel"
-                id="telephone"
-                className="input"
-                placeholder="Mobile"
-                defaultValue={currentUser.telephone}
-                required
-                onChange={handleChange}
-            />
-          </div>
+        <div className="form-group">
+          <label htmlFor="telephone">Telephone:    </label>
+          <input
+            type="tel"
+            id="telephone"
+            className="input"
+            placeholder="Mobile"
+            defaultValue={currentUser.telephone}
+            required
+            onChange={handleChange}
+          />
+        </div>
 
-          <button disabled={loading}>
-            {loading ? 'Loading' : 'Update'}
-          </button>
-
-          <p className="error-message">{error ? error : ''}</p>
-          <p className="success-message">
-            {updateSuccess ? 'User updated' : ''}
-          </p>
-        </form>
-
-        <button onClick={handleDeleteUser} className="delete-button">
-          Delete my account:
+        <button disabled={loading}>
+          {loading ? 'Loading' : 'Update'}
         </button>
-      </div>
-  )};
+
+        <p className="error-message">{error ? error : ''}</p>
+        <p className="success-message">
+          {updateSuccess ? 'User updated' : ''}
+        </p>
+      </form>
+
+      <button onClick={handleDeleteUser} className="delete-button">
+        Delete my account:
+      </button>
+    </div>
+  )
+};

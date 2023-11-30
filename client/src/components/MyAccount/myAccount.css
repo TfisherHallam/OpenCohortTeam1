@@ -65,6 +65,7 @@
   border: none;
   background-color: transparent;
 }
+
 .profile-container {
   max-width: 400px;
   margin: 0 auto;
@@ -124,6 +125,7 @@ button:disabled {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .MyAccountSalesContent {
   margin: 20px;
 }

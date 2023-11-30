@@ -26,7 +26,7 @@ const completedAuctionSchema = new mongoose.Schema({
     required: true,
   },
 
-}, {timestamps: true});
+}, { timestamps: true });
 
 const completedAuction = mongoose.model('completedAuctions', completedAuctionSchema);
 

@@ -34,9 +34,9 @@ const createCompletedAuction = async (req, res) => {
     } = req.body;
 
     if (!seller || !buyer || !eventName || !eventDate || !eventTime
-        || !eventType || !image) {
+      || !eventType || !image) {
       return res.status(400).json(
-          {error: 'Missing required fields in the request body.'});
+        { error: 'Missing required fields in the request body.' });
     }
 
     const newCompletedAuction = new CompletedAuction({
@@ -53,7 +53,7 @@ const createCompletedAuction = async (req, res) => {
     res.status(201).json('CompletedAuction created');
   } catch (error) {
     console.error(error);
-    res.status(500).json({error: 'Internal Server Error'});
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 }
 

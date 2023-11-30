@@ -14,7 +14,7 @@ function Blockederroritems() {
                 You are unable to access this page as you are a blocked user.
                 <br />
                 This is as a result of an investigation which has been undertaken.
-                <br/>
+                <br />
                 Please click here to return back home
             </p>
         </Link>

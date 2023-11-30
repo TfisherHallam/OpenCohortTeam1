@@ -25,7 +25,7 @@ const listingSchema = new mongoose.Schema({
   eventType: {
     type: String, required: true,
   },
-  
+
   startingBid: {
     type: Number, required: true
   },
@@ -35,7 +35,7 @@ const listingSchema = new mongoose.Schema({
   },
 
   auctionEndDate: {
-    type: Date , required: true
+    type: Date, required: true
   },
 
   auctionEndTime: {
@@ -50,7 +50,7 @@ const listingSchema = new mongoose.Schema({
     type: String,
   },
 
-}, {timestamps: true});
+}, { timestamps: true });
 
 const Listing = mongoose.model('Listing', listingSchema);
 
