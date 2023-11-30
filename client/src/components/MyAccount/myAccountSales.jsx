@@ -33,15 +33,13 @@ const MyAccountSalesContent = () => {
 
   useEffect(() => {
     const fetchSalesData = async (currentUser) => {
-      console.log('current User: ', currentUser);
-      console.log('current User username: ', currentUser.username);
       try {
         const response = await fetch(
             `http://localhost:${PORT}/api/completedAuctions?seller=${currentUser.username}`
         );
         if (response.ok) {
           const data = await response.json();
-          const filteredData = data.filter((sale) => sale.seller === currentUser.username);
+          const filteredData = data.filter((sale) => sale.seller === currentUser.username && sale.buyer !== currentUser.username);
           setSalesData(filteredData);
         } else {
           console.error('Failed to fetch sales data');

@@ -57,8 +57,7 @@ function Header() {
             <Link to={"/Account"}>
               {currentUser ? (
                 <img className='headerAvatar' src={currentUser.avatar}
-                  alt="profile-pic" />) : (
-                <button className="loginButtons">Log in</button>)}
+                  alt="profile-pic" />) :''}
             </Link>
           </div>
 
@@ -112,9 +111,9 @@ function Header() {
           </button>
         </Link>
         <Link to={"/Account"}>
-          {currentUser ? (<img className='headerAvatar' src={currentUser.avatar}
-            alt="profile-pic" />) : (
-            <button className="loginButtons">Log in</button>)}
+          {currentUser ? (
+              <img className='headerAvatar' src={currentUser.avatar}
+                   alt="profile-pic" />) :''}
         </Link>
       </div>
 

@@ -1,7 +1,7 @@
 const PORT = process.env.PORT || 3001;
 function submitListing(formData, currentUser) {
 
-  if (Object.keys(formData.image).length === 0){
+
     switch (formData.eventType) {
       case "Gig":
         formData.image = "https://www.shutterstock.com/shutterstock/videos/1028320181/thumb/4.jpg?ip=x480";
@@ -10,16 +10,16 @@ function submitListing(formData, currentUser) {
         formData.image = "https://media.istockphoto.com/id/1329410603/photo/large-group-of-people-at-a-concert-party.jpg?s=612x612&w=0&k=20&c=l6wVs8ljbWD_6c6_Z9QG7vKwrEQvKnYxeyOjA-KmQkk=";
         break;
       case "Festival":
-        formData.image = "https://www.telegraph.co.uk/content/dam/music/2017/09/15/TELEMMGLPICT000140208836_trans_NvBQzQNjv4BqvB5LaUc5OAoESmrCQlSkUCTz-a8bpLDE-71jYDC6yd4.jpeg?imwidth=680\"";
+        formData.image = "https://images.unsplash.com/photo-1472653816316-3ad6f10a6592?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
         break;
       case "Comedy Night":
         formData.image = "https://st2.depositphotos.com/1008801/9201/v/450/depositphotos_92017794-stock-illustration-microphone-and-red-curtain.jpg";
         break;
       default:
-        formData.image = "../../images/logo.png";
+        formData.image = "https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
         break;
     }
-  }
+
   formData.currentBid = formData.startingBid;
   formData.username = currentUser.username;
   formData.bidder = currentUser.username;

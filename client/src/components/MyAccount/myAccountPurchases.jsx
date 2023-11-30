@@ -19,8 +19,6 @@ const MyAccountPurchasesContent = () => {
 
     useEffect(() => {
         const fetchSalesData = async (currentUser) => {
-            console.log('current User: ', currentUser);
-            console.log('current User username: ', currentUser.username);
             try {
                 const response = await fetch(
                     `http://localhost:${PORT}/api/completedAuctions?buyer=${currentUser.username}`

@@ -100,29 +100,30 @@ const Forum = ({ item }) => {
   const { currentUser } = useSelector((state) => state.user);
   const params = useParams();
 
-  useEffect(() => {
-    const fetchMessages = async () => {
-      try {
-        const res = await fetch(
-            `http://localhost:${PORT}/api/messages/${params.itemid}`
-        );
-        const data = await res.json();
-        if (data.success) {
-          setMessages(data.messages);
-        } else {
-          console.error("Failed to fetch messages");
-        }
-      } catch (error) {
-        console.error("Error fetching messages", error);
-      }
-    };
-    fetchMessages();
-  }, [params.itemid]);
+  // useEffect(() => {
+  //   const fetchMessages = async () => {
+  //     try {
+  //       const res = await fetch(
+  //           `http://localhost:${PORT}/api/messages/${params.itemid}`
+  //       );
+  //       const data = await res.json();
+  //       if (data.success) {
+  //         setMessages(data.messages);
+  //       } else {
+  //         console.error("Failed to fetch messages");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching messages", error);
+  //     }
+  //   };
+  //   fetchMessages();
+  // }, [params.itemid]);
 
   const sendMessage = () => {
     const newMessageObj = {
       sender: currentUser.username,
       message: newMessage,
+      avatar: currentUser.avatar,
     };
     setMessages([...messages, newMessageObj]);
     setNewMessage("");
@@ -136,8 +137,10 @@ const Forum = ({ item }) => {
             style={{ marginBottom: '10px', maxHeight: '200px', overflowY: 'auto' }}
         >
           {messages.map((message, index) => (
-              <div key={index} style={{ marginBottom: '5px' }}>
-                <strong>{message.sender}:</strong> {message.message}
+              <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
+                <img style={{ width: '15px', verticalAlign: 'middle' }} src={message.avatar} alt="Avatar" />
+                <strong>{message.sender}:</strong>
+                {message.message}
               </div>
           ))}
         </div>
