@@ -58,7 +58,7 @@ if (!currentUser) {
 						<FaUserCircle className='icon' size={70} />
 						<br />
 						<br />
-						<label for="Login email"><input
+						<label><input
 							type="email"
 							placeholder="Email"
 							id="email"
@@ -68,7 +68,7 @@ if (!currentUser) {
 						/></label>
 						<br />
 						<br />
-						<label for="Login password"><input
+						<label><input
 							type="password"
 							placeholder="Password"
 							id="password"

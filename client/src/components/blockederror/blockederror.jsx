@@ -4,7 +4,6 @@ import '../../App.css';
 import { ImBlocked } from "react-icons/im";
 import { Link } from 'react-router-dom';
 
-
 function Blockederroritems() {
     return (
         <div className='blockederrorbox'><Link to={"/"}>
